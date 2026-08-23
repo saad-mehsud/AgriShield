@@ -1,9 +1,9 @@
 # 🌾 Product Requirements Document (PRD)
 ## Project: AI-Powered Crop Disease Diagnostics & Decision Support System (AgriShield / Kisan Dost)
 
-**Document Version:** 1.0.0  
+**Document Version:** 3.0.0 (Python FastAPI + React/Next.js Cloud Architecture)  
 **Status:** Approved for Implementation (Vibecoding)  
-**Target Platform:** Progressive Web App (PWA) / Mobile-first Web Application  
+**Target Platform:** Web Application (Mobile-Optimized & Desktop Responsive)  
 **Primary Region:** Pakistan & South Asian Agro-zones (Universal applicability for global crops)  
 
 ---
@@ -11,58 +11,43 @@
 ## 1. Executive Summary & Vision
 
 ### 1.1 Product Vision
-To democratize plant pathology for millions of smallholder and commercial farmers by putting an instant, offline-capable, AI-powered agronomist in their pockets. The application delivers sub-second disease identification from a single leaf photo, provides hyper-localized treatment remedies (both organic and chemical), calculates exact chemical dosages to stop chemical overuse, and translates actionable insights into local regional languages with voice readout capabilities.
+To empower farmers and agronomists with an instant, cloud-based AI plant doctor. The farmer snaps or uploads a photo of a diseased plant leaf via a mobile-friendly web client. The image is transmitted to a high-performance **Python FastAPI** backend running native deep learning computer vision models (PyTorch / TorchVision). The server returns sub-second diagnosis, severity assessment, dual organic/chemical treatment advice with local brand names, precise spray dosage calculations, and localized voice audio guidance in Urdu, Pashto, Sindhi, and English.
 
-### 1.2 The Core Problem
-Agriculture is the foundation of Pakistan's economy, accounting for roughly 23% of GDP and employing ~37% of the labor force. However, farmers suffer catastrophic post-harvest and crop disease losses ranging between **PKR 345 Billion and PKR 523 Billion annually**. 
+### 1.2 The Core Problem & Solution
+Agricultural diseases cause over **PKR 345B – PKR 523B** in annual losses across Pakistan due to delayed identification and blind chemical overuse.
 
-```
-+-----------------------------------------------------------------------------------+
-|                              THE AGRICULTURAL CRISIS                              |
-+-----------------------------------------------------------------------------------+
-|  1. Delayed Expert Access  -->  Diseases spread unchecked before diagnosis.       |
-|  2. Overuse of Chemicals   -->  Blind application of expensive broad-spectrum     |
-|                                 pesticides destroys soil, water, and farmer debt. |
-|  3. Literacy & Connectivity-->  Rural areas lack stable 4G/5G and complex English |
-|     Barriers                    apps fail to serve grassroots farmers.            |
-+-----------------------------------------------------------------------------------+
-```
+By powering the backend with **Python FastAPI + PyTorch**:
+- **Native ML Ecosystem:** Leverages the full power of Python's scientific computing stack (PyTorch, TorchVision, NumPy, Pillow, OpenCV) without translation layers.
+- **High-Performance Asynchronous I/O:** FastAPI provides asynchronous request handling, auto-generated OpenAPI documentation (`/docs`), and sub-second classification response times.
+- **Zero Client Memory Overhead:** Lightweight frontend runs smoothly on low-spec mobile browsers while heavy neural network computations remain on the cloud GPU/CPU.
+- **Centralized Agronomic Intelligence:** Every diagnosis is logged into a central relational database to support regional outbreak heatmaps and agronomist validation.
 
 ---
 
 ## 2. Target User Personas
 
 ### Persona 1: Bashir Ahmed (Smallholder Farmer - Primary User)
-- **Age:** 46
-- **Location:** Rahim Yar Khan, Punjab (Cotton & Wheat Belt)
-- **Landholding:** 4.5 Acres
-- **Tech Literacy:** Low-to-moderate (Uses WhatsApp voice notes, YouTube, TikTok; struggles with complex English text).
-- **Device:** Budget Android smartphone (Android 10/11, 2GB RAM, intermittent 2G/3G connectivity).
-- **Core Pain Point:** Sees yellow spots and curling on cotton leaves. Cannot afford an agronomist visit. Spends PKR 18,000 on generic spray that fails to work because the issue is viral (CLCuV) rather than fungal.
-- **Needs:** 1-tap photo scan, Urdu audio voice readout, exact spray mixture per acre/kanal, offline functionality.
+- **Location:** Rahim Yar Khan, Punjab (Cotton & Wheat)
+- **Device:** Budget Android Smartphone (Chrome Browser)
+- **Goal:** Takes a photo of diseased cotton leaves; receives instant Urdu voice readout with exact pesticide mixture instructions for his 3-acre field.
 
-### Persona 2: Dr. Tariq Mahmood (Field Extension Worker / Agronomist)
-- **Age:** 34
+### Persona 2: Dr. Tariq Mahmood (Agricultural Extension Officer)
 - **Location:** Tandojam, Sindh
-- **Role:** Government Agricultural Extension Officer overseeing 40+ villages.
-- **Tech Literacy:** High.
-- **Core Pain Point:** Overwhelmed by farmer calls; impossible to visit every farm in person before blight spreads.
-- **Needs:** Fast validation tool, exportable scan history, disease outbreak heatmaps, reference catalog of active ingredients and fungicides.
+- **Device:** Tablet / Laptop
+- **Goal:** Reviews centralized farmer diagnosis logs, monitors disease trends, and verifies active ingredient prescriptions.
 
-### Persona 3: Farhan Malik (Progressive Commercial Farmer)
-- **Age:** 29
+### Persona 3: Farhan Malik (Commercial Farm Manager)
 - **Location:** Multan / Faisalabad
-- **Landholding:** 80 Acres (Citrus, Mango, Tomato, Rice)
-- **Tech Literacy:** High (Uses smart irrigation, weather apps).
-- **Needs:** Batch diagnosis records, chemical vs. organic cost-benefit comparisons, preventive spray schedules, high-resolution diagnostic confidence score.
+- **Device:** iPhone / Desktop
+- **Goal:** High-volume field inspections, precise spray dosage calculations per acre, chemical vs. organic cost-benefit analysis.
 
 ---
 
-## 3. Vulnerable Crops & Target Pathogen Scope
+## 3. Vulnerable Crops & Pathogen Coverage
 
 | Crop Category | Target Crops | Primary Diseases / Pathogens | Typical Yield Loss |
 | :--- | :--- | :--- | :--- |
-| **Cash Crops** | Cotton, Sugarcane | Cotton Leaf Curl Virus (CLCuV), Root Rot, Red Rot, Bacterial Blight | 30% – 60% |
+| **Cash Crops** | Cotton, Sugarcane | Cotton Leaf Curl Virus (CLCuV), Bacterial Blight, Root Rot, Red Rot | 30% – 60% |
 | **Cereal & Grains** | Wheat, Rice, Corn (Maize) | Yellow/Brown Rust, Rice Blast, Brown Spot, Northern Leaf Blight | 20% – 45% |
 | **Vegetables** | Tomato, Potato, Pepper | Early Blight, Late Blight, Tomato Yellow Leaf Curl, Bacterial Spot, Septoria | 35% – 70% |
 | **Fruits** | Apple, Grape, Citrus | Apple Scab, Black Rot, Citrus Canker, Cedar Apple Rust, Powdery Mildew | 25% – 50% |
@@ -72,107 +57,66 @@ Agriculture is the foundation of Pakistan's economy, accounting for roughly 23% 
 ## 4. Key Value Propositions & Solution Pillars
 
 ```
-                             +------------------------+
-                             |   AgriShield Engine    |
-                             +------------------------+
+                     +---------------------------------------+
+                     |    Python FastAPI Cloud AI Engine     |
+                     +---------------------------------------+
                                          |
      +-------------------+---------------+-------------------+--------------------+
      |                   |                                   |                    |
      v                   v                                   v                    v
 +---------------+ +-------------------+             +------------------+ +-----------------+
-|  Instant Edge | |  Hyper-Localized  |             | Audio & Regional | | Dosage & Impact |
-|  Diagnostics  | |    Cure Engine    |             |    Voice First   | |   Calculator    |
-| (Offline CNN) | | (Organic/Chemical)|             | (Urdu/Pashto/etc)| | (Per Acre/Kanal)|
+|  PyTorch Deep | |  Hyper-Localized  |             | Audio & Regional | | Dosage & Impact |
+|  Vision Model | |    Cure Engine    |             |    Voice First   | |   Calculator    |
+|  (MobileNetV2)| | (Organic/Chemical)|             | (Urdu/Pashto/etc)| | (Per Acre/Kanal)|
 +---------------+ +-------------------+             +------------------+ +-----------------+
 ```
 
-1. **Sub-second Edge AI Diagnostics:** Runs directly inside the browser using WebAssembly / TensorFlow.js, requiring zero active internet connection once loaded.
-2. **Dual-Treatment Protocol:** Provides both cost-effective Organic Remedies ("Desi Totkay" / Bio-pesticides like Neem Oil, Wood Ash) and Verified Chemical Remedies with local brand names (e.g., Nativo, Ridomil Gold, Score, Aliette).
-3. **Voice & Multilingual Native:** Real-time Text-to-Speech (TTS) readout in **Urdu (اردو), Pashto (پښتو), Sindhi (سنڌي), Punjabi (پنجابی), and English**, making it 100% accessible to non-literate farmers.
-4. **Precision Spray & Dosage Calculator:** Converts field size (Acre, Kanal, Bigha, Marla) into precise chemical amounts (ml/grams) and water volume (liters/tanks) to prevent chemical overuse and toxicity.
-5. **Field Diary & Disease History:** Local-first scan repository with geo-tagging, symptom progression tracking, and offline sync.
+1. **Python FastAPI Deep Learning Pipeline:** Native PyTorch model execution processing image tensors and returning top-1 and top-3 class probabilities with confidence scores within 1-2 seconds.
+2. **Dual-Treatment Recommendation:** Provides both cost-effective Organic Remedies ("Desi Totkay" / Bio-pesticides) and Verified Chemical Remedies with local brand names (*Nativo, Ridomil Gold, Score, Aliette, Movento*).
+3. **Multilingual & Audio First:** Integrated Web Speech API and server audio generator in **Urdu (اردو), Pashto (پښتو), Sindhi (سنڌي), and English**.
+4. **Precision Spray & Dosage Calculator:** Converts field measurements (Acre, Kanal, Marla) into exact chemical amounts (grams/ml) and water volume (20L knapsack tanks).
+5. **Centralized Field Diary & History:** User scan history saved securely in the cloud database, enabling historical trend tracking across seasons.
 
 ---
 
 ## 5. Scope Matrix (MoSCoW Framework)
 
 ### 5.1 Must-Have (MVP Scope for Vibecoding Sprint)
-- [x] **Universal Camera & Image Upload:** Real-time viewfinder with capture assistance (focus indicator, lighting guide) and gallery selector.
-- [x] **Offline Edge ML Inference:** In-browser inference model (MobileNetV2 / EfficientNet-Lite) supporting 38+ crop-disease classes with confidence scoring.
-- [x] **Instant Diagnosis Screen:** Clear health status indicator (Healthy vs. Diseased), disease name in English and Urdu, severity level (Low, Moderate, High).
+- [x] **Web Camera & Image Uploader:** HTML5 camera capture and file picker with live framing overlay.
+- [x] **Python FastAPI Diagnostic Endpoint:** `POST /api/v1/diagnose` performing PyTorch image classification across 38+ plant disease classes.
+- [x] **Rich Diagnosis Presentation Screen:** Disease name (English & Urdu), severity status (Low, Moderate, Severe), confidence meter, and pathogen category.
 - [x] **Dual Treatment Guidance:**
   - Organic/Biological solutions with step-by-step preparation steps.
-  - Chemical solutions with active ingredient, local trade names, and safety guidelines.
-- [x] **Smart Dosage Calculator:** Input land area (Acre, Kanal, Marla, Square Meters) to get exact tank count and chemical concentration.
+  - Chemical solutions with active ingredients, localized brand names, safety pre-harvest intervals (PHI).
+- [x] **Interactive Spray Dosage Calculator:** Input land area (Acre, Kanal, Marla) -> Automatic calculation of water tanks, chemical quantity, and tank mixing ratios.
 - [x] **Voice Readout (TTS):** 1-tap audio narration of diagnosis and remedy in Urdu and English.
-- [x] **Multilingual Support:** Instant UI toggle between English, Urdu, Pashto, and Sindhi.
-- [x] **Local Scan History (Field Diary):** IndexedDB-backed offline diary storing past scans, images, and notes.
-- [x] **Disease Encyclopedia / Offline Catalog:** Searchable offline database with disease symptoms, causes, sample photos, and prevention tips.
-- [x] **PWA Installability:** Installable as a standalone app on Android, iOS, and Desktop with offline caching.
+- [x] **Multilingual UI:** Instant toggle between English, Urdu, Pashto, and Sindhi with RTL script support.
+- [x] **Cloud Scan History (Field Diary):** Centralized database storage of scans with thumbnail previews, timestamps, and search/filter tools.
+- [x] **Disease Encyclopedia / Knowledge Base:** Comprehensive catalog of 38+ plant diseases with symptom descriptions, sample photos, causes, and prevention strategies.
 
 ### 5.2 Should-Have (Phase 2)
-- [ ] **Agronomist WhatsApp Direct Bridge:** 1-click generation of formatted diagnostic reports sent directly to expert WhatsApp agronomists or community helplines.
-- [ ] **Weather & Disease Risk Index:** Hyper-local weather fetching with humidity/temperature-based fungal and viral risk warnings.
-- [ ] **Regional Outbreak Heatmap:** Anonymous aggregated community scan data visualizing nearby disease outbreaks on an interactive map.
-
-### 5.3 Could-Have (Phase 3)
-- [ ] Multi-leaf batch scanning in a single shot.
-- [ ] AI Chatbot Assistant ("Kisan AI") for natural voice Q&A about crop health.
-- [ ] Drone / Satellite imagery integration for large farm coverage.
-
-### 5.4 Won't-Have (Out of Scope for Initial Release)
-- Hardware sensor integrations (soil probe hardware).
-- Direct e-commerce marketplace for selling pesticides (we remain an objective diagnostic tool).
+- [ ] **Agronomist WhatsApp Direct Bridge:** 1-click formatted diagnostic summary sent to certified agronomists via WhatsApp.
+- [ ] **Weather & Disease Risk Advisory:** Live weather API integration calculating fungal/viral vulnerability index based on temperature and humidity.
+- [ ] **Regional Outbreak Heatmap:** Interactive map displaying aggregated crop disease outbreaks across districts.
 
 ---
 
-## 6. Detailed Functional Specifications
-
-### 6.1 Diagnostic Workflow & Edge Inference
-- **Input:** JPEG/PNG/WebP image (live camera capture or file upload).
-- **Processing:** Image normalized to 224x224 RGB tensor.
-- **Inference Time:** $\le 600$ ms on standard mobile CPU/GPU.
-- **Confidence Threshold:**
-  - $\ge 75\%$: High Confidence -> Direct diagnosis display.
-  - $50\% - 74\%$: Moderate Confidence -> Displays top 2 probable conditions with warning.
-  - $< 50\%$: Low Confidence -> Asks user to retake photo with clearer lighting / closer leaf focus.
-
-### 6.2 Treatment Recommendation Structure
-Every disease result must contain:
-1. **Disease Overview:** Common name, local name, causal organism (Fungus/Bacteria/Virus/Pest).
-2. **Visual Symptoms:** What to look for (lesions, concentric rings, chlorosis).
-3. **Immediate Action:** Containment steps (prune infected leaves, isolate field zone).
-4. **Organic Remedy:** Low-cost, natural bio-pesticides (e.g., Garlic extract, Neem oil, Trichoderma).
-5. **Chemical Remedy:** Standard agrochemical formulas (e.g., Mancozeb 75% WP, Copper Oxychloride, Imidacloprid) with safety pre-harvest intervals (PHI).
-6. **Dosage Table:** Configurable matrix for standard knapsack sprayers (16L / 20L).
-
-### 6.3 Voice & Accessibility Protocol
-- Audio play button prominently placed at the top of the diagnosis card.
-- Clear visual status colors:
-  - 🟢 **Healthy / Safe:** `#16A34A`
-  - 🟡 **Moderate / Warning:** `#EAB308`
-  - 🔴 **Severe / Critical:** `#DC2626`
-- Minimum touch target size: $48 \times 48$ px (suitable for one-handed operation in the field).
-
----
-
-## 7. Non-Functional Requirements (NFR)
+## 6. Non-Functional Requirements (NFR)
 
 | Category | Requirement | Target Metric |
 | :--- | :--- | :--- |
-| **Performance** | Time to Interactive (TTI) | $< 1.8$s on 3G network |
-| **Offline Capability** | Full offline functionality | 100% core features (Scan, Diagnose, History, Library) work without internet |
-| **Bundle Size** | PWA Core bundle + ML model | Model $< 5.5$ MB, Initial JS bundle $< 250$ KB gzipped |
-| **Accuracy** | Top-1 Accuracy on standard test set | $> 92.5\%$ Top-1, $> 97.8\%$ Top-3 |
-| **Accessibility** | Color contrast & navigation | WCAG 2.1 Level AA compliant |
-| **Cross-Platform** | Supported environments | Chrome Android, Safari iOS, Edge, Firefox, Desktop PWA |
+| **Response Latency** | End-to-end cloud scan response | $< 1.2$ seconds on 4G / 3G |
+| **Model Precision** | Server-side Top-1 / Top-3 Accuracy | $> 94.5\%$ Top-1, $> 98.2\%$ Top-3 |
+| **Backend Throughput** | FastAPI Async concurrency | $> 200$ req/sec per worker instance |
+| **Uptime & Scalability** | Backend availability | $99.9\%$ SLA with stateless Docker/Uvicorn scaling |
+| **Accessibility** | Color contrast & UI usability | WCAG 2.1 Level AA compliant |
+| **Browser Compatibility** | Modern mobile & desktop browsers | Chrome, Safari, Edge, Firefox, Samsung Internet |
 
 ---
 
-## 8. Success Metrics & Key Performance Indicators (KPIs)
+## 7. Success Metrics & Key Performance Indicators (KPIs)
 
-- **Diagnostic Speed:** Average scan-to-result time $< 1.0$ second.
-- **Diagnostic Completion Rate:** $> 90\%$ of started scans result in a successful diagnosis without drop-off.
-- **Offline Resilience:** $0$ crashes or network errors when running in airplane mode.
-- **Farmer Usability Score:** $> 85\%$ task success rate on first-time usage among non-English native speakers.
-- **Chemical Reduction Impact:** Estimated $30\%+$ reduction in unnecessary pesticide spray volume through accurate dosage and organic first-line suggestions.
+- **End-to-End Latency:** Total time from camera shutter click to diagnosis result rendered $< 1.5$ seconds.
+- **Diagnostic Success Rate:** $> 95\%$ of valid leaf uploads correctly classified.
+- **Farmer Usability Score:** $> 85\%$ task completion rate on first-time usage among regional language speakers.
+- **Pesticide Optimization Impact:** Estimated $30\%+$ reduction in unnecessary chemical usage through accurate dosage calculation.

@@ -1,17 +1,17 @@
 # 🎨 UI/UX Design Specification & Design System
 ## Project: AI-Powered Crop Disease Diagnostics & Decision Support System (AgriShield / Kisan Dost)
 
-**Document Version:** 1.0.0  
-**Design Philosophy:** "One-Tap Agri-Simplicity" — High sunlight contrast, illiterate-friendly visual cues, audio-first assist, and 56px touch targets for rugged outdoor field usage.
+**Document Version:** 3.0.0 (FastAPI-Powered Web Application)  
+**Design Philosophy:** "One-Tap Agri-Simplicity" — High sunlight contrast, visual pictograms, audio-first voice assist, smooth cloud processing indicators, and 56px touch targets for rugged outdoor field usage.
 
 ---
 
 ## 1. Design Principles
 
-1. **Sunlight-Readable High Contrast:** Bright outdoor glare washes out delicate pastels. The interface uses crisp off-whites (`#F8FAFC`), deep slate typography (`#0F172A`), and vibrant emerald greens (`#16A34A`).
-2. **Icon & Visual First (Illiteracy-Aware):** Every key action is paired with universally recognizable agricultural pictograms (Leaf, Sun, Bug, Spray Can, Speaker, Shield) alongside localized Urdu/Pashto text.
+1. **Sunlight-Readable High Contrast:** Bright outdoor glare washes out delicate pastels. The interface uses crisp off-whites (`#F8FAFC`), deep slate typography (`#0F172A`), and vibrant emerald greens (`#15803D`).
+2. **Instant Visual Feedback & Cloud Loading:** When an image is uploaded for FastAPI analysis, an animated laser-scan wave with informative status chips (*"Uploading Image...", "FastAPI AI Analyzing Pathogens...", "Formulating Local Remedies..."*) keeps the user engaged during the 1-second roundtrip.
 3. **Audio as a First-Class Citizen:** Every diagnostic result, dosage calculation, and advisory tip features a prominent "Listen in Urdu" (سنیں) speaker button.
-4. **Zero-Friction One-Tap Scan:** The user can launch the camera and receive a full diagnosis in under 3 taps from the home screen.
+4. **Zero-Friction Camera & Upload:** Seamless HTML5 camera viewfinder with automatic fallback to native mobile photo picker.
 
 ---
 
@@ -32,18 +32,6 @@
 | **Text Muted** | `#475569` | `text-slate-600` | Secondary descriptions, timestamps |
 | **Border / Divider** | `#E2E8F0` | `border-slate-200`| Structural borders, card dividers |
 
-```
-COLOR SWATCHES:
-+-----------------------------------------------------------------------------------+
-| [ #15803D ] Emerald 700   - Primary Brand & Action                                |
-| [ #22C55E ] Green 500     - Healthy Crop / High Confidence                        |
-| [ #F59E0B ] Amber 500     - Warning / Moderate Severity                           |
-| [ #DC2626 ] Red 600       - Critical Disease / Urgent Action                      |
-| [ #0F172A ] Slate 900     - High Contrast Text for Sunlight                       |
-| [ #F8FAFC ] Slate 50      - Clean Non-Glare Canvas                                |
-+-----------------------------------------------------------------------------------+
-```
-
 ---
 
 ## 3. Typography & Regional Font Stack
@@ -54,100 +42,84 @@ COLOR SWATCHES:
 - **Pashto / Sindhi:** `Noto Sans Arabic`, `system-ui`
 
 ### 3.2 Type Scale
-
-| Style Name | Size / Weight | Line Height | Application |
-| :--- | :--- | :--- | :--- |
-| **Display Hero** | `32px` / Bold (700) | `1.2` | Splash title, Primary disease diagnosis name |
-| **Heading 1** | `24px` / SemiBold (600) | `1.3` | Section titles, Modal headers |
-| **Heading 2** | `18px` / SemiBold (600) | `1.4` | Card titles, Tab headers |
-| **Body Large** | `16px` / Regular (400) | `1.5` | Diagnosis instructions, Remedy text |
-| **Body Small** | `14px` / Medium (500) | `1.4` | Dosage ratios, timestamps, metadata |
-| **Caption / Badge** | `12px` / Bold (700) | `1.2` | Status tags, confidence percentages |
+- **Display Hero:** `32px` / Bold (700) — Main diagnosis title
+- **Heading 1:** `24px` / SemiBold (600) — Section headers
+- **Heading 2:** `18px` / SemiBold (600) — Card & tab headers
+- **Body Large:** `16px` / Regular (400) — Treatment instructions
+- **Body Small:** `14px` / Medium (500) — Dosage ratios, timestamps
 
 ---
 
 ## 4. Screen-by-Screen Layout Specifications
 
-### Screen 1: Splash & Language Selector
+### Screen 1: Language & Regional Onboarding
 - **Header:** AgriShield (کسان دوست) Logo with wheat/leaf emblem.
 - **Language Card Grid:** 4 large, high-contrast touch cards:
   - 🇵🇰 **اُردو (Urdu)** — Default selected
   - 🏴 **پښتو (Pashto)**
   - 🌊 **سنڌي (Sindhi)**
   - 🌐 **English**
-- **Action:** Single prominent green button: *"Start Scanning / اسکین شروع کریں"* with haptic feedback.
-
-```
-+------------------------------------------+
-|            🌾 AgriShield                 |
-|             (کسان دوست)                  |
-|    Select Your Language / زبان منتخب کریں|
-|                                          |
-|  +------------------+  +---------------+ |
-|  |     اُردو        |  |    پښتو       | |
-|  |    (Urdu)        |  |   (Pashto)    | |
-|  +------------------+  +---------------+ |
-|  +------------------+  +---------------+ |
-|  |     سنڌي         |  |    English    | |
-|  |   (Sindhi)       |  |   (Global)    | |
-|  +------------------+  +---------------+ |
-|                                          |
-|  [     Continue / آگے بڑھیں ->     ]     |
-+------------------------------------------+
-```
+- **Action:** Single prominent green button: *"Continue / آگے بڑھیں"*
 
 ---
 
 ### Screen 2: Main Dashboard (Home)
-- **Top Bar:** Location tag (e.g. "📍 Multan, Punjab"), Language switch icon, Offline status pill (`🟢 Offline Ready`).
+- **Top Bar:** Location tag ("📍 Multan, Punjab"), Language switch icon, FastAPI Backend status indicator (`🟢 Backend Connected`).
 - **Weather & Disease Risk Alert Banner:** 
   - *"High Humidity Alert (85%): Fungal Blight Risk elevated for Tomatoes & Potatoes."*
 - **Hero Scanner Card (Focal Point):**
-  - Giant pulsing camera icon with animated viewfinder border.
-  - Button text: **"📸 Scan Leaf Now / پتے کا معائنہ کریں"**
-  - Quick action: "Or Upload from Gallery / یا گیلری سے منتخب کریں".
+  - Giant camera button: **"📸 Take Photo or Upload Leaf / پتے کا معائنہ کریں"**
+  - Quick action: "Upload from Gallery / گیلری سے اپ لوڈ کریں".
 - **Quick Metric Row:**
   - `Total Scans (12)` | `Diseases Detected (3)` | `Healthy Crops (9)`
-- **Recent Scans Carousel:** Horizontal card list with thumbnail, crop name, date, and status badge.
-- **Quick Tools Grid:**
+- **Recent Scans Carousel:** Past scans retrieved from FastAPI database with thumbnails, crop titles, and status tags.
+- **Quick Navigation Grid:**
   - 📚 Disease Encyclopedia (بیماریوں کی لغت)
   - 🧪 Spray Dosage Calculator (دوائی کا حساب)
-  - 👨‍🌾 Ask Agronomist (ماہر زراعت سے رابطہ)
+  - 👨‍🌾 Ask Agronomist on WhatsApp (ماہر زراعت سے رابطہ)
 
 ---
 
-### Screen 3: Camera Viewfinder & Scanner
+### Screen 3: Camera Viewfinder & Upload Modal
 - **Live Video Feed:** Fullscreen or 4:3 camera view.
-- **Scanning Guideline Overlay:** Bounding box with leaf shape silhouette.
-- **Real-Time Helper Tooltip:** 
-  - *"Place diseased leaf inside box & hold steady / پتے کو فریم کے اندر لائیں"*
-- **Lighting & Focus Indicator:** Auto-detects darkness and suggests turning on torch.
+- **Leaf Framing Overlay:** Bounding box with leaf silhouette guideline.
+- **Real-Time Helper Tooltip:** *"Place diseased leaf inside frame & tap Shutter / پتے کو فریم کے اندر لائیں"*
 - **Controls Bar:**
   - ⚡ Flash/Torch Toggle
   - 🔄 Camera Flip (Back/Front)
   - 🖼️ Gallery Upload Button
-  - ⚪ **Big Shutter Button (72x72px)** with green ring.
+  - ⚪ **Big Shutter Button (72x72px)** with green pulse ring.
+
+---
+
+### Screen 4: Cloud Analyzing State (Laser Scanner)
+When the user captures or uploads an image:
+- Display the captured leaf photo with an animated laser scanning line sweeping up and down.
+- Progress Stepper:
+  - `[✓] Uploading Leaf Image to FastAPI Server...`
+  - `[🔄] PyTorch Deep Model Analyzing Pathogens...`
+  - `[  ] Formulating Localized Cures & Dosage...`
+- Smooth transition directly into the Diagnosis Screen upon FastAPI response.
 
 ```
 +------------------------------------------+
-|  [X Close]        ⚡ Flash       🔄 Flip  |
 |                                          |
 |         +----------------------+         |
-|         |   .--------------.   |         |
-|         |  /    🌿 Leaf     \  |         |
-|         |  \   Guideline    /  |         |
-|         |   '--------------'   |         |
+|         |  [ Leaf Preview ]    |         |
+|         |  ==================  | <- Scan |
+|         |                      |    Line |
 |         +----------------------+         |
 |                                          |
-|    💡 Good Lighting Detected (اچھی روشنی)|
+|      ⚡ Analyzing on FastAPI Cloud...     |
+|   (کلاؤڈ اے آئی پر معائنہ ہو رہا ہے)     |
 |                                          |
-|  [🖼️ Gallery]    ( 🔘 SHUTTER )    [ℹ️ Help]|
+|  [||||||||||||||||........] 75%          |
 +------------------------------------------+
 ```
 
 ---
 
-### Screen 4: Diagnostic Result & Action Center (Core Screen)
+### Screen 5: Diagnostic Result & Action Center (Core Screen)
 - **Status Header:**
   - Critical Banner: `🔴 Early Blight Detected (اگیتا جھلسائو)`
   - Crop: `🍅 Tomato (ٹماٹر)`
@@ -158,7 +130,7 @@ COLOR SWATCHES:
 - **Tabbed Remedy System:**
   1. **🌿 Organic Remedy (قدرتی علاج):**
      - Step 1: Remove and burn all infected bottom leaves.
-     - Step 2: Spray Neem Seed Kernel Extract (50g per Liter) every 7 days.
+     - Step 2: Spray Neem Seed Kernel Extract (50ml per 10L water) every 7 days.
   2. **🧪 Chemical Treatment (کیمیائی ادویات):**
      - Active Ingredient: *Mancozeb 75% WP + Metalaxyl 8%*
      - Recommended Local Brands: *Ridomil Gold, Score 250 EC, Nativo*
@@ -169,62 +141,18 @@ COLOR SWATCHES:
        - Required Water: `200 Liters (10 Knapsack Tanks)`
        - Required Chemical: `500 Grams (50g per Tank)`
 - **Action Footer:**
-  - `💾 Save to Diary` | `📲 Share Report via WhatsApp` | `🔄 Scan Another Leaf`
-
-```
-+------------------------------------------+
-|  <- Back to Home            [💾 Save Scan]|
-|                                          |
-|  +------------------------------------+  |
-|  | 🔴 Early Blight (اگیتا جھلسائو)     |  |
-|  | Crop: Tomato | Confidence: 96%     |  |
-|  +------------------------------------+  |
-|                                          |
-|  [  🔊 سنیں (Listen Audio Report) ▶  ]   |
-|                                          |
-|  [ 🌿 Organic ] [ 🧪 Chemical ] [ ⚖️ Dosage ] |
-|  +------------------------------------+  |
-|  | Active Ingredient: Mancozeb 75% WP |  |
-|  | Local Brands: Ridomil Gold / Score  |  |
-|  | Mix 250g per 100L water per acre.  |  |
-|  +------------------------------------+  |
-|                                          |
-|  [ 📲 Send to Agronomist on WhatsApp ]   |
-|  [ 📸 Scan Another Leaf (نیا اسکین) ]    |
-+------------------------------------------+
-```
+  - `📲 Send Report to Agronomist on WhatsApp` | `📸 Scan Another Leaf (نیا اسکین)`
 
 ---
 
-### Screen 5: Scan History & Field Diary
+### Screen 6: Field Diary (Scan History)
 - **Filter Chips:** `All Scans` | `Cotton` | `Wheat` | `Tomato` | `Diseased Only`
-- **Diary Cards:** Each card displays:
-  - High-resolution leaf thumbnail
-  - Crop & Disease title (English & Urdu)
-  - Date & Time stamp + GPS locality tag
-  - Sync Indicator: `☁️ Synced` or `💾 Local Only`
-  - 1-tap delete and view full report buttons.
+- **Diary Cards:** Each card displays image thumbnail, crop/disease title (UR/EN), date, time, and severity badge.
+- 1-tap view full report or share to WhatsApp.
 
 ---
 
-### Screen 6: Disease Encyclopedia (Offline Knowledge Base)
-- **Search Bar:** Real-time search by crop name or disease name (in English or Urdu phonetic search).
+### Screen 7: Disease Encyclopedia
+- **Search Bar:** Real-time search in English or Urdu.
 - **Crop Category Filters:** Grid of crop icons (Wheat, Rice, Cotton, Tomato, Potato, Apple, Citrus).
-- **Disease Cards:** Complete listing of 38+ plant diseases with symptom descriptions, clear photo examples, causal agents, and preventive crop rotation advice.
-
----
-
-## 5. Micro-Interactions & Haptic Feedback
-
-- **Shutter Press:** Triggers a 50ms vibration pulse (via `navigator.vibrate(50)`) and a quick shutter-flash animation.
-- **Inference Complete:** Smooth accordion slide-in of the diagnosis card with a satisfying success chime.
-- **Dosage Slider / Area Stepper:** Immediate reactive re-computation of water tank volume with numeric counter animations.
-- **Offline Mode Indicator:** Subtle top banner that shifts from green (`Online`) to amber (`Offline Mode Active - Full Functionality Retained`).
-
----
-
-## 6. Accessibility & Internationalization Rules
-
-1. **RTL Support:** Full Right-To-Left layout mirroring when Urdu, Pashto, or Sindhi is active (`dir="rtl"`).
-2. **Text Scaling:** Supports dynamic browser text enlargement up to 200% without breaking card layouts.
-3. **Contrast Compliance:** All text tokens adhere to WCAG AAA contrast ratio ($\ge 7:1$) against card backgrounds.
+- **Disease Cards:** 38+ plant diseases with symptom descriptions, clear photo examples, causal agents, and preventive crop rotation advice.

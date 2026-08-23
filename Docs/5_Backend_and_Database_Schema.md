@@ -1,40 +1,47 @@
 # 🗄️ Backend Architecture & Database Schema
 ## Project: AI-Powered Crop Disease Diagnostics & Decision Support System (AgriShield / Kisan Dost)
 
-**Document Version:** 1.0.0  
-**Data Strategy:** Local-First (IndexedDB via Dexie.js) with Cloud Synchronization (Prisma ORM + PostgreSQL / SQLite).
+**Document Version:** 3.0.0 (Python FastAPI + SQLAlchemy 2.0 Architecture)  
+**Database Strategy:** Python SQLAlchemy 2.0 ORM with SQLite / PostgreSQL and Pydantic v2 validation models.
 
 ---
 
-## 1. System Architecture & Data Topology
+## 1. Backend Architecture & Data Topology
 
-AgriShield follows a **Local-First, Sync-Second** data lifecycle. The mobile client writes diagnostic records and reads disease knowledge directly from client-side storage (IndexedDB) with $0$ms network latency. When an internet connection becomes available, data asynchronously synchronizes with the server.
+AgriShield's backend is a Python FastAPI service structured with asynchronous routers, dependency injection for database sessions, a dedicated PyTorch machine learning service, and an image processing pipeline.
 
 ```
 +------------------------------------------------------------------------------------+
-|                                CLIENT STORAGE TIER                                 |
+|                                 CLIENT WEB BROWSER                                 |
 |                                                                                    |
 |  +------------------------------------------------------------------------------+  |
-|  |                     IndexedDB (Dexie.js Offline Database)                    |  |
-|  |   - Table: `scans` (Local Scan History & Base64 Thumbnails)                  |  |
-|  |   - Table: `diseases` (Pre-cached 38+ Disease Knowledge Graph)               |  |
-|  |   - Table: `crops` (Crop Profiles, Growth Cycles & Regional Seasons)         |  |
-|  |   - Table: `sync_queue` (Pending Operations to Push to Server)               |  |
+|  |           Next.js / React Frontend (TypeScript, Tailwind CSS, Lucide)        |  |
+|  |     - Submits Multipart Image -> `POST /api/v1/diagnose`                     |  |
+|  |     - Fetches Diary Scans   -> `GET  /api/v1/scans`                          |  |
+|  |     - Fetches Encyclopedia  -> `GET  /api/v1/diseases`                       |  |
 |  +------------------------------------------------------------------------------+  |
 +------------------------------------------------------------------------------------+
-                                      |   ^
-                    Push Pending Logs |   | Pull Outbreak Updates & New Remedies
-                                      v   |
+                                      |
+                                      | HTTPS REST API Calls
+                                      v
 +------------------------------------------------------------------------------------+
-|                              SERVER / CLOUD DATABASE                               |
+|                         PYTHON FASTAPI BACKEND SERVICE                             |
 |                                                                                    |
 |  +------------------------------------------------------------------------------+  |
-|  |                  PostgreSQL Database (Managed via Prisma ORM)                |  |
-|  |   - Model: `FarmerUser`       - Model: `Crop`                                |  |
-|  |   - Model: `Disease`          - Model: `Remedy`                              |  |
-|  |   - Model: `DiagnosticScan`   - Model: `DosageRule`                          |  |
-|  |   - Model: `OutbreakReport`   - Model: `AgronomistAdvisory`                  |  |
+|  |                     FastAPI Routers (`app/api/v1/routers/`)                  |  |
+|  |  +---------------------------+       +------------------------------------+  |  |
+|  |  |   PyTorch ML Service      |       |      SQLAlchemy 2.0 ORM Layer      |  |  |
+|  |  |   - Pillow Preprocessing  |       |   - Async / Sync DB Session Pool   |  |  |
+|  |  |   - MobileNetV2 Inference |       |   - Pydantic v2 Serialization      |  |  |
+|  |  +---------------------------+       +------------------------------------+  |  |
 |  +------------------------------------------------------------------------------+  |
+|         |                                      |                                   |
+|         v (Save Uploaded Leaf Images)          v (Read / Write Records)            |
+|  +---------------------------+       +------------------------------------+        |
+|  | Static Image File Storage |       |    SQLite / PostgreSQL Database    |        |
+|  | (`backend/static/uploads`)|       |    - Scans, Crops, Diseases,       |        |
+|  | - Full Image & Thumbnails |       |      Remedies & Outbreak Reports   |        |
+|  +---------------------------+       +------------------------------------+        |
 +------------------------------------------------------------------------------------+
 ```
 
@@ -55,327 +62,297 @@ erDiagram
 
     FARMER_USER {
         string id PK
-        string phoneNumber UK
+        string phone_number UK
         string name
         string region
-        string preferredLanguage
-        datetime createdAt
+        string preferred_language
+        datetime created_at
     }
 
     CROP {
         string id PK
         string slug UK
-        string nameEnglish
-        string nameUrdu
-        string namePashto
-        string scientificName
+        string name_english
+        string name_urdu
+        string name_pashto
         string category
-        string iconUrl
+        string icon_url
     }
 
     DISEASE {
         string id PK
-        string cropId FK
-        string classKey UK
-        string nameEnglish
-        string nameUrdu
-        string namePashto
-        string pathogenType
-        string severityDefault
-        string symptomsEnglish
-        string symptomsUrdu
-        string preventionEnglish
-        string preventionUrdu
+        string crop_id FK
+        string class_key UK
+        string name_english
+        string name_urdu
+        string name_pashto
+        string pathogen_type
+        string severity_default
+        string symptoms_english
+        string symptoms_urdu
+        string prevention_english
+        string prevention_urdu
     }
 
     REMEDY {
         string id PK
-        string diseaseId FK
-        string type
-        string titleEnglish
-        string titleUrdu
-        string instructionsEnglish
-        string instructionsUrdu
-        string activeIngredient
-        string localBrands
-        int preHarvestIntervalDays
+        string disease_id FK
+        string remedy_type
+        string title_english
+        string title_urdu
+        string instructions_english
+        string instructions_urdu
+        string active_ingredient
+        string local_brands
+        int pre_harvest_interval_days
     }
 
     DOSAGE_RULE {
         string id PK
-        string diseaseId FK
-        float chemicalPerAcreGrams
-        float waterPerAcreLiters
-        float knapsackTankRatio
-        string applicationMethod
+        string disease_id FK
+        float chemical_per_acre_grams
+        float water_per_acre_liters
+        float knapsack_tank_ratio
+        string application_method
     }
 
     DIAGNOSTIC_SCAN {
         string id PK
-        string userId FK
-        string cropId FK
-        string diseaseId FK
+        string user_id FK
+        string crop_id FK
+        string disease_id FK
         float confidence
         string severity
-        string imageUrl
-        string thumbnailBase64
+        string image_url
+        string thumbnail_url
         float latitude
         float longitude
         string notes
-        boolean isSynced
-        datetime scannedAt
+        datetime scanned_at
     }
 
     OUTBREAK_REPORT {
         string id PK
-        string diseaseId FK
+        string disease_id FK
         string region
         float latitude
         float longitude
-        int severityLevel
-        datetime reportedAt
+        int severity_level
+        datetime reported_at
     }
 ```
 
 ---
 
-## 3. Production Prisma Schema (`schema.prisma`)
+## 3. SQLAlchemy 2.0 Database Models (`backend/app/models/`)
 
-```prisma
-datasource db {
-  provider = "postgresql" // Or "sqlite" for lightweight / zero-config local dev
-  url      = env("DATABASE_URL")
-}
+```python
+# backend/app/models/models.py
+import enum
+import uuid
+from datetime import datetime
+from sqlalchemy import (
+    Column, String, Float, Integer, Text, Enum, DateTime, ForeignKey
+)
+from sqlalchemy.orm import declarative_base, relationship
 
-generator client {
-  provider = "prisma-client-js"
-}
+Base = declarative_base()
 
-enum Language {
-  URDU
-  PASHTO
-  SINDHI
-  ENGLISH
-}
+class LanguageEnum(str, enum.Enum):
+    URDU = "URDU"
+    PASHTO = "PASHTO"
+    SINDHI = "SINDHI"
+    ENGLISH = "ENGLISH"
 
-enum PathogenType {
-  FUNGAL
-  BACTERIAL
-  VIRAL
-  PEST
-  DEFICIENCY
-  HEALTHY
-}
+class PathogenEnum(str, enum.Enum):
+    FUNGAL = "FUNGAL"
+    BACTERIAL = "BACTERIAL"
+    VIRAL = "VIRAL"
+    PEST = "PEST"
+    HEALTHY = "HEALTHY"
 
-enum RemedyType {
-  ORGANIC
-  CHEMICAL
-  CULTURAL
-}
+class RemedyTypeEnum(str, enum.Enum):
+    ORGANIC = "ORGANIC"
+    CHEMICAL = "CHEMICAL"
 
-enum SeverityLevel {
-  LOW
-  MODERATE
-  HIGH
-  CRITICAL
-}
+class SeverityEnum(str, enum.Enum):
+    LOW = "LOW"
+    MODERATE = "MODERATE"
+    HIGH = "HIGH"
+    CRITICAL = "CRITICAL"
 
-model FarmerUser {
-  id                String           @id @default(cuid())
-  phoneNumber       String?          @unique
-  name              String?
-  region            String?          // e.g. "Multan, Punjab"
-  preferredLanguage Language         @default(URDU)
-  createdAt         DateTime         @default(now())
-  updatedAt         DateTime         @updatedAt
-  scans             DiagnosticScan[]
-  reports           OutbreakReport[]
+class FarmerUser(Base):
+    __tablename__ = "farmer_users"
 
-  @@index([phoneNumber])
-}
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    phone_number = Column(String, unique=True, index=True, nullable=True)
+    name = Column(String, nullable=True)
+    region = Column(String, nullable=True) # e.g. "Multan, Punjab"
+    preferred_language = Column(Enum(LanguageEnum), default=LanguageEnum.URDU)
+    created_at = Column(DateTime, default=datetime.utcnow)
 
-model Crop {
-  id             String           @id @default(cuid())
-  slug           String           @unique // e.g. "tomato", "cotton", "wheat"
-  nameEnglish    String
-  nameUrdu       String
-  namePashto     String?
-  nameSindhi     String?
-  scientificName String?
-  category       String           // "Cash Crop", "Vegetable", "Cereal", "Fruit"
-  iconUrl        String?
-  diseases       Disease[]
-  scans          DiagnosticScan[]
-  createdAt      DateTime         @default(now())
+    scans = relationship("DiagnosticScan", back_populates="user")
+    outbreaks = relationship("OutbreakReport", back_populates="user")
 
-  @@index([slug])
-}
+class Crop(Base):
+    __tablename__ = "crops"
 
-model Disease {
-  id                String           @id @default(cuid())
-  cropId            String
-  crop              Crop             @relation(fields: [cropId], references: [id], onDelete: Cascade)
-  classKey          String           @unique // e.g. "Tomato___Early_blight" matching TF.js class
-  nameEnglish       String
-  nameUrdu          String
-  namePashto        String?
-  nameSindhi        String?
-  pathogenType      PathogenType
-  severityDefault   SeverityLevel    @default(MODERATE)
-  symptomsEnglish   String           @db.Text
-  symptomsUrdu      String           @db.Text
-  preventionEnglish String           @db.Text
-  preventionUrdu    String           @db.Text
-  audioUrlUrdu      String?
-  remedies          Remedy[]
-  dosageRules       DosageRule[]
-  scans             DiagnosticScan[]
-  outbreaks         OutbreakReport[]
-  createdAt         DateTime         @default(now())
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    slug = Column(String, unique=True, index=True, nullable=False) # e.g. "tomato"
+    name_english = Column(String, nullable=False)
+    name_urdu = Column(String, nullable=False)
+    name_pashto = Column(String, nullable=True)
+    name_sindhi = Column(String, nullable=True)
+    category = Column(String, nullable=False) # "Cash Crop", "Vegetable", "Cereal", "Fruit"
+    icon_url = Column(String, nullable=True)
 
-  @@index([cropId])
-  @@index([classKey])
-}
+    diseases = relationship("Disease", back_populates="crop", cascade="all, delete-orphan")
+    scans = relationship("DiagnosticScan", back_populates="crop")
 
-model Remedy {
-  id                      String     @id @default(cuid())
-  diseaseId               String
-  disease                 Disease    @relation(fields: [diseaseId], references: [id], onDelete: Cascade)
-  type                    RemedyType // ORGANIC or CHEMICAL
-  titleEnglish            String
-  titleUrdu               String
-  instructionsEnglish     String     @db.Text
-  instructionsUrdu        String     @db.Text
-  activeIngredient        String?    // e.g. "Mancozeb 75% WP"
-  localBrands             String?    // e.g. "Ridomil Gold, Score, Nativo"
-  preHarvestIntervalDays  Int?       @default(7) // Days to wait before harvesting
-  safetyWarningEnglish    String?
-  safetyWarningUrdu       String?
-  createdAt               DateTime   @default(now())
+class Disease(Base):
+    __tablename__ = "diseases"
 
-  @@index([diseaseId])
-}
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    crop_id = Column(String, ForeignKey("crops.id"), nullable=False)
+    class_key = Column(String, unique=True, index=True, nullable=False) # e.g. "Tomato___Early_blight"
+    name_english = Column(String, nullable=False)
+    name_urdu = Column(String, nullable=False)
+    name_pashto = Column(String, nullable=True)
+    name_sindhi = Column(String, nullable=True)
+    pathogen_type = Column(Enum(PathogenEnum), nullable=False)
+    severity_default = Column(Enum(SeverityEnum), default=SeverityEnum.MODERATE)
+    symptoms_english = Column(Text, nullable=False)
+    symptoms_urdu = Column(Text, nullable=False)
+    prevention_english = Column(Text, nullable=False)
+    prevention_urdu = Column(Text, nullable=False)
 
-model DosageRule {
-  id                    String   @id @default(cuid())
-  diseaseId             String
-  disease               Disease  @relation(fields: [diseaseId], references: [id], onDelete: Cascade)
-  chemicalPerAcreGrams  Float    // e.g. 250 (grams or ml)
-  waterPerAcreLiters    Float    @default(100) // standard 100L or 200L
-  knapsackTankRatio     Float    // e.g. 25 grams per 16L/20L tank
-  applicationMethod     String   // "Foliar Spray", "Soil Drench", "Seed Treatment"
-  createdAt             DateTime @default(now())
+    crop = relationship("Crop", back_populates="diseases")
+    remedies = relationship("Remedy", back_populates="disease", cascade="all, delete-orphan")
+    dosage_rules = relationship("DosageRule", back_populates="disease", cascade="all, delete-orphan")
+    scans = relationship("DiagnosticScan", back_populates="disease")
+    outbreaks = relationship("OutbreakReport", back_populates="disease")
 
-  @@index([diseaseId])
-}
+class Remedy(Base):
+    __tablename__ = "remedies"
 
-model DiagnosticScan {
-  id              String        @id @default(cuid())
-  userId          String?
-  user            FarmerUser?   @relation(fields: [userId], references: [id], onDelete: SetNull)
-  cropId          String
-  crop            Crop          @relation(fields: [cropId], references: [id])
-  diseaseId       String
-  disease         Disease       @relation(fields: [diseaseId], references: [id])
-  confidence      Float         // e.g. 0.962
-  severity        SeverityLevel
-  imageUrl        String?       // Cloud URL (if uploaded)
-  thumbnailBase64 String        @db.Text // Embedded thumbnail for instant list view
-  latitude        Float?
-  longitude       Float?
-  notes           String?
-  isSynced        Boolean       @default(true)
-  scannedAt       DateTime      @default(now())
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    disease_id = Column(String, ForeignKey("diseases.id"), nullable=False)
+    remedy_type = Column(Enum(RemedyTypeEnum), nullable=False) # ORGANIC or CHEMICAL
+    title_english = Column(String, nullable=False)
+    title_urdu = Column(String, nullable=False)
+    instructions_english = Column(Text, nullable=False)
+    instructions_urdu = Column(Text, nullable=False)
+    active_ingredient = Column(String, nullable=True) # e.g. "Mancozeb 75% WP"
+    local_brands = Column(String, nullable=True) # e.g. "Ridomil Gold, Score 250 EC"
+    pre_harvest_interval_days = Column(Integer, default=7)
+    safety_warning_urdu = Column(String, nullable=True)
 
-  @@index([cropId])
-  @@index([diseaseId])
-  @@index([scannedAt])
-}
+    disease = relationship("Disease", back_populates="remedies")
 
-model OutbreakReport {
-  id            String        @id @default(cuid())
-  diseaseId     String
-  disease       Disease       @relation(fields: [diseaseId], references: [id])
-  userId        String?
-  user          FarmerUser?   @relation(fields: [userId], references: [id], onDelete: SetNull)
-  region        String        // e.g. "Rahim Yar Khan, Punjab"
-  latitude      Float
-  longitude     Float
-  severityLevel SeverityLevel
-  reportedAt    DateTime      @default(now())
+class DosageRule(Base):
+    __tablename__ = "dosage_rules"
 
-  @@index([diseaseId])
-  @@index([latitude, longitude])
-}
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    disease_id = Column(String, ForeignKey("diseases.id"), nullable=False)
+    chemical_per_acre_grams = Column(Float, nullable=False) # e.g. 250.0
+    water_per_acre_liters = Column(Float, default=100.0)
+    knapsack_tank_ratio = Column(Float, nullable=False) # e.g. 50.0g per 20L tank
+    application_method = Column(String, default="Foliar Spray")
+
+    disease = relationship("Disease", back_populates="dosage_rules")
+
+class DiagnosticScan(Base):
+    __tablename__ = "diagnostic_scans"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    user_id = Column(String, ForeignKey("farmer_users.id"), nullable=True)
+    crop_id = Column(String, ForeignKey("crops.id"), nullable=False)
+    disease_id = Column(String, ForeignKey("diseases.id"), nullable=False)
+    confidence = Column(Float, nullable=False)
+    severity = Column(Enum(SeverityEnum), nullable=False)
+    image_url = Column(String, nullable=False)
+    thumbnail_url = Column(String, nullable=True)
+    latitude = Column(Float, nullable=True)
+    longitude = Column(Float, nullable=True)
+    notes = Column(String, nullable=True)
+    scanned_at = Column(DateTime, default=datetime.utcnow)
+
+    user = relationship("FarmerUser", back_populates="scans")
+    crop = relationship("Crop", back_populates="scans")
+    disease = relationship("Disease", back_populates="scans")
+
+class OutbreakReport(Base):
+    __tablename__ = "outbreak_reports"
+
+    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
+    disease_id = Column(String, ForeignKey("diseases.id"), nullable=False)
+    user_id = Column(String, ForeignKey("farmer_users.id"), nullable=True)
+    region = Column(String, nullable=False)
+    latitude = Column(Float, nullable=False)
+    longitude = Column(Float, nullable=False)
+    severity_level = Column(Enum(SeverityEnum), nullable=False)
+    reported_at = Column(DateTime, default=datetime.utcnow)
+
+    disease = relationship("Disease", back_populates="outbreaks")
+    user = relationship("FarmerUser", back_populates="outbreaks")
 ```
 
 ---
 
-## 4. Client-Side Dexie.js Schema (`src/lib/db/dexie.ts`)
+## 4. Pydantic v2 Schemas (`backend/app/schemas/`)
 
-```typescript
-import Dexie, { Table } from 'dexie';
+```python
+# backend/app/schemas/schemas.py
+from pydantic import BaseModel, Field
+from typing import List, Optional
+from datetime import datetime
+from app.models.models import PathogenEnum, RemedyTypeEnum, SeverityEnum
 
-export interface LocalScan {
-  id?: number;
-  uuid: string;
-  cropSlug: string;
-  cropName: string;
-  diseaseClassKey: string;
-  diseaseName: string;
-  diseaseNameUrdu: string;
-  confidence: number;
-  severity: 'LOW' | 'MODERATE' | 'HIGH' | 'CRITICAL';
-  thumbnailBase64: string;
-  fullImageBlob?: Blob;
-  latitude?: number;
-  longitude?: number;
-  notes?: string;
-  isSynced: boolean;
-  timestamp: number;
-}
+class RemedySchema(BaseModel):
+    remedy_type: RemedyTypeEnum
+    title_urdu: str
+    instructions_urdu: str
+    active_ingredient: Optional[str] = None
+    local_brands: Optional[str] = None
+    pre_harvest_interval_days: Optional[int] = 7
+    safety_warning_urdu: Optional[str] = None
 
-export interface CachedDisease {
-  classKey: string;
-  cropName: string;
-  diseaseName: string;
-  diseaseNameUrdu: string;
-  symptoms: string;
-  symptomsUrdu: string;
-  organicRemedy: string;
-  organicRemedyUrdu: string;
-  chemicalRemedy: string;
-  chemicalRemedyUrdu: string;
-  localBrands: string;
-  dosageGramsPerAcre: number;
-}
+    class Config:
+        from_attributes = True
 
-export class AgriShieldDatabase extends Dexie {
-  scans!: Table<LocalScan, number>;
-  diseases!: Table<CachedDisease, string>;
+class DosageSchema(BaseModel):
+    chemical_per_acre_grams: float
+    water_per_acre_liters: float
+    knapsack_tank_ratio: float
+    application_method: str
 
-  constructor() {
-    super('AgriShieldDB');
-    this.version(1).stores({
-      scans: '++id, uuid, cropSlug, diseaseClassKey, severity, isSynced, timestamp',
-      diseases: 'classKey, cropName, diseaseName'
-    });
-  }
-}
+    class Config:
+        from_attributes = True
 
-export const localDb = new AgriShieldDatabase();
+class DiagnosisResponse(BaseModel):
+    scan_id: str
+    image_url: str
+    thumbnail_url: str
+    crop_name: str
+    crop_name_urdu: str
+    disease_name: str
+    disease_name_urdu: str
+    disease_name_pashto: Optional[str] = None
+    pathogen_type: PathogenEnum
+    confidence: float
+    severity: SeverityEnum
+    audio_urdu_text: str
+    remedies: List[RemedySchema]
+    dosage: Optional[DosageSchema] = None
+    scanned_at: datetime
 ```
 
 ---
 
-## 5. Synchronization Protocol & Conflict Resolution
+## 5. Image File Storage & Thumbnail Pipeline
 
-```
-SYNC WORKFLOW:
-1. Client generates UUID v4 for each scan locally.
-2. When online, client queries: `localDb.scans.where({ isSynced: false }).toArray()`.
-3. Sends POST request to `/api/sync/scans` with payload array.
-4. Server performs idempotent batch upsert based on UUID.
-5. Server responds with array of successfully synced UUIDs.
-6. Client updates local IndexedDB records: `isSynced = true`.
-```
+When an image is received in `POST /api/v1/diagnose`:
+1. **Pillow** decodes the image bytes.
+2. Saves full optimized image to `backend/static/uploads/scans/{scan_id}.webp`.
+3. Creates a `150x150` thumbnail saved to `backend/static/uploads/thumbnails/thumb_{scan_id}.webp`.
+4. FastAPI serves static files via `app.mount("/static", StaticFiles(directory="static"), name="static")`.

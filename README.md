@@ -1,51 +1,30 @@
-# 🌾 AgriShield (کسان دوست) — Master Documentation Suite
-## AI-Powered Crop Disease Diagnostics & Decision Support System
+# 🌾 AgriShield (کسان دوست) — AI Crop Disease Diagnostics
 
-Welcome to the comprehensive documentation repository for **AgriShield (کسان دوست)**. This suite of documents is specifically tailored for **Vibecoding** (rapid, autonomous AI-assisted software development) to ensure clear architectural boundaries, strict types, and production-grade execution.
-
----
-
-## 📚 Documentation Index
-
-| # | Document | File Link | Primary Purpose & Key Contents |
-| :-: | :--- | :--- | :--- |
-| **1** | **PRD** (Product Requirements Document) | [1_PRD.md](file:///home/saadm/Crop%20Disease%20Analysis/Docs/1_PRD.md) | Product vision, target farmer personas, problem statement, MoSCoW feature scope, and success OKRs. |
-| **2** | **TRD** (Technical Requirements Document) | [2_TRD.md](file:///home/saadm/Crop%20Disease%20Analysis/Docs/2_TRD.md) | Architecture overview, Next.js PWA + TensorFlow.js edge ML justification, tech stack matrix, and offline sync protocol. |
-| **3** | **UI/UX Design Specification** | [3_UI_UX_Design.md](file:///home/saadm/Crop%20Disease%20Analysis/Docs/3_UI_UX_Design.md) | Color palette, sunlight-readable high-contrast tokens, typography (Inter & Noto Nastaliq Urdu), wireframes, and screen-by-screen layouts. |
-| **4** | **App Flow & State Machine** | [4_App_Flow.md](file:///home/saadm/Crop%20Disease%20Analysis/Docs/4_App_Flow.md) | Navigation topology, sitemap, Mermaid sequence diagrams, diagnostic state machine, and offline recovery flows. |
-| **5** | **Backend & Database Schema** | [5_Backend_and_Database_Schema.md](file:///home/saadm/Crop%20Disease%20Analysis/Docs/5_Backend_and_Database_Schema.md) | Local-first IndexedDB (Dexie.js) schema, PostgreSQL/SQLite Prisma ORM models, and ER diagrams. |
-| **6** | **Implementation Plan** | [6_Implementation_Plan.md](file:///home/saadm/Crop%20Disease%20Analysis/Docs/6_Implementation_Plan.md) | Complete directory file tree, 7-phase agent execution roadmap, verification commands, and acceptance criteria. |
-| **7** | **Vibecoding Rules & Conventions** | [7_Vibecoding_Rules_and_Conventions.md](file:///home/saadm/Crop%20Disease%20Analysis/Docs/7_Vibecoding_Rules_and_Conventions.md) | AI coding constraints, strict TypeScript rules, component separation, memory cleanup (`tf.tidy()`), and TTS standards. |
-| **8** | **API Contracts & Data Specs** | [8_API_Contracts_and_Data_Specs.md](file:///home/saadm/Crop%20Disease%20Analysis/Docs/8_API_Contracts_and_Data_Specs.md) | OpenAPI endpoint specs, Edge ML Tensor contract, sample JSON knowledge base, and spray dosage formulas. |
+> **Cloud-Powered, Multilingual, Sub-Second Plant Disease Diagnosis & Decision Support Web Application powered by Python FastAPI & PyTorch.**
 
 ---
 
-## ⚡ Core Feature Highlights
+## 📖 Project Documentation
 
-1. **Sub-second Offline Edge Inference:** Browser-based TensorFlow.js MobileNetV2 model running directly via WebAssembly/WebGL on low-end smartphones.
-2. **Dual-Treatment Engine:** Immediate organic remedies ("Desi Totkay" / bio-pesticides) alongside verified local agrochemical brands (e.g. *Nativo, Ridomil Gold, Score, Movento*).
-3. **Multilingual & Audio-First (TTS):** 1-tap Urdu (اردو), Pashto (پښتو), Sindhi (سنڌي), and English speech readout for illiterate and rural farmers.
-4. **Smart Spray Dosage Calculator:** Converts field size (Acres, Kanals, Marlas) into exact knapsack tank counts and chemical grams to eliminate toxic pesticide overuse.
-5. **Field Diary & History:** Local-first IndexedDB storage with automatic background synchronization when internet connectivity resumes.
-6. **Agronomist WhatsApp Bridge:** 1-click generation of formatted diagnostic reports to consult certified agronomists and local agriculture helplines.
+All specifications, architectural blueprints, UI/UX designs, and agent vibecoding guides have been structured into the [`Docs/`](file:///home/saadm/Crop%20Disease%20Analysis/Docs/README.md) directory:
 
----
-
-## 🛠️ Recommended Tech Stack for Implementation
-
-```
-Frontend:            Next.js 14/15 (App Router) + React + TypeScript
-Styling & UI:        Tailwind CSS + Lucide React Icons + Radix UI
-Edge ML / CV:        TensorFlow.js (@tensorflow/tfjs) + MobileNetV2 (Quantized ~3.2MB)
-Local Storage:       Dexie.js (IndexedDB wrapper)
-PWA & Offline:       Workbox / next-pwa Service Worker
-Speech Engine:       Web Speech API (SpeechSynthesis)
-Cloud Database:      Prisma ORM with PostgreSQL / SQLite
-```
+1. 📄 [**Product Requirements Document (PRD)**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/1_PRD.md) — Problem statement, target farmer personas, MoSCoW feature scope, and success OKRs.
+2. ⚙️ [**Technical Requirements Document (TRD)**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/2_TRD.md) — Python FastAPI + PyTorch ML architecture, Next.js/React frontend stack, tech stack comparison, and performance benchmarks.
+3. 🎨 [**UI/UX Design Specification**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/3_UI_UX_Design.md) — Sunlight-readable design system, Urdu/English typography, animated laser scanning states, wireframes, and screen layouts.
+4. 🗺️ [**App Flow & State Machine**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/4_App_Flow.md) — Sitemap, user journeys, sequence diagrams, FastAPI upload state machines, and error recovery flows.
+5. 🗄️ [**Backend & Database Schema**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/5_Backend_and_Database_Schema.md) — SQLAlchemy 2.0 ORM models (SQLite/PostgreSQL), Pydantic v2 schemas, ER diagrams, and Pillow image storage pipeline.
+6. 🚀 [**Agent Implementation Plan**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/6_Implementation_Plan.md) — Decoupled `backend/` (FastAPI) and `frontend/` directory tree, 7-phase agent execution roadmap, and acceptance criteria.
+7. ⚡ [**Vibecoding Rules & Conventions**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/7_Vibecoding_Rules_and_Conventions.md) — Strict coding standards, Pydantic type safety, PyTorch `torch.no_grad()` memory rules, and audio guidelines.
+8. 🔌 [**API Contracts & Data Specs**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/8_API_Contracts_and_Data_Specs.md) — FastAPI OpenAPI endpoint specs (`/api/v1/diagnose`, `/api/v1/scans`, `/api/v1/diseases`), JSON schemas, and dosage math.
+9. 📑 [**Docs Master Index**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/README.md) — Master navigation hub.
 
 ---
 
-## 🚀 How to Kickstart the Vibecoding Build
+## 💡 Key Highlights
 
-When you are ready to begin implementation, prompt your AI agent with:
-> *"Read `Docs/6_Implementation_Plan.md` and `Docs/7_Vibecoding_Rules_and_Conventions.md`, then execute Phase 1: Project Scaffolding, PWA configuration, Design System & Localization."*
+- **⚡ Python FastAPI + PyTorch ML Engine:** Sub-second deep learning classification running natively on Python AI infrastructure.
+- **🌿 Dual-Action Remedies:** Step-by-step **Organic bio-remedies** + verified **Localized chemical brands** (*Nativo, Score, Ridomil Gold, Movento*).
+- **🔊 Urdu/Pashto/Sindhi Voice Readout:** 1-tap Text-to-Speech (TTS) narration for illiterate farmers.
+- **⚖️ Smart Spray Dosage Calculator:** Eliminates chemical overdose by computing exact knapsack tank counts and water ratios per acre/kanal.
+- **🗄️ Cloud Field Diary:** Centralized database storage of scan records with history tracking.
+- **💬 WhatsApp Agronomist Bridge:** 1-tap formatted report sharing to certified agricultural experts.
