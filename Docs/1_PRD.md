@@ -94,7 +94,7 @@ To ensure complete transparency and build trust with agronomists, the system fea
 
 ### 5.1 Must-Have (Hackathon Scope)
 - [x] **HTML5 Camera Viewfinder & File Picker:** Live camera capture with leaf framing guideline, flash toggle, and gallery selector.
-- [x] **FastAPI Custom ML Endpoint:** `POST /api/v1/diagnose` running PyTorch inference and generating Grad-CAM heatmaps.
+- [x] **FastAPI Custom ML Endpoint:** `POST /api/diagnose` running PyTorch inference and generating Grad-CAM heatmaps.
 - [x] **Explainable AI Heatmap Viewer:** Interactive UI toggle allowing users to switch between the original leaf photo and the Grad-CAM lesion heatmap.
 - [x] **Dual Treatment Recommendations:**
   - Organic/Biological remedies ("Desi Totkay") with step-by-step preparation.

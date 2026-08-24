@@ -50,7 +50,7 @@ from app.services.gradcam_service import generate_gradcam_overlay
 from app.services.storage_service import save_leaf_and_heatmap
 from app.models.models import DiagnosticScan, Disease
 
-router = APIRouter(prefix="/api/v1", tags=["Diagnosis"])
+router = APIRouter(prefix="/api", tags=["Diagnosis"])
 
 @router.post("/diagnose", response_model=DiagnosisResponse, status_code=status.HTTP_200_OK)
 async def diagnose_leaf(

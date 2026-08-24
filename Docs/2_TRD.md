@@ -32,10 +32,10 @@ AgriShield utilizes a **Self-Hosted Machine Learning Pipeline**. The frontend we
 |                                                                                    |
 |  +------------------------------------------------------------------------------+  |
 |  |                     FastAPI Application (Uvicorn / AsyncIO)                  |  |
-|  |     • `POST /api/v1/diagnose` (Image Ingestion, ML Inference & Grad-CAM)     |  |
-|  |     • `GET  /api/v1/diseases` (Disease Encyclopedia & Remedies)              |  |
-|  |     • `GET/POST /api/v1/scans` (Field Diary Scan Persistence)                |  |
-|  |     • `GET  /api/v1/weather/alerts` (Live Weather Disease Risk Index)        |  |
+|  |     • `POST /api/diagnose` (Image Ingestion, ML Inference & Grad-CAM)        |  |
+|  |     • `GET  /api/diseases` (Disease Encyclopedia & Remedies)                 |  |
+|  |     • `GET/POST /api/scans` (Field Diary Scan Persistence)                   |  |
+|  |     • `GET  /api/weather/alerts` (Live Weather Disease Risk Index)           |  |
 |  +------------------------------------------------------------------------------+  |
 |         │                                      │                                   |
 |         ▼ (Image Bytes)                        ▼ (Relational Queries)              |

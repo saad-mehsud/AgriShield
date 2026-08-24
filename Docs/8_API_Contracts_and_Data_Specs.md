@@ -6,9 +6,9 @@
 
 ---
 
-## 1. REST API Endpoints Specification (FastAPI `/api/v1`)
+## 1. REST API Endpoints Specification (FastAPI `/api`)
 
-### 1.1 `POST /api/v1/diagnose` (Primary Diagnostic & Explainable AI Endpoint)
+### 1.1 `POST /api/diagnose` (Primary Diagnostic & Explainable AI Endpoint)
 Accepts a multipart leaf image, performs PyTorch MobileNetV3 classification, generates a Grad-CAM lesion heatmap overlay, queries localized Pakistani remedies, records the scan, and returns structured diagnosis and spray dosage numbers.
 
 - **Request Headers:** `Content-Type: multipart/form-data`
@@ -67,7 +67,7 @@ Accepts a multipart leaf image, performs PyTorch MobileNetV3 classification, gen
 
 ---
 
-### 1.2 `GET /api/v1/scans` (Field Diary Scan History)
+### 1.2 `GET /api/scans` (Field Diary Scan History)
 - **Query Parameters:** `page` (default 1), `limit` (default 20), `crop` (optional)
 - **Response `200 OK`:**
   ```json
@@ -94,7 +94,7 @@ Accepts a multipart leaf image, performs PyTorch MobileNetV3 classification, gen
 
 ---
 
-### 1.3 `GET /api/v1/diseases` (Disease Encyclopedia)
+### 1.3 `GET /api/diseases` (Disease Encyclopedia)
 - **Response `200 OK`:** Returns full list of 38+ crop diseases with symptoms and local Pakistani remedies.
 
 ---

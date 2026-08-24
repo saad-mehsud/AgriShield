@@ -15,7 +15,7 @@ All specifications, architectural blueprints, UI/UX designs, and agent implement
 5. 🗄️ [**Backend & Database Schema**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/5_Backend_and_Database_Schema.md) — SQLAlchemy 2.0 ORM models (SQLite/PostgreSQL), Pydantic v2 schemas, ER diagrams, and Grad-CAM heatmap storage pipeline.
 6. 🚀 [**Agent Implementation Plan**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/6_Implementation_Plan.md) — Decoupled `backend/` (FastAPI) and `frontend/` directory tree, 7-day hackathon execution roadmap, and acceptance criteria.
 7. ⚡ [**Vibecoding Rules & Conventions**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/7_Vibecoding_Rules_and_Conventions.md) — Strict coding standards, PyTorch memory management, Grad-CAM gradient hooks, Pydantic type safety, and audio guidelines.
-8. 🔌 [**API Contracts & Data Specs**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/8_API_Contracts_and_Data_Specs.md) — FastAPI OpenAPI endpoint specs (`/api/v1/diagnose`, `/api/v1/scans`, `/api/v1/diseases`), JSON schemas, and Pakistani land dosage math.
+8. 🔌 [**API Contracts & Data Specs**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/8_API_Contracts_and_Data_Specs.md) — FastAPI OpenAPI endpoint specs (`/api/diagnose`, `/api/scans`, `/api/diseases`), JSON schemas, and Pakistani land dosage math.
 9. 📑 [**Docs Master Index**](file:///home/saadm/Crop%20Disease%20Analysis/Docs/README.md) — Master navigation hub.
 
 ---

@@ -36,10 +36,10 @@ Crop Disease Analysis/
 │   │   │   └── schemas.py                # Pydantic v2 Request/Response Schemas
 │   │   ├── routers/
 │   │   │   ├── __init__.py
-│   │   │   ├── diagnose.py               # `POST /api/v1/diagnose` Route (ML + Grad-CAM)
-│   │   │   ├── diseases.py               # `GET /api/v1/diseases` Route
-│   │   │   ├── scans.py                  # `GET /api/v1/scans` Route
-│   │   │   └── weather.py                # `GET /api/v1/weather/alerts` Route
+│   │   │   ├── diagnose.py               # `POST /api/diagnose` Route (ML + Grad-CAM)
+│   │   │   ├── diseases.py               # `GET /api/diseases` Route
+│   │   │   ├── scans.py                  # `GET /api/scans` Route
+│   │   │   └── weather.py                # `GET /api/weather/alerts` Route
 │   │   ├── services/
 │   │   │   ├── __init__.py
 │   │   │   ├── ml_service.py             # PyTorch MobileNetV3 Vision Classifier
@@ -126,7 +126,7 @@ Crop Disease Analysis/
 
 ---
 
-### Day 3: Diagnostic Endpoint (`POST /api/v1/diagnose`) & Backend Testing
+### Day 3: Diagnostic Endpoint (`POST /api/diagnose`) & Backend Testing
 - **Tasks:**
   1. Build `backend/app/routers/diagnose.py` combining multipart image ingestion, PyTorch prediction, Grad-CAM heatmap generation, and database remedy enrichment.
   2. Implement `backend/app/routers/diseases.py` and `backend/app/routers/scans.py`.

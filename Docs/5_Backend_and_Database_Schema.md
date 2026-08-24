@@ -16,9 +16,9 @@ AgriShield's backend is a Python FastAPI service hosting the PyTorch Machine Lea
 |                                                                                    |
 |  +------------------------------------------------------------------------------+  |
 |  |           Next.js / React Frontend (TypeScript, Tailwind CSS, Lucide)        |  |
-|  |     • Submits Multipart Image -> `POST /api/v1/diagnose`                     |  |
-|  |     • Fetches Diary Scans   -> `GET  /api/v1/scans`                          |  |
-|  |     • Fetches Encyclopedia  -> `GET  /api/v1/diseases`                       |  |
+|  |     • Submits Multipart Image -> `POST /api/diagnose`                        |  |
+|  |     • Fetches Diary Scans   -> `GET  /api/scans`                             |  |
+|  |     • Fetches Encyclopedia  -> `GET  /api/diseases`                          |  |
 |  +------------------------------------------------------------------------------+  |
 +------------------------------------------------------------------------------------+
                                       │
@@ -28,7 +28,7 @@ AgriShield's backend is a Python FastAPI service hosting the PyTorch Machine Lea
 |                         PYTHON FASTAPI BACKEND SERVICE                             |
 |                                                                                    |
 |  +------------------------------------------------------------------------------+  |
-|  |                     FastAPI Routers (`app/api/v1/routers/`)                  |  |
+|  |                     FastAPI Routers (`app/api/routers/`)                     |  |
 |  |  +---------------------------+       +------------------------------------+  |  |
 |  |  |   PyTorch & Grad-CAM      |       |      SQLAlchemy 2.0 ORM Layer      |  |  |
 |  |  |   • MobileNetV3 Inference |       |   • Async / Sync DB Session Pool   |  |  |

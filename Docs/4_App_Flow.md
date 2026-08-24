@@ -30,10 +30,10 @@ Frontend Web Client (Next.js / React)
 Backend Server (Python FastAPI)
 │
 ├── /docs                     -> Interactive Swagger / OpenAPI Documentation
-├── /api/v1/diagnose          -> Image Ingestion, PyTorch Classification & Grad-CAM Heatmap Gen
-├── /api/v1/diseases          -> Disease Knowledge Base & Remedies Endpoint
-├── /api/v1/scans             -> Field Diary Scans Endpoint
-└── /api/v1/weather/alerts    -> Live Weather Risk Alert Endpoint
+├── /api/diagnose             -> Image Ingestion, PyTorch Classification & Grad-CAM Heatmap Gen
+├── /api/diseases             -> Disease Knowledge Base & Remedies Endpoint
+├── /api/scans                -> Field Diary Scans Endpoint
+└── /api/weather/alerts       -> Live Weather Risk Alert Endpoint
 ```
 
 ---
@@ -47,7 +47,7 @@ sequenceDiagram
     autonumber
     actor Farmer as Bashir (Farmer)
     participant WebUI as Frontend Web Client (React/Next)
-    participant FastAPI as Python FastAPI Backend (/api/v1)
+    participant FastAPI as Python FastAPI Backend (/api)
     participant PyTorch as PyTorch ML Service (MobileNetV3)
     participant GradCAM as Explainable AI (Grad-CAM Engine)
     participant DB as SQLite / PostgreSQL (SQLAlchemy)
@@ -57,7 +57,7 @@ sequenceDiagram
     WebUI->>Farmer: Renders Dashboard in Urdu (کسان دوست)
     Farmer->>WebUI: Taps "پتے کا معائنہ کریں" (Take Photo / Upload)
     Farmer->>WebUI: Captures diseased leaf photo
-    WebUI->>FastAPI: Multipart POST /api/v1/diagnose (image file, GPS)
+    WebUI->>FastAPI: Multipart POST /api/diagnose (image file, GPS)
     FastAPI->>PyTorch: TorchVision 224x224 RGB Normalize & Forward Pass
     PyTorch-->>FastAPI: Output: "Tomato___Early_blight" (Confidence: 96.8%, Time: 24ms)
     FastAPI->>GradCAM: Hook final conv layer -> Compute gradients -> Generate Heatmap
@@ -88,7 +88,7 @@ stateDiagram-v2
     CameraActive --> ImageReady : User Snaps Photo
     FilePicker --> ImageReady : User Chooses File
 
-    ImageReady --> ProcessingML : Submits POST /api/v1/diagnose
+    ImageReady --> ProcessingML : Submits POST /api/diagnose
 
     state ProcessingML {
         [*] --> IngestBytes
@@ -128,5 +128,5 @@ stateDiagram-v2
 | **Diagnosis Screen** | Tap "Grad-CAM Toggle" | Current View | Crossfade Image | Switches between raw leaf and lesion heatmap |
 | **Diagnosis Screen** | Tap "Dosage Calculator" | `/scan/result#dosage`| Tab Switch | Auto-calculates for 1 Acre default |
 | **Diagnosis Screen** | Tap "WhatsApp Agronomist"| Native WhatsApp | Deep Link | Encodes diagnosis summary into WhatsApp text |
-| **Navigation Bar** | Tap "Field Diary" | `/diary` | Instant Fade | Fetches scan history from `GET /api/v1/scans` |
-| **Encyclopedia** | Tap any Disease Card | `/encyclopedia/[id]` | Slide Left | Fetches disease profile from `GET /api/v1/diseases/[id]` |
+| **Navigation Bar** | Tap "Field Diary" | `/diary` | Instant Fade | Fetches scan history from `GET /api/scans` |
+| **Encyclopedia** | Tap any Disease Card | `/encyclopedia/[id]` | Slide Left | Fetches disease profile from `GET /api/diseases/[id]` |
