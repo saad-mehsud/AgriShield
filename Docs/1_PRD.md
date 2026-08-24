@@ -1,45 +1,55 @@
 # 🌾 Product Requirements Document (PRD)
-## Project: AI-Powered Crop Disease Diagnostics & Decision Support System (AgriShield / Kisan Dost)
+## Project: AgriShield (کسان دوست) — AI-Powered Crop Disease Diagnostics & Explainable Decision Support System
 
-**Document Version:** 3.0.0 (Python FastAPI + React/Next.js Cloud Architecture)  
-**Status:** Approved for Implementation (Vibecoding)  
-**Target Platform:** Web Application (Mobile-Optimized & Desktop Responsive)  
-**Primary Region:** Pakistan & South Asian Agro-zones (Universal applicability for global crops)  
+**Document Version:** 4.0.0 (Custom PyTorch ML + Explainable AI Edition)  
+**Status:** Approved for Implementation  
+**Architecture:** Python FastAPI + Custom PyTorch Computer Vision (MobileNetV3/EfficientNet) + Grad-CAM Explainable AI + Next.js Web Frontend  
+**Target Market:** Pakistan & South Asian Agro-zones (Zero Foreign API Costs, 100% Self-Hosted)  
 
 ---
 
-## 1. Executive Summary & Vision
+## 1. Executive Summary & Product Vision
 
 ### 1.1 Product Vision
-To empower farmers and agronomists with an instant, cloud-based AI plant doctor. The farmer snaps or uploads a photo of a diseased plant leaf via a mobile-friendly web client. The image is transmitted to a high-performance **Python FastAPI** backend running native deep learning computer vision models (PyTorch / TorchVision). The server returns sub-second diagnosis, severity assessment, dual organic/chemical treatment advice with local brand names, precise spray dosage calculations, and localized voice audio guidance in Urdu, Pashto, Sindhi, and English.
+AgriShield (کسان دوست) is an authentic, self-hosted Machine Learning and Computer Vision decision support platform designed to democratize plant pathology for farmers in Pakistan. The system runs a **custom fine-tuned PyTorch Deep Learning model** (MobileNetV3-Large / EfficientNet-B0) on a **Python FastAPI** backend, executing in sub-30ms without requiring paid third-party APIs. 
 
-### 1.2 The Core Problem & Solution
-Agricultural diseases cause over **PKR 345B – PKR 523B** in annual losses across Pakistan due to delayed identification and blind chemical overuse.
+To ensure complete transparency and build trust with agronomists, the system features **Explainable AI (Grad-CAM Heatmaps)** that visually highlight the exact pathological lesions on the leaf that influenced the neural network's diagnosis. The diagnosis is paired with certified Pakistani agrochemical prescriptions (Syngenta, Bayer, FMC Pakistan), organic bio-remedies ("Desi Totkay"), localized land dosage math (Acres/Kanals/Marlas $\to$ 20L spray tanks), and native **Urdu, Pashto, and Sindhi voice readout**.
 
-By powering the backend with **Python FastAPI + PyTorch**:
-- **Native ML Ecosystem:** Leverages the full power of Python's scientific computing stack (PyTorch, TorchVision, NumPy, Pillow, OpenCV) without translation layers.
-- **High-Performance Asynchronous I/O:** FastAPI provides asynchronous request handling, auto-generated OpenAPI documentation (`/docs`), and sub-second classification response times.
-- **Zero Client Memory Overhead:** Lightweight frontend runs smoothly on low-spec mobile browsers while heavy neural network computations remain on the cloud GPU/CPU.
-- **Centralized Agronomic Intelligence:** Every diagnosis is logged into a central relational database to support regional outbreak heatmaps and agronomist validation.
+### 1.2 The Problem Statement
+- **Economic Hemorrhage:** Annual post-harvest and crop disease losses in Pakistan cost between **PKR 345 Billion and PKR 523 Billion**.
+- **Blind Chemical Overuse:** Farmers preemptively spray broad-spectrum, expensive pesticides without accurate pathogen identification, degrading soil biology and incurring high debt.
+- **Black-Box AI Skepticism:** Traditional AI diagnostic tools give raw text predictions without visual proof, causing farmers and agronomists to distrust automated advice.
+- **Foreign Currency Dependency:** Cloud API-based solutions (charging USD per scan) are financially unsustainable for Pakistani grassroots farmers and local agri-institutions.
+
+```
++-----------------------------------------------------------------------------------+
+|                        THE AGRISHIELD ML VALUE PROPOSITION                        |
++-----------------------------------------------------------------------------------+
+|  1. 100% Self-Hosted ML      -->  Zero API fees, runs locally on standard CPU/VPS |
+|  2. Explainable AI (Grad-CAM)-->  Visual heatmaps prove neural network attention  |
+|  3. Hyper-Local Cures        -->  Pakistani market brands (Nativo, Ridomil Gold)  |
+|  4. Local Land Units         -->  Dosage computed for Acres, Kanals, and Marlas   |
+|  5. Illiterate-Friendly      -->  Urdu voice narration (سنیں) with sunlight UI    |
++-----------------------------------------------------------------------------------+
+```
 
 ---
 
 ## 2. Target User Personas
 
-### Persona 1: Bashir Ahmed (Smallholder Farmer - Primary User)
-- **Location:** Rahim Yar Khan, Punjab (Cotton & Wheat)
-- **Device:** Budget Android Smartphone (Chrome Browser)
-- **Goal:** Takes a photo of diseased cotton leaves; receives instant Urdu voice readout with exact pesticide mixture instructions for his 3-acre field.
+### Persona 1: Bashir Ahmed (Smallholder Cotton & Wheat Farmer)
+- **Location:** Rahim Yar Khan, Punjab (Cotton Belt)
+- **Landholding:** 3.5 Acres
+- **Tech Profile:** Low-to-moderate literacy; uses WhatsApp voice notes; operates an entry-level Android phone under bright sunlight.
+- **Key Pain Point:** Notices leaf curling and vein thickening on cotton. Spends PKR 16,000 on generic fungal spray that fails because the issue is viral (Cotton Leaf Curl Virus transmitted by whiteflies).
+- **Needs:** 1-tap photo scan, visual proof of disease location, Urdu audio readout, exact dosage for his 20L battery knapsack sprayer.
 
-### Persona 2: Dr. Tariq Mahmood (Agricultural Extension Officer)
+### Persona 2: Dr. Tariq Mahmood (Field Extension Agronomist)
 - **Location:** Tandojam, Sindh
-- **Device:** Tablet / Laptop
-- **Goal:** Reviews centralized farmer diagnosis logs, monitors disease trends, and verifies active ingredient prescriptions.
-
-### Persona 3: Farhan Malik (Commercial Farm Manager)
-- **Location:** Multan / Faisalabad
-- **Device:** iPhone / Desktop
-- **Goal:** High-volume field inspections, precise spray dosage calculations per acre, chemical vs. organic cost-benefit analysis.
+- **Role:** Agricultural Officer overseeing 30+ villages.
+- **Tech Profile:** High; holds an MSc in Plant Pathology.
+- **Key Pain Point:** Needs a fast, verified diagnostic validation tool with visual transparency.
+- **Needs:** **Grad-CAM heatmaps** to verify fungal vs. bacterial lesion margins, active ingredient directory, exportable scan history.
 
 ---
 
@@ -47,10 +57,10 @@ By powering the backend with **Python FastAPI + PyTorch**:
 
 | Crop Category | Target Crops | Primary Diseases / Pathogens | Typical Yield Loss |
 | :--- | :--- | :--- | :--- |
-| **Cash Crops** | Cotton, Sugarcane | Cotton Leaf Curl Virus (CLCuV), Bacterial Blight, Root Rot, Red Rot | 30% – 60% |
+| **Cash Crops** | Cotton, Sugarcane | Cotton Leaf Curl Virus (CLCuV), Bacterial Blight, Red Rot, Root Rot | 30% – 60% |
 | **Cereal & Grains** | Wheat, Rice, Corn (Maize) | Yellow/Brown Rust, Rice Blast, Brown Spot, Northern Leaf Blight | 20% – 45% |
-| **Vegetables** | Tomato, Potato, Pepper | Early Blight, Late Blight, Tomato Yellow Leaf Curl, Bacterial Spot, Septoria | 35% – 70% |
-| **Fruits** | Apple, Grape, Citrus | Apple Scab, Black Rot, Citrus Canker, Cedar Apple Rust, Powdery Mildew | 25% – 50% |
+| **Vegetables** | Tomato, Potato, Chili | Early Blight, Late Blight, Tomato Yellow Leaf Curl, Bacterial Spot, Chili Mosaic | 35% – 70% |
+| **Fruits** | Citrus, Mango, Apple | Citrus Canker, Mango Anthracnose, Powdery Mildew, Apple Scab | 25% – 50% |
 
 ---
 
@@ -58,46 +68,46 @@ By powering the backend with **Python FastAPI + PyTorch**:
 
 ```
                      +---------------------------------------+
-                     |    Python FastAPI Cloud AI Engine     |
+                     |       AgriShield ML Vision Core       |
                      +---------------------------------------+
-                                         |
+                                         │
      +-------------------+---------------+-------------------+--------------------+
-     |                   |                                   |                    |
-     v                   v                                   v                    v
+     │                   │                                   │                    │
+     ▼                   ▼                                   ▼                    ▼
 +---------------+ +-------------------+             +------------------+ +-----------------+
-|  PyTorch Deep | |  Hyper-Localized  |             | Audio & Regional | | Dosage & Impact |
-|  Vision Model | |    Cure Engine    |             |    Voice First   | |   Calculator    |
-|  (MobileNetV2)| | (Organic/Chemical)|             | (Urdu/Pashto/etc)| | (Per Acre/Kanal)|
+| PyTorch Custom| | Explainable AI    |             | Localized Market | | Dosage & Audio  |
+|  Vision Model | | (Grad-CAM Heatmap)|             | Knowledge Engine | | Support Engine  |
+| (MobileNetV3) | | (Visual Evidence) |             | (Syngenta/Bayer) | | (Urdu Voice/TTS)|
 +---------------+ +-------------------+             +------------------+ +-----------------+
 ```
 
-1. **Python FastAPI Deep Learning Pipeline:** Native PyTorch model execution processing image tensors and returning top-1 and top-3 class probabilities with confidence scores within 1-2 seconds.
-2. **Dual-Treatment Recommendation:** Provides both cost-effective Organic Remedies ("Desi Totkay" / Bio-pesticides) and Verified Chemical Remedies with local brand names (*Nativo, Ridomil Gold, Score, Aliette, Movento*).
-3. **Multilingual & Audio First:** Integrated Web Speech API and server audio generator in **Urdu (اردو), Pashto (پښتو), Sindhi (سنڌي), and English**.
-4. **Precision Spray & Dosage Calculator:** Converts field measurements (Acre, Kanal, Marla) into exact chemical amounts (grams/ml) and water volume (20L knapsack tanks).
-5. **Centralized Field Diary & History:** User scan history saved securely in the cloud database, enabling historical trend tracking across seasons.
+1. **Custom PyTorch Deep Vision Engine:** Sub-30ms inference executing on standard CPU with pre-trained and fine-tuned MobileNetV3-Large weights.
+2. **Explainable AI (Grad-CAM):** Extracts activation gradients from the final convolutional layer to generate a superimposed heatmap on the leaf image.
+3. **Pakistani Agrochemical & Organic Engine:** Curated database of registered Pakistani brand names (*Nativo, Score, Ridomil Gold, Movento, Aliette, Match, Belt*) paired with low-cost "Desi Totkay" (Neem oil, tobacco extract, wood ash).
+4. **Localized Spray Dosage Math:** Converts land measurements (**Acre / ایکڑ, Kanal / کنال, Marla / مرلہ**) into exact 16L/20L knapsack tank counts and chemical grams.
+5. **Urdu / Regional Voice First:** Native browser Web Speech API readout in Urdu (اردو), Pashto (پښتو), and Sindhi (سنڌي).
+6. **Centralized Field Diary:** Tracks scans over time with timestamps and severity markers.
 
 ---
 
 ## 5. Scope Matrix (MoSCoW Framework)
 
-### 5.1 Must-Have (MVP Scope for Vibecoding Sprint)
-- [x] **Web Camera & Image Uploader:** HTML5 camera capture and file picker with live framing overlay.
-- [x] **Python FastAPI Diagnostic Endpoint:** `POST /api/v1/diagnose` performing PyTorch image classification across 38+ plant disease classes.
-- [x] **Rich Diagnosis Presentation Screen:** Disease name (English & Urdu), severity status (Low, Moderate, Severe), confidence meter, and pathogen category.
-- [x] **Dual Treatment Guidance:**
-  - Organic/Biological solutions with step-by-step preparation steps.
-  - Chemical solutions with active ingredients, localized brand names, safety pre-harvest intervals (PHI).
-- [x] **Interactive Spray Dosage Calculator:** Input land area (Acre, Kanal, Marla) -> Automatic calculation of water tanks, chemical quantity, and tank mixing ratios.
-- [x] **Voice Readout (TTS):** 1-tap audio narration of diagnosis and remedy in Urdu and English.
-- [x] **Multilingual UI:** Instant toggle between English, Urdu, Pashto, and Sindhi with RTL script support.
-- [x] **Cloud Scan History (Field Diary):** Centralized database storage of scans with thumbnail previews, timestamps, and search/filter tools.
-- [x] **Disease Encyclopedia / Knowledge Base:** Comprehensive catalog of 38+ plant diseases with symptom descriptions, sample photos, causes, and prevention strategies.
+### 5.1 Must-Have (Hackathon Scope)
+- [x] **HTML5 Camera Viewfinder & File Picker:** Live camera capture with leaf framing guideline, flash toggle, and gallery selector.
+- [x] **FastAPI Custom ML Endpoint:** `POST /api/v1/diagnose` running PyTorch inference and generating Grad-CAM heatmaps.
+- [x] **Explainable AI Heatmap Viewer:** Interactive UI toggle allowing users to switch between the original leaf photo and the Grad-CAM lesion heatmap.
+- [x] **Dual Treatment Recommendations:**
+  - Organic/Biological remedies ("Desi Totkay") with step-by-step preparation.
+  - Certified Pakistani chemical brands with active ingredients and safety Pre-Harvest Intervals (PHI).
+- [x] **Pakistani Land Unit Dosage Calculator:** Input field size in Acres, Kanals, or Marlas $\to$ Auto-computes 20L tank count and chemical concentration.
+- [x] **Urdu Audio Narration (TTS):** 1-tap speech synthesis speaking the diagnosis and spray instructions aloud.
+- [x] **Multilingual UI:** Instant toggle between English, Urdu, Pashto, and Sindhi with full RTL layout support.
+- [x] **Field Diary (Scan History):** Local/cloud scan persistence storing leaf thumbnails, heatmaps, and diagnostic records.
+- [x] **Disease Encyclopedia:** Searchable catalog of crop diseases with symptoms, photos, and localized management strategies.
 
-### 5.2 Should-Have (Phase 2)
-- [ ] **Agronomist WhatsApp Direct Bridge:** 1-click formatted diagnostic summary sent to certified agronomists via WhatsApp.
-- [ ] **Weather & Disease Risk Advisory:** Live weather API integration calculating fungal/viral vulnerability index based on temperature and humidity.
-- [ ] **Regional Outbreak Heatmap:** Interactive map displaying aggregated crop disease outbreaks across districts.
+### 5.2 Should-Have (Post-Hackathon)
+- [ ] **1-Tap WhatsApp Agronomist Bridge:** Formatted diagnostic summary sharing directly to certified extension officers on WhatsApp.
+- [ ] **Weather-Driven Outbreak Index:** Live humidity/temperature alert engine warning of elevated fungal sporulation conditions.
 
 ---
 
@@ -105,18 +115,9 @@ By powering the backend with **Python FastAPI + PyTorch**:
 
 | Category | Requirement | Target Metric |
 | :--- | :--- | :--- |
-| **Response Latency** | End-to-end cloud scan response | $< 1.2$ seconds on 4G / 3G |
-| **Model Precision** | Server-side Top-1 / Top-3 Accuracy | $> 94.5\%$ Top-1, $> 98.2\%$ Top-3 |
-| **Backend Throughput** | FastAPI Async concurrency | $> 200$ req/sec per worker instance |
-| **Uptime & Scalability** | Backend availability | $99.9\%$ SLA with stateless Docker/Uvicorn scaling |
-| **Accessibility** | Color contrast & UI usability | WCAG 2.1 Level AA compliant |
-| **Browser Compatibility** | Modern mobile & desktop browsers | Chrome, Safari, Edge, Firefox, Samsung Internet |
-
----
-
-## 7. Success Metrics & Key Performance Indicators (KPIs)
-
-- **End-to-End Latency:** Total time from camera shutter click to diagnosis result rendered $< 1.5$ seconds.
-- **Diagnostic Success Rate:** $> 95\%$ of valid leaf uploads correctly classified.
-- **Farmer Usability Score:** $> 85\%$ task completion rate on first-time usage among regional language speakers.
-- **Pesticide Optimization Impact:** Estimated $30\%+$ reduction in unnecessary chemical usage through accurate dosage calculation.
+| **Inference Latency** | Model execution time on standard CPU | $\le 30$ ms (Total API round-trip $\le 300$ ms) |
+| **Grad-CAM Latency** | Heatmap computation and overlay | $\le 45$ ms |
+| **Classification Accuracy** | Top-1 validation accuracy on test set | $> 98.0\%$ |
+| **Memory Footprint** | Serialized model weight size | $< 20$ MB (MobileNetV3) |
+| **Financial Cost** | Third-party recurring API expense | **$0.00 / month** (100% Free & Self-Hosted) |
+| **Accessibility** | Sunlight readability & contrast | WCAG 2.1 Level AA compliant |

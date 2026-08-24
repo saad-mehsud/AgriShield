@@ -1,45 +1,43 @@
 # ⚡ Vibecoding Rules & Agent Engineering Conventions
-## Project: AI-Powered Crop Disease Diagnostics & Decision Support System (AgriShield / Kisan Dost)
+## Project: AgriShield (کسان دوست) — AI Crop Disease Diagnostics & Explainable Decision Support System
 
-**Document Version:** 3.0.0 (Python FastAPI + React/Next.js Architecture)  
+**Document Version:** 4.0.0 (Custom PyTorch ML + Explainable AI Edition)  
 **Purpose:** Strict architectural rules, design patterns, and constraints for AI Coding Agents when generating and modifying code.
 
 ---
 
-## 1. Golden Rules for Python FastAPI Backend
+## 1. Golden Rules for Python FastAPI & PyTorch ML Backend
 
-1. **Strict Type Annotations & Pydantic v2:**
-   - Every FastAPI route function must have explicit type hints and response models (`response_model=DiagnosisResponse`).
-   - Never return unvalidated raw dictionaries directly.
-2. **PyTorch Memory Management (`torch.no_grad()`):**
-   - Always wrap inference routines in `with torch.no_grad():` to avoid accumulating computational graphs in RAM/VRAM.
-   - Use `eval()` mode on the model before making predictions (`model.eval()`).
-3. **Async / Sync Balance:**
-   - For CPU-bound image transformations and PyTorch inference, run them inside a threadpool worker (`run_in_threadpool` or standard sync route) to prevent blocking FastAPI's async event loop.
-4. **CORS & Static File Mounting:**
-   - Ensure `CORSMiddleware` explicitly allows the frontend origin (`http://localhost:3000`).
-   - Serve uploaded images via `app.mount("/static", StaticFiles(directory="static"), name="static")`.
+1. **PyTorch Inference & Grad-CAM Memory Safety:**
+   - For standard inference, always use `model.eval()` and `with torch.no_grad():` to prevent memory bloat.
+   - For Grad-CAM heatmap generation, enable gradient computation specifically on the forward/backward pass for the target convolutional layer, then immediately `.detach().cpu().numpy()` and clean up intermediate tensors.
+2. **Strict Pydantic v2 Serialization:**
+   - Every route must return a strongly-typed Pydantic model (`response_model=DiagnosisResponse`).
+   - Never return unvalidated raw dictionaries.
+3. **Static Media Serving:**
+   - Original leaf images and Grad-CAM heatmap overlays must be stored in `backend/static/uploads/` and served via `app.mount("/static", StaticFiles(directory="static"), name="static")`.
+4. **CORS Configuration:**
+   - `CORSMiddleware` must explicitly allow `http://localhost:3000` with full support for GET, POST, and OPTIONS headers.
 
 ---
 
 ## 2. Golden Rules for Frontend Web Client
 
-1. **Strict TypeScript (No Lazy `any`):**
-   - All API response types must match the Pydantic schemas defined in `Docs/5_Backend_and_Database_Schema.md` and `Docs/8_API_Contracts_and_Data_Specs.md`.
-2. **No External CSS or Styled-Components:**
-   - Use Tailwind CSS utility classes exclusively.
-3. **i18n Localization Compliance:**
-   - Never hardcode raw English strings in UI components.
-   - Always route strings through the `useTranslation()` hook (e.g. `t('scanner.shutter_button')`).
-4. **Mobile-First Touch Target Sizing:**
-   - Primary buttons must have `min-h-[48px]` (recommended `min-h-[56px]`) and `min-w-[48px]` for rugged outdoor field usage.
-5. **Text-to-Speech (TTS) & Audio Engine:**
+1. **Strict TypeScript (No `any` Types):**
+   - Match all frontend response types with the FastAPI Pydantic schemas.
+2. **Explainable AI (Grad-CAM) Visual UX:**
+   - When displaying diagnosis results, always provide an interactive toggle to switch between the original leaf photo and the Grad-CAM heatmap overlay.
+3. **Pakistani Land Unit Standard:**
+   - Dosage calculations must support Acres (ایکڑ), Kanals (کنال), and Marlas (مرلہ) converting to standard 16L and 20L knapsack spray tanks.
+4. **i18n Localization Compliance:**
+   - Never hardcode raw English strings in UI components. Always use the `useTranslation()` hook (e.g. `t('scanner.shutter')`).
+5. **Text-to-Speech (TTS) & Audio Standards:**
    - Always check `typeof window !== 'undefined' && 'speechSynthesis' in window`.
-   - For Urdu speech, set `utterance.lang = 'ur-PK'`. Provide a visual sound wave indicator during audio playback.
+   - Set `utterance.lang = 'ur-PK'` for Urdu voice narration.
 
 ---
 
-## 3. Standard FastAPI Route Handler Pattern
+## 3. Standard FastAPI Diagnostic Route Pattern
 
 ```python
 # backend/app/routers/diagnose.py
@@ -48,7 +46,8 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.schemas.schemas import DiagnosisResponse
 from app.services.ml_service import predict_crop_disease
-from app.services.storage_service import save_image_and_thumbnail
+from app.services.gradcam_service import generate_gradcam_overlay
+from app.services.storage_service import save_leaf_and_heatmap
 from app.models.models import DiagnosticScan, Disease
 
 router = APIRouter(prefix="/api/v1", tags=["Diagnosis"])
@@ -56,34 +55,38 @@ router = APIRouter(prefix="/api/v1", tags=["Diagnosis"])
 @router.post("/diagnose", response_model=DiagnosisResponse, status_code=status.HTTP_200_OK)
 async def diagnose_leaf(
     image: UploadFile = File(...),
-    crop_hint: str = Form(None),
     latitude: float = Form(None),
     longitude: float = Form(None),
     db: Session = Depends(get_db)
 ):
     if not image.content_type.startswith("image/"):
-        raise HTTPException(status_code=400, detail="Uploaded file is not a valid image")
+        raise HTTPException(status_code=400, detail="Invalid image file uploaded")
 
     image_bytes = await image.read()
-    
-    # 1. Save Image & Thumbnail
-    image_url, thumb_url = save_image_and_thumbnail(image_bytes)
 
-    # 2. Run PyTorch Inference
+    # 1. Run PyTorch Deep Learning Prediction
     prediction, top3 = predict_crop_disease(image_bytes)
 
-    # 3. Fetch Disease & Remedy from Database
+    # 2. Generate Explainable AI (Grad-CAM) Heatmap
+    heatmap_overlay_bytes = generate_gradcam_overlay(image_bytes, prediction["class_idx"])
+
+    # 3. Save Files to Disk
+    image_url, heatmap_url, thumb_url = save_leaf_and_heatmap(image_bytes, heatmap_overlay_bytes)
+
+    # 4. Fetch Pakistani Remedies & Local Brand Names
     disease = db.query(Disease).filter(Disease.class_key == prediction["class_key"]).first()
     if not disease:
         raise HTTPException(status_code=404, detail="Disease profile not found in knowledge base")
 
-    # 4. Record Scan
+    # 5. Persist Diagnostic Scan
     scan = DiagnosticScan(
         crop_id=disease.crop_id,
         disease_id=disease.id,
         confidence=prediction["confidence"],
+        inference_latency_ms=prediction["latency_ms"],
         severity=disease.severity_default,
         image_url=image_url,
+        heatmap_url=heatmap_url,
         thumbnail_url=thumb_url,
         latitude=latitude,
         longitude=longitude

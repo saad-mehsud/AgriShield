@@ -1,29 +1,29 @@
 # 🔌 API Contracts, FastAPI Specs & Data Schemas
-## Project: AI-Powered Crop Disease Diagnostics & Decision Support System (AgriShield / Kisan Dost)
+## Project: AgriShield (کسان دوست) — AI Crop Disease Diagnostics & Explainable Decision Support System
 
-**Document Version:** 3.0.0 (Python FastAPI Architecture)  
+**Document Version:** 4.0.0 (Custom PyTorch ML + Explainable AI Edition)  
 **Format:** OpenAPI 3.0 / FastAPI REST & Pydantic v2 Models  
 
 ---
 
 ## 1. REST API Endpoints Specification (FastAPI `/api/v1`)
 
-### 1.1 `POST /api/v1/diagnose` (Primary Diagnostic Endpoint)
-Accepts a multipart leaf image, performs PyTorch MobileNetV2 classification, queries localized remedies from the database, records the scan, and returns structured diagnosis and spray dosage numbers.
+### 1.1 `POST /api/v1/diagnose` (Primary Diagnostic & Explainable AI Endpoint)
+Accepts a multipart leaf image, performs PyTorch MobileNetV3 classification, generates a Grad-CAM lesion heatmap overlay, queries localized Pakistani remedies, records the scan, and returns structured diagnosis and spray dosage numbers.
 
 - **Request Headers:** `Content-Type: multipart/form-data`
 - **Request Form Parameters:**
   - `image`: Binary file (JPEG, PNG, WebP $\le 10$MB) — **Required**
   - `crop_hint`: String (e.g. `"tomato"`, `"cotton"`) — *Optional*
-  - `farmer_id`: String (e.g. `"usr_991823"`) — *Optional*
-  - `latitude`: Float (e.g. `30.1575`) — *Optional*
-  - `longitude`: Float (e.g. `71.5249`) — *Optional*
+  - `latitude`: Float (e.g. `28.4212`) — *Optional*
+  - `longitude`: Float (e.g. `70.2989`) — *Optional*
 
 - **Response `200 OK` (JSON):**
   ```json
   {
     "scan_id": "scn_8819234",
     "image_url": "http://localhost:8000/static/uploads/scans/scn_8819234.webp",
+    "heatmap_url": "http://localhost:8000/static/uploads/heatmaps/heatmap_scn_8819234.webp",
     "thumbnail_url": "http://localhost:8000/static/uploads/thumbnails/thumb_scn_8819234.webp",
     "crop_name": "Tomato",
     "crop_name_urdu": "ٹماٹر",
@@ -31,13 +31,14 @@ Accepts a multipart leaf image, performs PyTorch MobileNetV2 classification, que
     "disease_name_urdu": "اگیتا جھلسائو",
     "disease_name_pashto": "مخکینی سوځیدنه",
     "pathogen_type": "FUNGAL",
-    "confidence": 0.965,
+    "confidence": 0.968,
+    "inference_latency_ms": 24.5,
     "severity": "HIGH",
-    "audio_urdu_text": "آپ کے ٹماٹر کے پودے میں اگیتا جھلسائو کی بیماری پائی گئی ہے۔ فوری طور پر نچلے متاثرہ پتوں کو کاٹ کر جلا دیں اور مینکوزیب یا ریڈومل گولڈ کا اسپرے کریں۔",
+    "audio_urdu_text": "آپ کے ٹماٹر کے پودے میں اگیتا جھلسائو کی بیماری پائی گئی ہے۔ فوری طور پر نچلے متاثرہ پتوں کو کاٹ کر جلا دیں اور ریڈومل گولڈ یا سکور کا اسپرے کریں۔",
     "remedies": [
       {
         "remedy_type": "ORGANIC",
-        "title_urdu": "قدرتی / دیسی علاج",
+        "title_urdu": "قدرتی علاج اور دیسی ٹوٹکے",
         "instructions_urdu": "پودے کے نچلے متاثرہ پتوں کو کاٹ کر کھیت سے دور دفن کریں یا جلائیں۔ نیم کا تیل 50 ملی لیٹر فی 10 لیٹر پانی میں ملا کر ہر 7 دن بعد اسپرے کریں۔",
         "active_ingredient": null,
         "local_brands": null,
@@ -46,12 +47,12 @@ Accepts a multipart leaf image, performs PyTorch MobileNetV2 classification, que
       },
       {
         "remedy_type": "CHEMICAL",
-        "title_urdu": "کیمیائی علاج اور مستند دوائیں",
+        "title_urdu": "کیمیائی علاج (مستند پاکستانی برانڈز)",
         "instructions_urdu": "250 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
-        "active_ingredient": "Mancozeb 75% WP + Metalaxyl 8% OR Difenoconazole",
-        "local_brands": "Ridomil Gold (سنجینٹا), Score 250 EC, Nativo (بائر)",
+        "active_ingredient": "Mancozeb 75% WP + Metalaxyl 8%",
+        "local_brands": "Ridomil Gold (سنجینٹا پاکستان), Score 250 EC, Nativo (بائر کراپ سائنس)",
         "pre_harvest_interval_days": 7,
-        "safety_warning_urdu": "اسپرے کرتے وقت ماسک اور دستانے لازمی پہنیں۔ فصل توڑنے سے کم از کم 7 دن پہلے اسپرے روک دیں۔"
+        "safety_warning_urdu": "اسپرے کرتے وقت ماسک اور دستانے لازمی پہنیں۔ فصل چنائی سے 7 دن پہلے اسپرے بند کریں۔"
       }
     ],
     "dosage": {
@@ -60,7 +61,7 @@ Accepts a multipart leaf image, performs PyTorch MobileNetV2 classification, que
       "knapsack_tank_ratio": 50.0,
       "application_method": "Foliar Spray"
     },
-    "scanned_at": "2026-08-23T12:00:00Z"
+    "scanned_at": "2026-08-24T12:00:00Z"
   }
   ```
 
@@ -71,7 +72,7 @@ Accepts a multipart leaf image, performs PyTorch MobileNetV2 classification, que
 - **Response `200 OK`:**
   ```json
   {
-    "total": 12,
+    "total": 14,
     "page": 1,
     "scans": [
       {
@@ -80,10 +81,12 @@ Accepts a multipart leaf image, performs PyTorch MobileNetV2 classification, que
         "crop_name_urdu": "ٹماٹر",
         "disease_name": "Early Blight",
         "disease_name_urdu": "اگیتا جھلسائو",
-        "confidence": 0.965,
+        "confidence": 0.968,
         "severity": "HIGH",
+        "image_url": "http://localhost:8000/static/uploads/scans/scn_8819234.webp",
+        "heatmap_url": "http://localhost:8000/static/uploads/heatmaps/heatmap_scn_8819234.webp",
         "thumbnail_url": "http://localhost:8000/static/uploads/thumbnails/thumb_scn_8819234.webp",
-        "scanned_at": "2026-08-23T12:00:00Z"
+        "scanned_at": "2026-08-24T12:00:00Z"
       }
     ]
   }
@@ -92,50 +95,19 @@ Accepts a multipart leaf image, performs PyTorch MobileNetV2 classification, que
 ---
 
 ### 1.3 `GET /api/v1/diseases` (Disease Encyclopedia)
-- **Response `200 OK`:**
-  ```json
-  [
-    {
-      "id": "dis_01",
-      "class_key": "Tomato___Early_blight",
-      "crop_name": "Tomato",
-      "crop_name_urdu": "ٹماٹر",
-      "disease_name": "Early Blight",
-      "disease_name_urdu": "اگیتا جھلسائو",
-      "pathogen_type": "FUNGAL",
-      "severity_default": "HIGH",
-      "symptoms_urdu": "پرانے پتوں پر گول گہرے بھورے دھبے بنتے ہیں جو نشانہ بورڈ کی طرح دکھائی دیتے ہیں۔",
-      "local_brands": "Ridomil Gold, Score, Nativo"
-    }
-  ]
-  ```
+- **Response `200 OK`:** Returns full list of 38+ crop diseases with symptoms and local Pakistani remedies.
 
 ---
 
-### 1.4 `GET /api/v1/weather/alerts?lat=30.15&lng=71.52` (Disease Risk Alert)
-- **Response `200 OK`:**
-  ```json
-  {
-    "location": "Multan, Punjab",
-    "temperature_c": 34.2,
-    "humidity_percent": 82,
-    "risk_level": "ELEVATED",
-    "active_threats": [
-      {
-        "crop": "Tomato",
-        "disease": "Early Blight",
-        "reason": "High humidity (>80%) creates optimal fungal spore germination conditions."
-      }
-    ]
-  }
-  ```
+## 2. Pakistani Land Dosage Math Engine
 
----
-
-## 2. Smart Spray Dosage Math Engine
-
-$$\text{Total Water Required (Liters)} = \text{Field Area (Acres)} \times \text{Water Per Acre (L)}$$
+$$\text{Total Water Required (Liters)} = \text{Field Area (Acres)} \times 100\text{ Liters}$$
 
 $$\text{Knapsack Tanks (20L)} = \lceil \frac{\text{Total Water Required}}{20} \rceil$$
 
-$$\text{Chemical Per Tank (Grams/ml)} = \frac{\text{Chemical Per Acre (Grams)}}{\text{Knapsack Tanks}}$$
+$$\text{Chemical Per 20L Tank (Grams/ml)} = \frac{\text{Total Chemical Per Acre (Grams)}}{\text{Knapsack Tanks}}$$
+
+### Land Conversion Matrix (Pakistan Standard):
+- $1\text{ Acre} = 8\text{ Kanals} = 160\text{ Marlas}$
+- $1\text{ Kanal} = 0.125\text{ Acres} = 20\text{ Marlas}$
+- $1\text{ Marla} = 0.00625\text{ Acres}$

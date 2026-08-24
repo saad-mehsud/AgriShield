@@ -1,14 +1,14 @@
 # 🗄️ Backend Architecture & Database Schema
-## Project: AI-Powered Crop Disease Diagnostics & Decision Support System (AgriShield / Kisan Dost)
+## Project: AgriShield (کسان دوست) — AI Crop Disease Diagnostics & Explainable Decision Support System
 
-**Document Version:** 3.0.0 (Python FastAPI + SQLAlchemy 2.0 Architecture)  
-**Database Strategy:** Python SQLAlchemy 2.0 ORM with SQLite / PostgreSQL and Pydantic v2 validation models.
+**Document Version:** 4.0.0 (Custom PyTorch ML + Explainable AI Edition)  
+**Database Strategy:** Python SQLAlchemy 2.0 ORM with SQLite / PostgreSQL, Pydantic v2 validation models, and Explainable AI heatmap storage.
 
 ---
 
 ## 1. Backend Architecture & Data Topology
 
-AgriShield's backend is a Python FastAPI service structured with asynchronous routers, dependency injection for database sessions, a dedicated PyTorch machine learning service, and an image processing pipeline.
+AgriShield's backend is a Python FastAPI service hosting the PyTorch Machine Learning inference service, OpenCV-based Grad-CAM heatmap generator, and relational database.
 
 ```
 +------------------------------------------------------------------------------------+
@@ -16,31 +16,31 @@ AgriShield's backend is a Python FastAPI service structured with asynchronous ro
 |                                                                                    |
 |  +------------------------------------------------------------------------------+  |
 |  |           Next.js / React Frontend (TypeScript, Tailwind CSS, Lucide)        |  |
-|  |     - Submits Multipart Image -> `POST /api/v1/diagnose`                     |  |
-|  |     - Fetches Diary Scans   -> `GET  /api/v1/scans`                          |  |
-|  |     - Fetches Encyclopedia  -> `GET  /api/v1/diseases`                       |  |
+|  |     • Submits Multipart Image -> `POST /api/v1/diagnose`                     |  |
+|  |     • Fetches Diary Scans   -> `GET  /api/v1/scans`                          |  |
+|  |     • Fetches Encyclopedia  -> `GET  /api/v1/diseases`                       |  |
 |  +------------------------------------------------------------------------------+  |
 +------------------------------------------------------------------------------------+
-                                      |
-                                      | HTTPS REST API Calls
-                                      v
+                                      │
+                                      │ HTTPS REST API Calls
+                                      ▼
 +------------------------------------------------------------------------------------+
 |                         PYTHON FASTAPI BACKEND SERVICE                             |
 |                                                                                    |
 |  +------------------------------------------------------------------------------+  |
 |  |                     FastAPI Routers (`app/api/v1/routers/`)                  |  |
 |  |  +---------------------------+       +------------------------------------+  |  |
-|  |  |   PyTorch ML Service      |       |      SQLAlchemy 2.0 ORM Layer      |  |  |
-|  |  |   - Pillow Preprocessing  |       |   - Async / Sync DB Session Pool   |  |  |
-|  |  |   - MobileNetV2 Inference |       |   - Pydantic v2 Serialization      |  |  |
+|  |  |   PyTorch & Grad-CAM      |       |      SQLAlchemy 2.0 ORM Layer      |  |  |
+|  |  |   • MobileNetV3 Inference |       |   • Async / Sync DB Session Pool   |  |  |
+|  |  |   • Grad-CAM Heatmap Gen  |       |   • Pydantic v2 Serialization      |  |  |
 |  |  +---------------------------+       +------------------------------------+  |  |
 |  +------------------------------------------------------------------------------+  |
-|         |                                      |                                   |
-|         v (Save Uploaded Leaf Images)          v (Read / Write Records)            |
+|         │                                      │                                   |
+|         ▼ (Save Leaf & Heatmap Images)         ▼ (Read / Write Records)            |
 |  +---------------------------+       +------------------------------------+        |
 |  | Static Image File Storage |       |    SQLite / PostgreSQL Database    |        |
-|  | (`backend/static/uploads`)|       |    - Scans, Crops, Diseases,       |        |
-|  | - Full Image & Thumbnails |       |      Remedies & Outbreak Reports   |        |
+|  | (`backend/static/uploads`)|       |    • Scans, Heatmap URLs, Crops,   |        |
+|  | • Leaf Scans & Heatmaps   |       |      Diseases, Remedies & Dosages  |        |
 |  +---------------------------+       +------------------------------------+        |
 +------------------------------------------------------------------------------------+
 ```
@@ -122,8 +122,10 @@ erDiagram
         string crop_id FK
         string disease_id FK
         float confidence
+        float inference_latency_ms
         string severity
         string image_url
+        string heatmap_url
         string thumbnail_url
         float latitude
         float longitude
@@ -144,16 +146,13 @@ erDiagram
 
 ---
 
-## 3. SQLAlchemy 2.0 Database Models (`backend/app/models/`)
+## 3. SQLAlchemy 2.0 Database Models (`backend/app/models/models.py`)
 
 ```python
-# backend/app/models/models.py
 import enum
 import uuid
 from datetime import datetime
-from sqlalchemy import (
-    Column, String, Float, Integer, Text, Enum, DateTime, ForeignKey
-)
+from sqlalchemy import Column, String, Float, Integer, Text, Enum, DateTime, ForeignKey
 from sqlalchemy.orm import declarative_base, relationship
 
 Base = declarative_base()
@@ -181,29 +180,16 @@ class SeverityEnum(str, enum.Enum):
     HIGH = "HIGH"
     CRITICAL = "CRITICAL"
 
-class FarmerUser(Base):
-    __tablename__ = "farmer_users"
-
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
-    phone_number = Column(String, unique=True, index=True, nullable=True)
-    name = Column(String, nullable=True)
-    region = Column(String, nullable=True) # e.g. "Multan, Punjab"
-    preferred_language = Column(Enum(LanguageEnum), default=LanguageEnum.URDU)
-    created_at = Column(DateTime, default=datetime.utcnow)
-
-    scans = relationship("DiagnosticScan", back_populates="user")
-    outbreaks = relationship("OutbreakReport", back_populates="user")
-
 class Crop(Base):
     __tablename__ = "crops"
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
-    slug = Column(String, unique=True, index=True, nullable=False) # e.g. "tomato"
+    slug = Column(String, unique=True, index=True, nullable=False)
     name_english = Column(String, nullable=False)
     name_urdu = Column(String, nullable=False)
     name_pashto = Column(String, nullable=True)
     name_sindhi = Column(String, nullable=True)
-    category = Column(String, nullable=False) # "Cash Crop", "Vegetable", "Cereal", "Fruit"
+    category = Column(String, nullable=False)
     icon_url = Column(String, nullable=True)
 
     diseases = relationship("Disease", back_populates="crop", cascade="all, delete-orphan")
@@ -230,20 +216,19 @@ class Disease(Base):
     remedies = relationship("Remedy", back_populates="disease", cascade="all, delete-orphan")
     dosage_rules = relationship("DosageRule", back_populates="disease", cascade="all, delete-orphan")
     scans = relationship("DiagnosticScan", back_populates="disease")
-    outbreaks = relationship("OutbreakReport", back_populates="disease")
 
 class Remedy(Base):
     __tablename__ = "remedies"
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
     disease_id = Column(String, ForeignKey("diseases.id"), nullable=False)
-    remedy_type = Column(Enum(RemedyTypeEnum), nullable=False) # ORGANIC or CHEMICAL
+    remedy_type = Column(Enum(RemedyTypeEnum), nullable=False)
     title_english = Column(String, nullable=False)
     title_urdu = Column(String, nullable=False)
     instructions_english = Column(Text, nullable=False)
     instructions_urdu = Column(Text, nullable=False)
     active_ingredient = Column(String, nullable=True) # e.g. "Mancozeb 75% WP"
-    local_brands = Column(String, nullable=True) # e.g. "Ridomil Gold, Score 250 EC"
+    local_brands = Column(String, nullable=True) # e.g. "Ridomil Gold (Syngenta), Score 250 EC"
     pre_harvest_interval_days = Column(Integer, default=7)
     safety_warning_urdu = Column(String, nullable=True)
 
@@ -265,45 +250,29 @@ class DiagnosticScan(Base):
     __tablename__ = "diagnostic_scans"
 
     id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
-    user_id = Column(String, ForeignKey("farmer_users.id"), nullable=True)
     crop_id = Column(String, ForeignKey("crops.id"), nullable=False)
     disease_id = Column(String, ForeignKey("diseases.id"), nullable=False)
     confidence = Column(Float, nullable=False)
+    inference_latency_ms = Column(Float, default=24.0)
     severity = Column(Enum(SeverityEnum), nullable=False)
     image_url = Column(String, nullable=False)
+    heatmap_url = Column(String, nullable=True) # Grad-CAM Heatmap Image URL
     thumbnail_url = Column(String, nullable=True)
     latitude = Column(Float, nullable=True)
     longitude = Column(Float, nullable=True)
     notes = Column(String, nullable=True)
     scanned_at = Column(DateTime, default=datetime.utcnow)
 
-    user = relationship("FarmerUser", back_populates="scans")
     crop = relationship("Crop", back_populates="scans")
     disease = relationship("Disease", back_populates="scans")
-
-class OutbreakReport(Base):
-    __tablename__ = "outbreak_reports"
-
-    id = Column(String, primary_key=True, default=lambda: str(uuid.uuid4()))
-    disease_id = Column(String, ForeignKey("diseases.id"), nullable=False)
-    user_id = Column(String, ForeignKey("farmer_users.id"), nullable=True)
-    region = Column(String, nullable=False)
-    latitude = Column(Float, nullable=False)
-    longitude = Column(Float, nullable=False)
-    severity_level = Column(Enum(SeverityEnum), nullable=False)
-    reported_at = Column(DateTime, default=datetime.utcnow)
-
-    disease = relationship("Disease", back_populates="outbreaks")
-    user = relationship("FarmerUser", back_populates="outbreaks")
 ```
 
 ---
 
-## 4. Pydantic v2 Schemas (`backend/app/schemas/`)
+## 4. Pydantic v2 Schemas (`backend/app/schemas/schemas.py`)
 
 ```python
-# backend/app/schemas/schemas.py
-from pydantic import BaseModel, Field
+from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
 from app.models.models import PathogenEnum, RemedyTypeEnum, SeverityEnum
@@ -332,6 +301,7 @@ class DosageSchema(BaseModel):
 class DiagnosisResponse(BaseModel):
     scan_id: str
     image_url: str
+    heatmap_url: str # Grad-CAM Visual Heatmap
     thumbnail_url: str
     crop_name: str
     crop_name_urdu: str
@@ -340,19 +310,10 @@ class DiagnosisResponse(BaseModel):
     disease_name_pashto: Optional[str] = None
     pathogen_type: PathogenEnum
     confidence: float
+    inference_latency_ms: float
     severity: SeverityEnum
     audio_urdu_text: str
     remedies: List[RemedySchema]
     dosage: Optional[DosageSchema] = None
     scanned_at: datetime
 ```
-
----
-
-## 5. Image File Storage & Thumbnail Pipeline
-
-When an image is received in `POST /api/v1/diagnose`:
-1. **Pillow** decodes the image bytes.
-2. Saves full optimized image to `backend/static/uploads/scans/{scan_id}.webp`.
-3. Creates a `150x150` thumbnail saved to `backend/static/uploads/thumbnails/thumb_{scan_id}.webp`.
-4. FastAPI serves static files via `app.mount("/static", StaticFiles(directory="static"), name="static")`.
