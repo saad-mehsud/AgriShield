@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useTranslation } from '@/hooks/useTranslation';
 import { CameraViewfinder } from '@/components/scanner/CameraViewfinder';
 import { LaserScanner } from '@/components/scanner/LaserScanner';
-import { ImagePlus, Camera as CameraIcon, AlertCircle, Loader2 } from 'lucide-react';
+import { ImagePlus, Camera as CameraIcon, AlertCircle, Loader2, RefreshCw } from 'lucide-react';
 import { diagnoseLeaf } from '@/lib/api';
 
 function ScanContent() {
@@ -13,15 +13,16 @@ function ScanContent() {
   const searchParams = useSearchParams();
   const { t } = useTranslation();
 
-  const [mode, setMode] = useState<'camera' | 'upload'>('camera');
+  const [mode, setMode] = useState<'camera' | 'upload'>('upload'); // Default to upload for easier desktop/mobile testing
   const [isProcessing, setIsProcessing] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
   useEffect(() => {
-    if (searchParams.get('mode') === 'upload') {
-      setMode('upload');
+    if (searchParams.get('mode') === 'camera') {
+      setMode('camera');
     }
   }, [searchParams]);
 
@@ -43,8 +44,13 @@ function ScanContent() {
       sessionStorage.setItem('last_diagnosis', JSON.stringify(result));
       router.push('/scan/result');
     } catch (err: any) {
-      console.error(err);
-      setErrorMsg('تصویر کا تجزیہ کرنے میں مسئلہ پیش آیا ہے۔ براہ کرم دوبارہ کوشش کریں۔');
+      console.error('Diagnosis Error:', err);
+      const isConnectionError = err?.message?.includes('Failed to fetch') || err?.message?.includes('NetworkError');
+      if (isConnectionError) {
+        setErrorMsg('بیک اینڈ سرور سے رابطہ نہیں ہو سکا (Backend Server is offline on port 8000). براہ کرم بیک اینڈ سرور چلائیں۔');
+      } else {
+        setErrorMsg('تصویر کا تجزیہ کرنے میں مسئلہ پیش آیا ہے۔ براہ کرم دوبارہ کوشش کریں۔');
+      }
       setIsProcessing(false);
     }
   };
@@ -54,26 +60,35 @@ function ScanContent() {
     if (file) {
       handleProcessImage(file);
     }
+    // Reset file input so selecting the same file again triggers onChange
+    if (e.target) {
+      e.target.value = '';
+    }
+  };
+
+  const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
+    const file = e.dataTransfer.files?.[0];
+    if (file && file.type.startsWith('image/')) {
+      handleProcessImage(file);
+    }
+  };
+
+  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(true);
+  };
+
+  const handleDragLeave = (e: React.DragEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    setIsDragging(false);
   };
 
   return (
     <div className="space-y-4">
       {/* Mode Switcher */}
       <div className="flex items-center gap-2 p-1 bg-white rounded-2xl shadow-sm border border-slate-200">
-        <button
-          type="button"
-          onClick={() => setMode('camera')}
-          disabled={isProcessing}
-          className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
-            mode === 'camera'
-              ? 'bg-emerald-700 text-white shadow-sm'
-              : 'text-slate-600 hover:text-slate-900'
-          }`}
-        >
-          <CameraIcon className="w-4 h-4" />
-          <span>{t('camera_btn')}</span>
-        </button>
-
         <button
           type="button"
           onClick={() => setMode('upload')}
@@ -87,13 +102,35 @@ function ScanContent() {
           <ImagePlus className="w-4 h-4" />
           <span>{t('upload_btn')}</span>
         </button>
+
+        <button
+          type="button"
+          onClick={() => setMode('camera')}
+          disabled={isProcessing}
+          className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+            mode === 'camera'
+              ? 'bg-emerald-700 text-white shadow-sm'
+              : 'text-slate-600 hover:text-slate-900'
+          }`}
+        >
+          <CameraIcon className="w-4 h-4" />
+          <span>{t('camera_btn')}</span>
+        </button>
       </div>
 
       {/* Error Message Alert */}
       {errorMsg && (
-        <div className="bg-red-50 text-red-800 p-3.5 rounded-2xl border border-red-200 flex items-center gap-2 text-xs font-medium">
-          <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
-          <span>{errorMsg}</span>
+        <div className="bg-red-50 text-red-800 p-4 rounded-2xl border border-red-200 flex flex-col gap-2 text-xs font-medium shadow-sm">
+          <div className="flex items-center gap-2">
+            <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
+            <span className="font-bold">{errorMsg}</span>
+          </div>
+          <div className="bg-white/80 p-2.5 rounded-xl border border-red-200/60 text-[11px] text-slate-700">
+            <p className="font-semibold mb-1">بیک اینڈ سرور شروع کرنے کے لیے ٹرمینل میں چلائیں:</p>
+            <code className="block bg-slate-900 text-emerald-400 p-2 rounded-lg font-mono text-[10px]">
+              cd backend && ./venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+            </code>
+          </div>
         </div>
       )}
 
@@ -106,7 +143,14 @@ function ScanContent() {
         /* Gallery Upload Area */
         <div
           onClick={() => fileInputRef.current?.click()}
-          className="w-full aspect-[4/3] max-w-md mx-auto bg-white rounded-3xl border-2 border-dashed border-emerald-400 p-6 flex flex-col items-center justify-center text-center cursor-pointer hover:bg-emerald-50/50 transition-all shadow-sm group"
+          onDrop={handleDrop}
+          onDragOver={handleDragOver}
+          onDragLeave={handleDragLeave}
+          className={`w-full aspect-[4/3] max-w-md mx-auto bg-white rounded-3xl border-2 border-dashed p-6 flex flex-col items-center justify-center text-center cursor-pointer transition-all shadow-sm group ${
+            isDragging
+              ? 'border-emerald-600 bg-emerald-50 scale-[1.02]'
+              : 'border-emerald-400 hover:bg-emerald-50/50'
+          }`}
         >
           <input
             type="file"
@@ -119,11 +163,14 @@ function ScanContent() {
             <ImagePlus className="w-8 h-8" />
           </div>
           <h3 className="text-sm font-bold text-slate-900 mb-1">
-            تصویر منتخب کریں (Click to select image)
+            تصویر منتخب کریں یا یہاں ڈریگ کریں
           </h3>
-          <p className="text-xs text-slate-500 max-w-[80%]">
-            JPEG, PNG یا WebP فارمیٹ میں پتے کی واضح تصویر اپ لوڈ کریں
+          <p className="text-xs text-slate-500 max-w-[80%] mb-2">
+            Click to upload leaf photo or drag & drop (JPEG, PNG, WebP)
           </p>
+          <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-100/70 px-2.5 py-1 rounded-full">
+            📁 گیلری سے اپ لوڈ کریں
+          </span>
         </div>
       )}
 
