@@ -1,0 +1,745 @@
+[
+  {
+    "crop_slug": "cotton",
+    "crop_name_en": "Cotton",
+    "crop_name_ur": "کپاس",
+    "crop_name_ps": "پنبه",
+    "category": "Cash Crop",
+    "class_key": "Cotton___Leaf_Curl_Virus",
+    "disease_name_en": "Cotton Leaf Curl Virus (CLCuV)",
+    "disease_name_ur": "کپاس کا پتا مڑاؤ وائرس",
+    "disease_name_ps": "د پنبې پاڼو تاویدو وائرس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Upward or downward leaf curling, vein thickening, and enation (leaf-like growth) under leaves, stunted growth caused by whitefly vector.",
+    "symptoms_ur": "پتے اوپر یا نیچے کی طرف مڑ جاتے ہیں، رگیں موٹی ہو جاتی ہیں اور پتے کی پشت پر چھوٹے پتوں نما ابھار بن جاتے ہیں۔ یہ بیماری سفید مکھی کے ذریعے پھیلتی ہے۔",
+    "prevention_en": "Plant CLCuV-tolerant certified seed varieties, manage weed hosts around fields, and spray to control whitefly populations early.",
+    "prevention_ur": "محکمہ زراعت کی تصدیق شدہ بیماری کے خلاف مزاحمت رکھنے والی اقسام کاشت کریں اور سفید مکھی کا بروقت کنٹرول کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "سفید مکھی کا دیسی / قدرتی کنٹرول",
+        "instructions_ur": "کھیت میں فی ایکڑ 10 پیلے چپکنے والے کارڈز (Yellow Sticky Traps) لگائیں۔ تمباکو کا پانی (250 گرام ابلا ہوا تمباکو فی 10 لیٹر پانی) ملا کر اسپرے کریں۔",
+        "active_ingredient": "Neem / Tobacco Extract",
+        "local_brands": "دیسی تمباکو محلول",
+        "phi": 0,
+        "warning_ur": "صبح سویرے یا شام کے وقت اسپرے کریں۔"
+      },
+      {
+        "type": "CHEMICAL",
+        "title_ur": "سفید مکھی کا کیمیائی تدارک (پاکستانی برانڈز)",
+        "instructions_ur": "سفید مکھی کے مکمل خاتمے کے لیے پائری پروکسی فین یا اسپیوروٹینرامٹ کا اسپرے 100 لیٹر پانی میں ملا کر کریں۔",
+        "active_ingredient": "Pyriproxyfen 10.8% EC / Spirotetramat",
+        "local_brands": "Movento (بائر پاکستان), Polo (سنجینٹا), Oshin (کنزو)",
+        "phi": 14,
+        "warning_ur": "اسپرے کرتے وقت حفاظتی لباس اور ماسک پہنیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 200.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 40.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "cotton",
+    "crop_name_en": "Cotton",
+    "crop_name_ur": "کپاس",
+    "crop_name_ps": "پنبه",
+    "category": "Cash Crop",
+    "class_key": "Cotton___Bacterial_blight",
+    "disease_name_en": "Cotton Bacterial Blight (Black Arm)",
+    "disease_name_ur": "کپاس کا بیکٹیریل بلائٹ (کالی بازو)",
+    "disease_name_ps": "د پنبې باکتریایي بلائٹ",
+    "pathogen_type": "BACTERIAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Angular water-soaked spots on leaves that turn dark brown, black lesions on branches causing them to break.",
+    "symptoms_ur": "پتوں پر کونیے دار پانی بھرے دھبے بنتے ہیں جو بعد میں گہرے کالے ہو جاتے ہیں، شاخوں پر سیاہ دھبے بن کر شاخیں ٹوٹ جاتی ہیں۔",
+    "prevention_en": "Acid delinting of cotton seeds before sowing; avoid flood irrigation touching lower foliage.",
+    "prevention_ur": "کاشت سے قبل بیج کو تیزاب سے صاف کریں اور کھیت میں پانی کا نکاس درست رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "تانبے کا بورڈو مکسچر",
+        "instructions_ur": "نیلا تھوتھا (کاپر سلفیٹ) اور چونا 1:1 کے تناسب سے 100 لیٹر پانی میں ملا کر اسپرے کریں۔",
+        "active_ingredient": "Bordeaux Mixture",
+        "local_brands": "دیسی بورڈو محلول",
+        "phi": 3,
+        "warning_ur": "محلول کو مٹی کے برتن یا پلاسٹک کے ڈرم میں تیار کریں۔"
+      },
+      {
+        "type": "CHEMICAL",
+        "title_ur": "کاپر آکسی کلورائیڈ اسپرے",
+        "instructions_ur": "کاپر آکسی کلورائیڈ 500 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
+        "active_ingredient": "Copper Oxychloride 50% WP + Kasugamycin",
+        "local_brands": "Cuprocaffaro (سنجینٹا), Kasumin (ایف ایم سی), Champion (علی اکبر گروپ)",
+        "phi": 7,
+        "warning_ur": "دھوپ کی شدت میں اسپرے نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 500.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 100.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "cotton",
+    "crop_name_en": "Cotton",
+    "crop_name_ur": "کپاس",
+    "crop_name_ps": "پنبه",
+    "category": "Cash Crop",
+    "class_key": "Cotton___healthy",
+    "disease_name_en": "Healthy Cotton",
+    "disease_name_ur": "صحت مند کپاس",
+    "disease_name_ps": "روغه پنبه",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Vibrant green foliage with no discoloration, curling, or lesions.",
+    "symptoms_ur": "پودے کے پتے صاف، ہرے اور بیماری کے نشانات سے پاک ہیں۔",
+    "prevention_en": "Maintain balanced NPK fertilization and monitor for insect pests weekly.",
+    "prevention_ur": "کھاد کا متوازن استعمال جاری رکھیں اور ہر ہفتے پیسٹ اسکاؤٹنگ کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کسی زہر کی ضرورت نہیں۔ مناسب گوڈی اور پانی کا خیال رکھیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "wheat",
+    "crop_name_en": "Wheat",
+    "crop_name_ur": "گندم",
+    "crop_name_ps": "غنم",
+    "category": "Cereal",
+    "class_key": "Wheat___Yellow_rust",
+    "disease_name_en": "Wheat Yellow (Stripe) Rust",
+    "disease_name_ur": "گندم کی پیلی کنگی (سٹرائپ رسٹ)",
+    "disease_name_ps": "د غنمو ژیړه کنګي",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Bright yellow powder pustules arranged in parallel stripes along the leaf veins.",
+    "symptoms_ur": "پتوں کی رگوں کے ساتھ پیلے رنگ کے سفوفی دھبے قطاروں کی صورت میں ظاہر ہوتے ہیں۔ ہاتھ لگانے پر پیلا پاؤڈر انگلیوں پر لگ جاتا ہے۔",
+    "prevention_en": "Sow rust-resistant varieties approved by PARC (e.g., Akbar-19, Dilkash, Fakhar-e-Bhakkar).",
+    "prevention_ur": "محکمہ زراعت کی منظور شدہ کنگی کے خلاف قوت مدافعت والی گندم کی اقسام کاشت کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "کھٹی لسی اور راکھ کا اسپرے",
+        "instructions_ur": "پرانی کھٹی لسی (5 لیٹر) اور لکڑی کی چھنی ہوئی راکھ کو 100 لیٹر پانی میں ملا کر اسپرے کریں۔",
+        "active_ingredient": "Lactic acid / Bio-fungicide",
+        "local_brands": "دیسی لسی محلول",
+        "phi": 0,
+        "warning_ur": "ابتدائی علامات ظاہر ہوتے ہی اسپرے کریں۔"
+      },
+      {
+        "type": "CHEMICAL",
+        "title_ur": "کنگی کش کیمیائی اسپرے (سنجینٹا / بائر)",
+        "instructions_ur": "ٹیبوکونازول یا ایزوکسسٹروبن کا اسپرے فوری طور پر کنگی کے حملے کی صورت میں کریں۔",
+        "active_ingredient": "Tebuconazole 250 EC / Azoxystrobin + Difenoconazole",
+        "local_brands": "Folicur (بائر), Amistar Top (سنجینٹا), Tilt (سنجینٹا)",
+        "phi": 14,
+        "warning_ur": "ہوا کی سمت میں اسپرے کریں تاکہ تمام کھیت میں یکساں قطرے گریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 200.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 40.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "wheat",
+    "crop_name_en": "Wheat",
+    "crop_name_ur": "گندم",
+    "crop_name_ps": "غنم",
+    "category": "Cereal",
+    "class_key": "Wheat___Brown_rust",
+    "disease_name_en": "Wheat Brown (Leaf) Rust",
+    "disease_name_ur": "گندم کی بھوری کنگی (براؤن رسٹ)",
+    "disease_name_ps": "د غنمو نصواري کنګي",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Small, round to oval brown-orange pustules scattered randomly across the upper leaf surface.",
+    "symptoms_ur": "پتوں کی اوپری سطح پر بے ترتیب گول یا بیضوی بھورے نارنجی رنگ کے کنگی کے دانے بن جاتے ہیں۔",
+    "prevention_en": "Eradicate alternate hosts and avoid excessive nitrogen application in late crop stages.",
+    "prevention_ur": "نائٹروجن (یوریا) کا غیر متوازن استعمال نہ کریں اور فصل کی باقاعدہ نگرانی رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "پروپیکونازول یا ٹیبوکونازول اسپرے",
+        "instructions_ur": "200 ملی لیٹر ٹیبوکونازول فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
+        "active_ingredient": "Propiconazole 25% EC / Tebuconazole",
+        "local_brands": "Tilt (سنجینٹا), Folicur (بائر پاکستان), Score (سنجینٹا)",
+        "phi": 14,
+        "warning_ur": "دانے بننے کے عمل کے دوران وقت پر اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 200.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 40.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "wheat",
+    "crop_name_en": "Wheat",
+    "crop_name_ur": "گندم",
+    "crop_name_ps": "غنم",
+    "category": "Cereal",
+    "class_key": "Wheat___healthy",
+    "disease_name_en": "Healthy Wheat",
+    "disease_name_ur": "صحت مند گندم",
+    "disease_name_ps": "روغ غنم",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Healthy green leaves with no rust pustules or chlorotic patches.",
+    "symptoms_ur": "گندم کے پتے سرسبز اور کنگی کے داغوں سے پاک ہیں۔",
+    "prevention_en": "Apply timely irrigation at tillering, booting, and grain filling stages.",
+    "prevention_ur": "فصل کو وقت پر پانی اور فاسفورس کھاد دیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی تدابیر",
+        "instructions_ur": "کسی زہر کے اسپرے کی ضرورت نہیں۔ باقاعدگی سے نگرانی رکھیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "rice",
+    "crop_name_en": "Rice",
+    "crop_name_ur": "دھان / چاول",
+    "crop_name_ps": "وریجې",
+    "category": "Cereal",
+    "class_key": "Rice___Leaf_blast",
+    "disease_name_en": "Rice Leaf Blast",
+    "disease_name_ur": "دھان کا بلاسٹ / پتا جھلسائو",
+    "disease_name_ps": "د وریجو پاڼو بلاست",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Spindle-shaped or eye-shaped lesions with gray/whitish centers and dark reddish-brown borders.",
+    "symptoms_ur": "پتوں پر آنکھ کی شکل کے تکلا نما دھبے جن کے درمیان کا حصہ راکھ کے رنگ کا اور کنارے گہرے بھورے ہوتے ہیں۔",
+    "prevention_en": "Avoid excessive nitrogen, treat nursery seeds before transplanting, maintain proper water depth.",
+    "prevention_ur": "پنیری کی منتقلی سے قبل پودوں کو پھپھوندی کش دوا کے محلول میں ڈبوئیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "نیم آئل اور مائیکروبیل اسپرے",
+        "instructions_ur": "نیم کا تیل 50 ملی لیٹر فی 10 لیٹر پانی میں ملا کر ہر ہفتے اسپرے کریں۔",
+        "active_ingredient": "Azadirachtin / Neem extract",
+        "local_brands": "دیسی نیم تیل",
+        "phi": 0,
+        "warning_ur": "شام کے وقت اسپرے کریں۔"
+      },
+      {
+        "type": "CHEMICAL",
+        "title_ur": "ٹرائیسائیکلازول اسپرے (سنجینٹا / کینزو)",
+        "instructions_ur": "ٹرائیسائیکلازول 75 ڈبلیو پی 120 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
+        "active_ingredient": "Tricyclazole 75% WP OR Isoprothiolane 40% EC",
+        "local_brands": "Beam (ایف ایم سی), Fuji-One (کینزو), Nativo (بائر پاکستان)",
+        "phi": 21,
+        "warning_ur": "فصل کے گوبھ کے مرحلے پر پہلا حفاظتی اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 120.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 24.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "rice",
+    "crop_name_en": "Rice",
+    "crop_name_ur": "دھان / چاول",
+    "crop_name_ps": "وریجې",
+    "category": "Cereal",
+    "class_key": "Rice___Brown_spot",
+    "disease_name_en": "Rice Brown Spot",
+    "disease_name_ur": "دھان کا بھورا دھبا روگ",
+    "disease_name_ps": "د وریجو نصواري داغونه",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Small, circular to oval dark brown spots on leaves resembling sesame seeds, with yellow halos.",
+    "symptoms_ur": "پتوں پر تل کے بیج نما چھوٹے گول گہرے بھورے داغ جن کے گرد پیلا ہالہ بنتا ہے۔",
+    "prevention_en": "Improve soil fertility (potash and zinc application), avoid soil drought.",
+    "prevention_ur": "زمین میں پوٹاش اور زنک کا استعمال کریں اور کھیت کو سوکھنے نہ دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "مینکوزیب یا نیٹیوو کا اسپرے",
+        "instructions_ur": "مینکوزیب 250 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
+        "active_ingredient": "Mancozeb 75% WP / Trifloxystrobin + Tebuconazole",
+        "local_brands": "Nativo (بائر پاکستان), Score (سنجینٹا), Dithane M-45",
+        "phi": 14,
+        "warning_ur": "علامات کے آغاز پر اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 250.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 50.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "rice",
+    "crop_name_en": "Rice",
+    "crop_name_ur": "دھان / چاول",
+    "crop_name_ps": "وریجې",
+    "category": "Cereal",
+    "class_key": "Rice___healthy",
+    "disease_name_en": "Healthy Rice",
+    "disease_name_ur": "صحت مند دھان",
+    "disease_name_ps": "روغې وریجې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Lush green leaves with strong tillers and healthy panicle formation.",
+    "symptoms_ur": "دھان کی فصل سرسبز اور بیماریوں سے مکمل پاک ہے۔",
+    "prevention_en": "Maintain 2-3 inches standing water during active tillering stage.",
+    "prevention_ur": "پانی کی سطح مناسب رکھیں اور جڑی بوٹیوں کو تلف کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر درکار نہیں۔ معمول کی دیکھ بھال جاری رکھیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "sugarcane",
+    "crop_name_en": "Sugarcane",
+    "crop_name_ur": "کماد / گنا",
+    "crop_name_ps": "ګني",
+    "category": "Cash Crop",
+    "class_key": "Sugarcane___Red_Rot",
+    "disease_name_en": "Sugarcane Red Rot (Cancer of Sugarcane)",
+    "disease_name_ur": "گنے کا رت روگ / کینسر",
+    "disease_name_ps": "د ګني سور رت روګ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Third and fourth leaves from top wither and dry, internal cane tissue shows dull red color interrupted by horizontal white patches with alcohol smell.",
+    "symptoms_ur": "اوپر سے تیسرا چوتھا پتا سوکھنا شروع ہوتا ہے، گنا کاٹنے پر اندر سے لال رنگ کا نکلتا ہے جس پر سفید دھبے ہوتے ہیں اور کھٹی شراب کی بو آتی ہے۔",
+    "prevention_en": "Plant disease-free sets, treat sets with fungicide before sowing, crop rotation with non-host crops.",
+    "prevention_ur": "متاثرہ کھیت سے بیج مت لیں اور بیج کے سموں کو دوا والے پانی میں ڈبو کر لگائیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "متاثرہ پودوں کو تلف کرنا",
+        "instructions_ur": "بیمار گنوں کو جڑ سے اکھاڑ کر کھیت سے دور جلا دیں اور اس جگہ چونا ڈالیں۔",
+        "active_ingredient": "Lime dusting / Sanitation",
+        "local_brands": "چونا پاؤڈر",
+        "phi": 0,
+        "warning_ur": "متاثرہ کھیت کی موڈھی فصل (Ratoon) ہرگز نہ رکھیں۔"
+      },
+      {
+        "type": "CHEMICAL",
+        "title_ur": "تھائیو فینیٹ میتھائل بیج ٹریٹمنٹ",
+        "instructions_ur": "کاشت سے پہلے گنے کے سموں کو تھائیوفینیٹ میتھائل کے 0.2% محلول میں 15 منٹ ڈبوئیں۔",
+        "active_ingredient": "Thiophanate-Methyl 70% WP / Carbendazim",
+        "local_brands": "Topsin-M (ایف ایم سی), Derosal (بائر پاکستان)",
+        "phi": 30,
+        "warning_ur": "زمین کے نکاس کا خاص خیال رکھیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 400.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 80.0,
+      "application_method": "Soil Drench / Set Treatment"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "بانجان",
+    "category": "Vegetable",
+    "class_key": "Tomato___Early_blight",
+    "disease_name_en": "Tomato Early Blight",
+    "disease_name_ur": "ٹماٹر کا اگیتا جھلسائو",
+    "disease_name_ps": "د رومیانو مخکینی سوځیدنه",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Concentric dark brown rings on older lower leaves forming a target-board pattern, leaf yellowing and drop.",
+    "symptoms_ur": "پرانے نچلے پتوں پر گہرے بھورے رنگ کے گول گول دائرے (نشانہ بورڈ نما) بنتے ہیں، بعد میں پتے پیلے ہو کر جھڑ جاتے ہیں۔",
+    "prevention_en": "Prune lower leaves touching soil, avoid overhead sprinkler watering, practice 2-year crop rotation.",
+    "prevention_ur": "نچلے پتے کاٹ دیں تاکہ زمین سے نہ لگیں اور پودوں کے اوپر سے پانی نہ ڈالیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "نیم کا تیل اور کٹے پتوں کا جلانا",
+        "instructions_ur": "نچلے متاثرہ پتوں کو کاٹ کر جلا دیں۔ نیم کا تیل 50 ملی لیٹر فی 10 لیٹر پانی میں ملا کر ہر 7 دن بعد اسپرے کریں۔",
+        "active_ingredient": "Neem Oil 50ml / 10L",
+        "local_brands": "دیسی نیم آئل",
+        "phi": 0,
+        "warning_ur": "پودوں کے نیچے جڑوں کو پانی دیں۔"
+      },
+      {
+        "type": "CHEMICAL",
+        "title_ur": "ریڈومل گولڈ یا سکور کا اسپرے",
+        "instructions_ur": "مینکوزیب + میٹالکسل 250 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
+        "active_ingredient": "Mancozeb 75% WP + Metalaxyl 8% / Difenoconazole",
+        "local_brands": "Ridomil Gold (سنجینٹا), Score 250 EC (سنجینٹا), Nativo (بائر پاکستان)",
+        "phi": 7,
+        "warning_ur": "ٹماٹر توڑنے سے 7 دن پہلے اسپرے روک دیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 250.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 50.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "بانجان",
+    "category": "Vegetable",
+    "class_key": "Tomato___Late_blight",
+    "disease_name_en": "Tomato Late Blight",
+    "disease_name_ur": "ٹماٹر کا پچھیتا جھلسائو",
+    "disease_name_ps": "د رومیانو وروستنی سوځیدنه",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Large irregular water-soaked dark lesions on leaves and stems, white fungal mold on underside during humid weather.",
+    "symptoms_ur": "پتوں اور شاخوں پر پانی بھرے گہرے کالے بڑے دھبے، نم موسم میں پتے کی نچلی سطح پر سفید رنگ کی پھپھوندی دکھائی دیتی ہے۔ پودا راتوں رات جل جاتا ہے۔",
+    "prevention_en": "Ensure good field drainage, space plants properly for air circulation, avoid working in wet fields.",
+    "prevention_ur": "فصل میں ہواداری کا خیال رکھیں اور گیلے کھیت میں کام نہ کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "بیکنگ سوڈا اور تانبے کا اسپرے",
+        "instructions_ur": "بیکنگ سوڈا 5 گرام اور کاپر سلفیٹ فی لیٹر پانی میں ملا کر احتیاطی اسپرے کریں۔",
+        "active_ingredient": "Copper / Sodium Bicarbonate",
+        "local_brands": "دیسی کاپر محلول",
+        "phi": 1,
+        "warning_ur": "شدید حملے کی صورت میں فوری کیمیائی علاج کریں۔"
+      },
+      {
+        "type": "CHEMICAL",
+        "title_ur": "سنجینٹا ریڈومل گولڈ اسپرے",
+        "instructions_ur": "میٹالکسل + مینکوزیب 250 گرام فی 100 لیٹر پانی فی ایکڑ فوری اسپرے کریں۔",
+        "active_ingredient": "Dimethomorph + Mancozeb / Metalaxyl-M",
+        "local_brands": "Ridomil Gold (سنجینٹا), Acrobat (بی اے ایس ایف), Aliette (بائر)",
+        "phi": 7,
+        "warning_ur": "پہلا اسپرے بارش یا شدید کہرے کے بعد فوری کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 250.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 50.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "بانجان",
+    "category": "Vegetable",
+    "class_key": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
+    "disease_name_en": "Tomato Yellow Leaf Curl Virus (TYLCV)",
+    "disease_name_ur": "ٹماٹر کا پیلا پتا مڑاؤ وائرس",
+    "disease_name_ps": "د رومیانو ژیړ پاڼو تاویدو وائرس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Upward leaf cupping, severe yellowing of leaf margins, bushy stunted plants, dropping of flowers.",
+    "symptoms_ur": "پتے پیالے کی شکل میں اوپر مڑ جاتے ہیں، کناروں سے پیلے ہو جاتے ہیں اور پودے کا قد چھوٹا رہ جاتا ہے، پھول گر جاتے ہیں۔",
+    "prevention_en": "Control whitefly vectors using fine mesh insect netting and yellow sticky traps.",
+    "prevention_ur": "سفید مکھی کا بروقت خاتمہ کریں کیونکہ یہ وائرس مکھی کے ذریعے منتقل ہوتا ہے۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "سفید مکھی کش اسپرے",
+        "instructions_ur": "ایسیٹامیپرڈ یا پائری پروکسی فین کا اسپرے 100 لیٹر پانی میں ملا کر کریں۔",
+        "active_ingredient": "Acetamiprid 20% SP / Spirotetramat",
+        "local_brands": "Mospilan (کینزو), Movento (بائر پاکستان), Confidor (بائر)",
+        "phi": 7,
+        "warning_ur": "پودے کی نچلی سطح پر اسپرے کا پہنچنا لازمی ہے۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 150.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 30.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "بانجان",
+    "category": "Vegetable",
+    "class_key": "Tomato___healthy",
+    "disease_name_en": "Healthy Tomato",
+    "disease_name_ur": "صحت مند ٹماٹر",
+    "disease_name_ps": "روغ رومیان",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Vigorous green leaves with balanced flowering and fruit set.",
+    "symptoms_ur": "پودے کے پتے صاف، ہرے اور بیماری کے داغوں سے پاک ہیں۔",
+    "prevention_en": "Stake plants off the ground and maintain regular watering without wetting leaves.",
+    "prevention_ur": "پودوں کو بانس کا سہارا دیں اور متوازن کھاد دیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کسی زہر کی ضرورت نہیں۔ معمول کی دیکھ بھال جاری رکھیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "potato",
+    "crop_name_en": "Potato",
+    "crop_name_ur": "آلو",
+    "crop_name_ps": "الوګان",
+    "category": "Vegetable",
+    "class_key": "Potato___Early_blight",
+    "disease_name_en": "Potato Early Blight",
+    "disease_name_ur": "آلو کا اگیتا جھلسائو",
+    "disease_name_ps": "د الوګانو مخکینی سوځیدنه",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Dark brown circular spots with concentric rings on older leaves, causing foliage to dry up and die.",
+    "symptoms_ur": "پرانے پتوں پر گہرے بھورے گول دائرے بنتے ہیں، پتے سوکھ کر جل جاتے ہیں۔",
+    "prevention_en": "Plant certified seed tubers; apply balanced potash fertilizer to strengthen cell walls.",
+    "prevention_ur": "تصدیق شدہ بیج کاشت کریں اور پوٹاش کھاد کا مناسب استعمال کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "مینکوزیب یا سکور اسپرے",
+        "instructions_ur": "مینکوزیب 250 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
+        "active_ingredient": "Mancozeb 75% WP / Difenoconazole",
+        "local_brands": "Score (سنجینٹا), Dithane M-45, Nativo (بائر)",
+        "phi": 7,
+        "warning_ur": "پہلا اسپرے بیماری کے ابتدائی نشانات پر کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 250.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 50.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "potato",
+    "crop_name_en": "Potato",
+    "crop_name_ur": "آلو",
+    "crop_name_ps": "الوګان",
+    "category": "Vegetable",
+    "class_key": "Potato___Late_blight",
+    "disease_name_en": "Potato Late Blight",
+    "disease_name_ur": "آلو کا پچھیتا جھلسائو",
+    "disease_name_ps": "د الوګانو وروستنی سوځیدنه",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Dark brown to purplish water-soaked lesions on leaves and stems, with white mildew under humid conditions. Can destroy a field in 3 days.",
+    "symptoms_ur": "پتوں پر پانی بھرے جامنی بھورے دھبے، نم موسم میں پتے کے نچلے حصے پر سفید پھپھوندی بنتی ہے اور 3 دن میں پوری فصل تباہ ہو سکتی ہے۔",
+    "prevention_en": "Hill up soil around stems to protect tubers; monitor weather for fog/humidity above 80%.",
+    "prevention_ur": "دھند اور شدید سردی کے دنوں میں احتیاطی اسپرے کریں۔ مٹی کو پودے کے گرد اونچا رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "ریڈومل گولڈ / ایکروبیٹ اسپرے",
+        "instructions_ur": "میٹالکسل + مینکوزیب 250 گرام فی 100 لیٹر پانی فی ایکڑ فوری اسپرے کریں۔",
+        "active_ingredient": "Metalaxyl-M + Mancozeb / Dimethomorph",
+        "local_brands": "Ridomil Gold (سنجینٹا), Acrobat (بی اے ایس ایف), Melody Duo (بائر)",
+        "phi": 7,
+        "warning_ur": "دھند والے موسم میں ہر 7 دن بعد دہرائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 250.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 50.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "potato",
+    "crop_name_en": "Potato",
+    "crop_name_ur": "آلو",
+    "crop_name_ps": "الوګان",
+    "category": "Vegetable",
+    "class_key": "Potato___healthy",
+    "disease_name_en": "Healthy Potato",
+    "disease_name_ur": "صحت مند آلو",
+    "disease_name_ps": "روغ الوګان",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Lush foliage with strong stems and no blighted lesions.",
+    "symptoms_ur": "آلو کی فصل سرسبز اور جھلسائو کے دھبوں سے پاک ہے۔",
+    "prevention_en": "Maintain regular ridge earthing and controlled furrow irrigation.",
+    "prevention_ur": "کھیلیوں پر پانی چڑھائیں تاکہ ٹیوبرز سورج کی روشنی سے ہرے نہ ہوں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کسی زہر کی ضرورت نہیں۔ کھیلیوں کا خیال رکھیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "citrus",
+    "crop_name_en": "Citrus / Orange",
+    "crop_name_ur": "کینو / مالٹا / لیموں",
+    "crop_name_ps": "مالټه",
+    "category": "Fruit",
+    "class_key": "Orange___Haunglongbing_(Citrus_greening)",
+    "disease_name_en": "Citrus Greening (Huanglongbing / HLB)",
+    "disease_name_ur": "کینو کا گریننگ روگ (سائلا روگ)",
+    "disease_name_ps": "د مالټې ژیړوالی",
+    "pathogen_type": "BACTERIAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Asymmetrical yellow mottling on leaves, vein yellowing and corking, small lopsided bitter fruits that stay green at base.",
+    "symptoms_ur": "پتوں پر بے ترتیب پیلے دھبے، رگیں موٹی اور ابھری ہوئی ہو جاتی ہیں، پھل چھوٹا اور ترچھا رہ جاتا ہے اور نیچے سے ہرا رہتا ہے۔",
+    "prevention_en": "Control citrus psylla insect vectors, prune severely infected branches, apply zinc and micronutrients.",
+    "prevention_ur": "سٹرس سائلا کیڑے کا فوری تدارک کریں اور زنک و مائیکرو نیوٹرینٹس کا اسپرے کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "سٹرس سائلا کنٹرول (امیڈاکلوپرڈ / مووینٹو)",
+        "instructions_ur": "امیڈاکلوپرڈ یا کلوتھیانڈن کا اسپرے 100 ملی لیٹر فی 100 لیٹر پانی میں ملا کر کریں۔",
+        "active_ingredient": "Imidacloprid 200 SL / Clothianidin",
+        "local_brands": "Confidor (بائر پاکستان), Movento (بائر), Actara (سنجینٹا)",
+        "phi": 21,
+        "warning_ur": "پھول آنے کے دوران اسپرے نہ کریں تاکہ شہد کی مکھیاں محفوظ رہیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 100.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 20.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "apple",
+    "crop_name_en": "Apple",
+    "crop_name_ur": "سیب",
+    "crop_name_ps": "سیب",
+    "category": "Fruit",
+    "class_key": "Apple___Apple_scab",
+    "disease_name_en": "Apple Scab",
+    "disease_name_ur": "سیب کی خارش (ایپل اسکیب)",
+    "disease_name_ps": "د مڼې خارښت",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Olive-green to velvety brown-black spots on leaves and scabby corky lesions on fruit skin.",
+    "symptoms_ur": "پتوں پر زیتونی ہرے سے بھورے مخملی دھبے اور سیب کے پھل پر کھردرے چھلکے نما داغ بن جاتے ہیں۔",
+    "prevention_en": "Rake and destroy fallen leaves in autumn, prune orchard canopy for sunlight penetration.",
+    "prevention_ur": "خزاں میں گرے ہوئے پتوں کو جلا دیں اور درختوں کی کانٹ چھانٹ درست کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "سکور یا نیٹیوو کا اسپرے",
+        "instructions_ur": "ڈائیفینوکونازول 50 ملی لیٹر فی 100 لیٹر پانی ملا کر اسپرے کریں۔",
+        "active_ingredient": "Difenoconazole 250 EC / Captan 50% WP",
+        "local_brands": "Score 250 EC (سنجینٹا), Nativo (بائر), Antracol (بائر)",
+        "phi": 14,
+        "warning_ur": "پھول کھلنے سے پہلے اور گرنے کے بعد اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 50.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 10.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "apple",
+    "crop_name_en": "Apple",
+    "crop_name_ur": "سیب",
+    "crop_name_ps": "سیب",
+    "category": "Fruit",
+    "class_key": "Apple___healthy",
+    "disease_name_en": "Healthy Apple",
+    "disease_name_ur": "صحت مند سیب",
+    "disease_name_ps": "روغه مڼه",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Clean glossy green foliage with unblemished fruit development.",
+    "symptoms_ur": "سیب کے پتے صاف اور داغوں سے پاک ہیں۔",
+    "prevention_en": "Apply dormant copper spray during winter to prevent overwintering fungal spores.",
+    "prevention_ur": "سردیوں میں بورڈو مکسچر کا حفاظتی اسپرے کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر درکار نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  }
+]

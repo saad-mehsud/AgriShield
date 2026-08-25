@@ -1,0 +1,162 @@
+# =====================================
+# Python & Virtual Environments
+# =====================================
+__pycache__/
+**/__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual environments
+venv/
+**/venv/
+.venv/
+**/.venv/
+env/
+**/env/
+ENV/
+env.bak/
+venv.bak/
+
+# Jupyter Notebooks
+.ipynb_checkpoints/
+**/.ipynb_checkpoints/
+*-checkpoint.ipynb
+
+# Testing & Static Analysis
+.pytest_cache/
+**/.pytest_cache/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+
+# =====================================
+# Database & Runtime Artifacts
+# =====================================
+*.db
+*.sqlite
+*.sqlite3
+agrishield.db
+**/agrishield.db
+backend/agrishield.db
+
+# Dynamic Uploads (keep directory structure with .gitkeep)
+backend/static/uploads/scans/*
+backend/static/uploads/heatmaps/*
+backend/static/uploads/thumbnails/*
+!backend/static/uploads/scans/.gitkeep
+!backend/static/uploads/heatmaps/.gitkeep
+!backend/static/uploads/thumbnails/.gitkeep
+
+# PyTorch Model Checkpoints & Weights
+*.pth
+*.pt
+*.onnx
+*.tflite
+*.ckpt
+backend/models_weights/*
+!backend/models_weights/.gitkeep
+
+# =====================================
+# Node.js & Next.js Frontend
+# =====================================
+node_modules/
+**/node_modules/
+frontend/node_modules/
+.pnp
+.pnp.js
+.yarn/cache
+.yarn/unplugged
+.yarn/build-state.yml
+.yarn/install-state.gz
+.pnp.*
+
+# Next.js build output & caches
+.next/
+**/.next/
+frontend/.next/
+out/
+**/out/
+next-env.d.ts
+*.tsbuildinfo
+.eslintcache
+.stylelintcache
+.turbo/
+.vercel/
+
+# Production build
+dist/
+build/
+
+# Debug logs & temporary files
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+*.tmp
+*.temp
+*.bak
+
+# =====================================
+# Environment & Secrets
+# =====================================
+.env
+.env*.local
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# =====================================
+# IDE, Editors & OS Files
+# =====================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Desktop.ini
+
+# Editors
+.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.swp
+*.swo
+*~
+
+
