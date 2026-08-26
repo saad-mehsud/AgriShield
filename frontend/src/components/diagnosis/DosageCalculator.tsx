@@ -47,7 +47,7 @@ export function DosageCalculator({ defaultDosage }: DosageCalculatorProps) {
             key={u}
             type="button"
             onClick={() => setUnit(u)}
-            className={`flex-1 py-1.5 px-2 rounded-xl text-xs font-semibold border transition-all ${
+            className={`flex-1 py-1.5 px-2 rounded-xl text-xs font-semibold border transition-all cursor-pointer ${
               unit === u
                 ? 'bg-emerald-700 text-white border-emerald-700 shadow-sm'
                 : 'bg-slate-50 text-slate-700 border-slate-200 hover:bg-slate-100'
@@ -63,7 +63,7 @@ export function DosageCalculator({ defaultDosage }: DosageCalculatorProps) {
         <button
           type="button"
           onClick={() => setAreaValue(Math.max(0.5, Number((areaValue - (unit === 'acre' ? 0.5 : 1)).toFixed(1))))}
-          className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-800 font-bold text-lg flex items-center justify-center hover:bg-slate-100 active:scale-95"
+          className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-800 font-bold text-lg flex items-center justify-center hover:bg-slate-100 active:scale-95 cursor-pointer"
         >
           -
         </button>
@@ -78,7 +78,7 @@ export function DosageCalculator({ defaultDosage }: DosageCalculatorProps) {
         <button
           type="button"
           onClick={() => setAreaValue(Number((areaValue + (unit === 'acre' ? 0.5 : 1)).toFixed(1)))}
-          className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-800 font-bold text-lg flex items-center justify-center hover:bg-slate-100 active:scale-95"
+          className="w-10 h-10 rounded-xl bg-white shadow-sm border border-slate-200 text-slate-800 font-bold text-lg flex items-center justify-center hover:bg-slate-100 active:scale-95 cursor-pointer"
         >
           +
         </button>
@@ -88,41 +88,41 @@ export function DosageCalculator({ defaultDosage }: DosageCalculatorProps) {
       <div className="grid grid-cols-2 gap-3">
         <div className="bg-emerald-50/70 p-3.5 rounded-2xl border border-emerald-200">
           <div className="flex items-center gap-1.5 text-emerald-800 text-[11px] font-semibold mb-1">
-            <Layers className="w-3.5 h-3.5 text-emerald-600" />
-            <span>{t('tanks_needed')}</span>
+            <Layers className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <span className="truncate">{t('tanks_needed')}</span>
           </div>
           <p className="text-xl font-black text-emerald-950">
-            {result.knapsackTanks20L} <span className="text-xs font-normal">ٹینکیاں</span>
+            {result.knapsackTanks20L} <span className="text-xs font-normal">{t('tanks_unit')}</span>
           </p>
         </div>
 
         <div className="bg-emerald-50/70 p-3.5 rounded-2xl border border-emerald-200">
           <div className="flex items-center gap-1.5 text-emerald-800 text-[11px] font-semibold mb-1">
-            <Droplets className="w-3.5 h-3.5 text-emerald-600" />
-            <span>{t('water_needed')}</span>
+            <Droplets className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <span className="truncate">{t('water_needed')}</span>
           </div>
           <p className="text-xl font-black text-emerald-950">
-            {result.totalWaterLiters} <span className="text-xs font-normal">لیٹر</span>
+            {result.totalWaterLiters} <span className="text-xs font-normal">{t('liters_unit')}</span>
           </p>
         </div>
 
         <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
           <div className="flex items-center gap-1.5 text-slate-700 text-[11px] font-semibold mb-1">
-            <FlaskRound className="w-3.5 h-3.5 text-emerald-600" />
-            <span>{t('chemical_needed')}</span>
+            <FlaskRound className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <span className="truncate">{t('chemical_needed')}</span>
           </div>
           <p className="text-base font-bold text-slate-900">
-            {result.totalChemicalGrams} <span className="text-xs font-normal">گرام/ملی</span>
+            {result.totalChemicalGrams} <span className="text-xs font-normal">{t('grams_ml_unit')}</span>
           </p>
         </div>
 
         <div className="bg-slate-50 p-3.5 rounded-2xl border border-slate-200">
           <div className="flex items-center gap-1.5 text-slate-700 text-[11px] font-semibold mb-1">
-            <Calculator className="w-3.5 h-3.5 text-emerald-600" />
-            <span>{t('per_tank_dosage')}</span>
+            <Calculator className="w-3.5 h-3.5 text-emerald-600 shrink-0" />
+            <span className="truncate">{t('per_tank_dosage')}</span>
           </div>
           <p className="text-base font-bold text-slate-900">
-            {result.chemicalPerTankGrams} <span className="text-xs font-normal">گرام/ٹینکی</span>
+            {result.chemicalPerTankGrams} <span className="text-xs font-normal">{t('grams_tank_unit')}</span>
           </p>
         </div>
       </div>

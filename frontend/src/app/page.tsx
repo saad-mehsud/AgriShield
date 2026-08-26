@@ -8,7 +8,7 @@ import { fetchScans, fetchWeatherAlerts, ScanItem, WeatherAlerts } from '@/lib/a
 import { ScanHistoryCard } from '@/components/diary/ScanHistoryCard';
 
 export default function HomePage() {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const [recentScans, setRecentScans] = useState<ScanItem[]>([]);
   const [weatherAlerts, setWeatherAlerts] = useState<WeatherAlerts | null>(null);
   const [loading, setLoading] = useState(true);
@@ -58,7 +58,7 @@ export default function HomePage() {
 
           <div className="flex gap-2.5">
             <Link
-              href="/scan"
+              href="/scan?mode=camera"
               className="flex-1 py-3 px-4 rounded-2xl bg-white text-emerald-800 font-bold text-xs flex items-center justify-center gap-2 shadow-lg shadow-black/10 hover:bg-emerald-50 active:scale-95 transition-all"
             >
               <Camera className="w-4 h-4 text-emerald-600" />
@@ -86,7 +86,7 @@ export default function HomePage() {
             <Calculator className="w-5 h-5" />
           </div>
           <span className="text-xs font-bold text-slate-800">{t('calculator')}</span>
-          <span className="text-[10px] text-slate-400">ایکڑ کا حساب</span>
+          <span className="text-[10px] text-slate-400">{t('quick_calc_subtitle')}</span>
         </Link>
 
         <Link
@@ -97,7 +97,7 @@ export default function HomePage() {
             <BookOpen className="w-5 h-5" />
           </div>
           <span className="text-xs font-bold text-slate-800">{t('encyclopedia')}</span>
-          <span className="text-[10px] text-slate-400">بیماریوں کی لغت</span>
+          <span className="text-[10px] text-slate-400">{t('quick_encyclopedia_subtitle')}</span>
         </Link>
 
         <Link
@@ -108,7 +108,7 @@ export default function HomePage() {
             <PhoneCall className="w-5 h-5" />
           </div>
           <span className="text-xs font-bold text-slate-800">{t('advisory')}</span>
-          <span className="text-[10px] text-slate-400">واٹس ایپ رابطہ</span>
+          <span className="text-[10px] text-slate-400">{t('quick_advisory_subtitle')}</span>
         </Link>
       </div>
 
@@ -121,14 +121,16 @@ export default function HomePage() {
               <span>{t('weather_risk_title')}</span>
             </div>
             <span className="text-[11px] font-semibold text-amber-800 bg-amber-100 px-2 py-0.5 rounded-full">
-              نمی: {weatherAlerts.humidity_percent}%
+              {t('weather_humidity_label')}: {weatherAlerts.humidity_percent}%
             </span>
           </div>
           <div className="space-y-1.5">
             {weatherAlerts.alerts.slice(0, 2).map((alert, idx) => (
               <div key={idx} className="bg-white/80 rounded-xl p-2.5 text-xs text-slate-800 border border-amber-200/60">
-                <span className="font-bold text-amber-900">{alert.crop_urdu}: </span>
-                <span>{alert.reason_urdu}</span>
+                <span className="font-bold text-amber-900">
+                  {lang === 'en' ? alert.crop : alert.crop_urdu}: 
+                </span>
+                <span> {alert.reason_urdu}</span>
               </div>
             ))}
           </div>

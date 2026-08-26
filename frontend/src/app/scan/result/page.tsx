@@ -14,7 +14,7 @@ import { Share2, Camera, ArrowLeft } from 'lucide-react';
 
 export default function ScanResultPage() {
   const router = useRouter();
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const [data, setData] = useState<DiagnosisData | null>(null);
 
   useEffect(() => {
@@ -31,7 +31,7 @@ export default function ScanResultPage() {
   if (!data) {
     return (
       <div className="text-center py-16 space-y-4">
-        <p className="text-sm text-slate-500 font-medium">کوئی حالیہ نتیجہ موجود نہیں ہے۔</p>
+        <p className="text-sm text-slate-500 font-medium">{t('no_recent_result')}</p>
         <Link
           href="/scan"
           className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-emerald-700 text-white font-bold text-xs shadow-md"
@@ -43,9 +43,12 @@ export default function ScanResultPage() {
     );
   }
 
+  const cropTitle = lang === 'en' ? data.crop_name : `${data.crop_name_urdu} (${data.crop_name})`;
+  const diseaseTitle = lang === 'en' ? data.disease_name : `${data.disease_name_urdu} (${data.disease_name})`;
+
   const handleShareWhatsApp = () => {
     const text = encodeURIComponent(
-      `🌾 AgriShield (کسان دوست) تشخیصی رپورٹ:\nفصل: ${data.crop_name_urdu} (${data.crop_name})\nبیماری: ${data.disease_name_urdu}\nدرستگی: ${Math.round(data.confidence * 100)}%\n\nعلاج: ${data.audio_urdu_text}`
+      `🌾 AgriShield Report:\nCrop: ${cropTitle}\nDisease: ${diseaseTitle}\nConfidence: ${Math.round(data.confidence * 100)}%\n\nPrescription: ${data.audio_urdu_text}`
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
@@ -65,10 +68,10 @@ export default function ScanResultPage() {
         <button
           type="button"
           onClick={handleShareWhatsApp}
-          className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-xl border border-emerald-200 shadow-sm transition-colors"
+          className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-xl border border-emerald-200 shadow-sm transition-colors cursor-pointer"
         >
           <Share2 className="w-3.5 h-3.5 text-emerald-600" />
-          <span>شیئر کریں</span>
+          <span>{t('share_btn')}</span>
         </button>
       </div>
 
@@ -83,7 +86,7 @@ export default function ScanResultPage() {
       {/* 2. Diagnosis Summary Card */}
       <DiagnosisCard data={data} />
 
-      {/* 3. Urdu Audio Player */}
+      {/* 3. Voice Audio Player */}
       <AudioPlayer textToSpeak={data.audio_urdu_text} />
 
       {/* 4. Dual Remedies (Organic vs Chemical Pakistani Brands) */}
@@ -100,7 +103,7 @@ export default function ScanResultPage() {
       <button
         type="button"
         onClick={handleShareWhatsApp}
-        className="w-full py-4 px-5 rounded-2xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-800/20 active:scale-[0.99] transition-all"
+        className="w-full py-4 px-5 rounded-2xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-800/20 active:scale-[0.99] transition-all cursor-pointer"
       >
         <Share2 className="w-4 h-4" />
         <span>{t('whatsapp_share')}</span>

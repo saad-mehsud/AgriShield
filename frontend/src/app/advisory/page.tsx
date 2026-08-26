@@ -3,10 +3,10 @@
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
 import { fetchWeatherAlerts, WeatherAlerts } from '@/lib/api';
-import { PhoneCall, MessageCircle, AlertTriangle, CloudSun, ShieldCheck, MapPin } from 'lucide-react';
+import { PhoneCall, MessageCircle, CloudSun, MapPin } from 'lucide-react';
 
 export default function AdvisoryPage() {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
   const [weatherAlerts, setWeatherAlerts] = useState<WeatherAlerts | null>(null);
 
   useEffect(() => {
@@ -14,9 +14,11 @@ export default function AdvisoryPage() {
   }, []);
 
   const openWhatsAppGeneral = () => {
-    const text = encodeURIComponent(
-      `السلام علیکم ڈاکٹر صاحب، مجھے اپنی فصل کی بیماری کی تشخیص اور دوا کے مشورے کے لیے آپ کی رہنمائی درکار ہے۔ (AgriShield Report)`
-    );
+    const message = lang === 'en'
+      ? `Hello Doctor, I need your advice regarding crop disease identification and spray dosage. (AgriShield Report)`
+      : `السلام علیکم ڈاکٹر صاحب، مجھے اپنی فصل کی بیماری کی تشخیص اور دوا کے مشورے کے لیے آپ کی رہنمائی درکار ہے۔ (AgriShield Report)`;
+
+    const text = encodeURIComponent(message);
     window.open(`https://wa.me/923001234567?text=${text}`, '_blank');
   };
 
@@ -32,7 +34,7 @@ export default function AdvisoryPage() {
             {t('advisory')}
           </h2>
           <p className="text-[11px] text-slate-500">
-            مستند ماہرین زراعت اور توسیع زراعت سے فوری رابطہ
+            {t('advisory_subtitle')}
           </p>
         </div>
       </div>
@@ -45,10 +47,10 @@ export default function AdvisoryPage() {
           </div>
           <div>
             <h3 className="font-bold text-base leading-tight">
-              آن لائن ماہر زراعت سے رابطہ
+              {t('whatsapp_agronomist_title')}
             </h3>
             <p className="text-xs text-white/80">
-              واٹس ایپ پر اپنی فصل کی تصویر بھیج کر تصدیق کروائیں
+              {t('whatsapp_agronomist_desc')}
             </p>
           </div>
         </div>
@@ -56,10 +58,10 @@ export default function AdvisoryPage() {
         <button
           type="button"
           onClick={openWhatsAppGeneral}
-          className="w-full py-3.5 px-4 rounded-2xl bg-white text-emerald-900 font-bold text-xs flex items-center justify-center gap-2 shadow hover:bg-emerald-50 active:scale-95 transition-all"
+          className="w-full py-3.5 px-4 rounded-2xl bg-white text-emerald-900 font-bold text-xs flex items-center justify-center gap-2 shadow hover:bg-emerald-50 active:scale-95 transition-all cursor-pointer"
         >
           <MessageCircle className="w-4 h-4 text-emerald-600" />
-          <span>واٹس ایپ پر میسج بھیجیں (WhatsApp Chat)</span>
+          <span>{t('whatsapp_chat_btn')}</span>
         </button>
       </div>
 
@@ -69,7 +71,7 @@ export default function AdvisoryPage() {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2 text-slate-900 font-bold text-sm">
               <CloudSun className="w-5 h-5 text-amber-500" />
-              <span>موسمیاتی الرٹ اور پھپھوندی کا خطرہ</span>
+              <span>{t('weather_outbreak_title')}</span>
             </div>
             <span className="text-[11px] font-semibold text-slate-500 flex items-center gap-1">
               <MapPin className="w-3 h-3 text-emerald-600" />
@@ -79,11 +81,11 @@ export default function AdvisoryPage() {
 
           <div className="grid grid-cols-2 gap-2.5">
             <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-center">
-              <p className="text-[11px] text-slate-500">درجہ حرارت</p>
+              <p className="text-[11px] text-slate-500">{t('weather_temp_label')}</p>
               <p className="text-base font-bold text-slate-900">{weatherAlerts.temperature_c}°C</p>
             </div>
             <div className="bg-slate-50 p-3 rounded-2xl border border-slate-100 text-center">
-              <p className="text-[11px] text-slate-500">ہوا میں نمی</p>
+              <p className="text-[11px] text-slate-500">{t('weather_humidity_label')}</p>
               <p className="text-base font-bold text-slate-900">{weatherAlerts.humidity_percent}%</p>
             </div>
           </div>
@@ -92,9 +94,11 @@ export default function AdvisoryPage() {
             {weatherAlerts.alerts.map((alert, idx) => (
               <div key={idx} className="bg-amber-50/80 rounded-2xl p-3 border border-amber-200">
                 <div className="flex items-center justify-between mb-1">
-                  <span className="text-xs font-bold text-amber-950">{alert.crop_urdu}</span>
+                  <span className="text-xs font-bold text-amber-950">
+                    {lang === 'en' ? alert.crop : alert.crop_urdu}
+                  </span>
                   <span className="text-[10px] font-bold px-2 py-0.5 rounded-md bg-amber-200 text-amber-900">
-                    {alert.threat_urdu}
+                    {lang === 'en' ? alert.threat : alert.threat_urdu}
                   </span>
                 </div>
                 <p className="text-xs text-slate-700">{alert.reason_urdu}</p>

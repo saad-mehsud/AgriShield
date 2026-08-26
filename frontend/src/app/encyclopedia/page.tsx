@@ -14,15 +14,15 @@ export default function EncyclopediaPage() {
   const [searchQuery, setSearchQuery] = useState('');
 
   const crops = [
-    { slug: 'all', label: 'تمام فصلیں (All)' },
-    { slug: 'cotton', label: 'کپاس (Cotton)' },
-    { slug: 'wheat', label: 'گندم (Wheat)' },
-    { slug: 'rice', label: 'دھان (Rice)' },
-    { slug: 'sugarcane', label: 'کماد (Sugarcane)' },
-    { slug: 'tomato', label: 'ٹماٹر (Tomato)' },
-    { slug: 'potato', label: 'آلو (Potato)' },
-    { slug: 'citrus', label: 'کینو (Citrus)' },
-    { slug: 'apple', label: 'سیب (Apple)' },
+    { slug: 'all', labelKey: 'all_crops' as const },
+    { slug: 'cotton', labelKey: 'cotton' as const },
+    { slug: 'wheat', labelKey: 'wheat' as const },
+    { slug: 'rice', labelKey: 'rice' as const },
+    { slug: 'sugarcane', labelKey: 'sugarcane' as const },
+    { slug: 'tomato', labelKey: 'tomato' as const },
+    { slug: 'potato', labelKey: 'potato' as const },
+    { slug: 'citrus', labelKey: 'citrus' as const },
+    { slug: 'apple', labelKey: 'apple' as const },
   ];
 
   useEffect(() => {
@@ -53,7 +53,7 @@ export default function EncyclopediaPage() {
             {t('encyclopedia')}
           </h2>
           <p className="text-[11px] text-slate-500">
-            فصلوں کی بیماریوں اور ادویات کی مکمل معلومات
+            {t('encyclopedia_subtitle')}
           </p>
         </div>
       </div>
@@ -77,13 +77,13 @@ export default function EncyclopediaPage() {
             key={c.slug}
             type="button"
             onClick={() => setSelectedCrop(c.slug)}
-            className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap border transition-all ${
+            className={`px-3 py-1.5 rounded-full text-xs font-semibold whitespace-nowrap border transition-all cursor-pointer ${
               selectedCrop === c.slug
                 ? 'bg-emerald-700 text-white border-emerald-700 shadow-sm'
                 : 'bg-white text-slate-700 border-slate-200 hover:bg-slate-50'
             }`}
           >
-            {c.label}
+            {t(c.labelKey)}
           </button>
         ))}
       </div>
@@ -101,7 +101,7 @@ export default function EncyclopediaPage() {
         </div>
       ) : (
         <div className="bg-white rounded-3xl p-8 text-center border border-slate-200 shadow-sm">
-          <p className="text-xs text-slate-500">کوئی بیماری نہیں ملی۔</p>
+          <p className="text-xs text-slate-500">{t('no_diseases_found')}</p>
         </div>
       )}
     </div>

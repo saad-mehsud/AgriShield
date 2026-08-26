@@ -11,21 +11,27 @@ interface ScanHistoryCardProps {
 }
 
 export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const thumbUrl = scan.thumbnail_url
     ? (scan.thumbnail_url.startsWith('http') ? scan.thumbnail_url : `${API_BASE}${scan.thumbnail_url}`)
     : (scan.image_url.startsWith('http') ? scan.image_url : `${API_BASE}${scan.image_url}`);
 
-  const formattedDate = new Date(scan.scanned_at).toLocaleDateString('ur-PK', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
-  });
+  const formattedDate = new Date(scan.scanned_at).toLocaleDateString(
+    lang === 'en' ? 'en-US' : 'ur-PK',
+    {
+      day: 'numeric',
+      month: 'short',
+      year: 'numeric',
+    }
+  );
+
+  const cropDisplay = lang === 'en' ? scan.crop_name : scan.crop_name_urdu;
+  const diseaseDisplay = lang === 'en' ? scan.disease_name : scan.disease_name_urdu;
 
   const handleShareWhatsApp = () => {
     const text = encodeURIComponent(
-      `🌾 AgriShield (کسان دوست) رپورٹ:\nفصل: ${scan.crop_name_urdu}\nبیماری: ${scan.disease_name_urdu}\nدرستگی: ${Math.round(scan.confidence * 100)}%\nتاریخ: ${formattedDate}`
+      `🌾 AgriShield Report:\nCrop: ${scan.crop_name} (${scan.crop_name_urdu})\nDisease: ${scan.disease_name} (${scan.disease_name_urdu})\nConfidence: ${Math.round(scan.confidence * 100)}%\nDate: ${formattedDate}`
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
@@ -45,7 +51,7 @@ export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
       <div className="flex-1 min-w-0">
         <div className="flex items-center gap-1.5 mb-1">
           <span className="text-[11px] font-semibold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-800 border border-emerald-200">
-            {scan.crop_name_urdu}
+            {cropDisplay}
           </span>
           <span className="text-[11px] text-slate-400 flex items-center gap-1">
             <Calendar className="w-3 h-3" />
@@ -54,7 +60,7 @@ export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
         </div>
 
         <h4 className="font-bold text-slate-900 text-sm truncate mb-0.5">
-          {scan.disease_name_urdu}
+          {diseaseDisplay}
         </h4>
         <p className="text-[11px] text-slate-500 truncate">
           {scan.disease_name}
@@ -66,8 +72,8 @@ export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
         <button
           type="button"
           onClick={handleShareWhatsApp}
-          className="w-8 h-8 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition-colors border border-emerald-200"
-          title="Share to WhatsApp"
+          className="w-8 h-8 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-emerald-700 flex items-center justify-center transition-colors border border-emerald-200 cursor-pointer"
+          title={t('share_btn')}
         >
           <Share2 className="w-3.5 h-3.5" />
         </button>
@@ -76,7 +82,7 @@ export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
           <button
             type="button"
             onClick={() => onDelete(scan.id)}
-            className="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 flex items-center justify-center transition-colors border border-red-200"
+            className="w-8 h-8 rounded-xl bg-red-50 hover:bg-red-100 text-red-600 flex items-center justify-center transition-colors border border-red-200 cursor-pointer"
             title="Delete Scan"
           >
             <Trash2 className="w-3.5 h-3.5" />

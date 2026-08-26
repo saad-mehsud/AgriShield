@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from 'next/navigation';
 import { useTranslation } from '@/hooks/useTranslation';
 import { CameraViewfinder } from '@/components/scanner/CameraViewfinder';
 import { LaserScanner } from '@/components/scanner/LaserScanner';
-import { ImagePlus, Camera as CameraIcon, AlertCircle, Loader2, RefreshCw } from 'lucide-react';
+import { ImagePlus, Camera as CameraIcon, AlertCircle, Loader2 } from 'lucide-react';
 import { diagnoseLeaf } from '@/lib/api';
 
 function ScanContent() {
@@ -13,7 +13,7 @@ function ScanContent() {
   const searchParams = useSearchParams();
   const { t } = useTranslation();
 
-  const [mode, setMode] = useState<'camera' | 'upload'>('upload'); // Default to upload for easier desktop/mobile testing
+  const [mode, setMode] = useState<'camera' | 'upload'>('upload');
   const [isProcessing, setIsProcessing] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -30,7 +30,6 @@ function ScanContent() {
     setIsProcessing(true);
     setErrorMsg(null);
 
-    // Create local preview URL for laser scanner animation
     const localUrl = URL.createObjectURL(fileOrBlob);
     setPreviewUrl(localUrl);
 
@@ -40,16 +39,15 @@ function ScanContent() {
 
       const result = await diagnoseLeaf(formData);
 
-      // Store result in sessionStorage for instant retrieval on result page
       sessionStorage.setItem('last_diagnosis', JSON.stringify(result));
       router.push('/scan/result');
     } catch (err: any) {
       console.error('Diagnosis Error:', err);
       const isConnectionError = err?.message?.includes('Failed to fetch') || err?.message?.includes('NetworkError');
       if (isConnectionError) {
-        setErrorMsg('بیک اینڈ سرور سے رابطہ نہیں ہو سکا (Backend Server is offline on port 8000). براہ کرم بیک اینڈ سرور چلائیں۔');
+        setErrorMsg(t('backend_offline_error'));
       } else {
-        setErrorMsg('تصویر کا تجزیہ کرنے میں مسئلہ پیش آیا ہے۔ براہ کرم دوبارہ کوشش کریں۔');
+        setErrorMsg(t('backend_offline_error'));
       }
       setIsProcessing(false);
     }
@@ -60,7 +58,6 @@ function ScanContent() {
     if (file) {
       handleProcessImage(file);
     }
-    // Reset file input so selecting the same file again triggers onChange
     if (e.target) {
       e.target.value = '';
     }
@@ -93,7 +90,7 @@ function ScanContent() {
           type="button"
           onClick={() => setMode('upload')}
           disabled={isProcessing}
-          className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+          className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
             mode === 'upload'
               ? 'bg-emerald-700 text-white shadow-sm'
               : 'text-slate-600 hover:text-slate-900'
@@ -107,7 +104,7 @@ function ScanContent() {
           type="button"
           onClick={() => setMode('camera')}
           disabled={isProcessing}
-          className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 ${
+          className={`flex-1 py-2.5 px-3 rounded-xl text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer ${
             mode === 'camera'
               ? 'bg-emerald-700 text-white shadow-sm'
               : 'text-slate-600 hover:text-slate-900'
@@ -126,9 +123,9 @@ function ScanContent() {
             <span className="font-bold">{errorMsg}</span>
           </div>
           <div className="bg-white/80 p-2.5 rounded-xl border border-red-200/60 text-[11px] text-slate-700">
-            <p className="font-semibold mb-1">بیک اینڈ سرور شروع کرنے کے لیے ٹرمینل میں چلائیں:</p>
+            <p className="font-semibold mb-1">{t('backend_start_instruction')}</p>
             <code className="block bg-slate-900 text-emerald-400 p-2 rounded-lg font-mono text-[10px]">
-              cd backend && ./venv/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+              ./start.sh
             </code>
           </div>
         </div>
@@ -136,7 +133,7 @@ function ScanContent() {
 
       {/* Processing State with Laser Scanner Animation */}
       {isProcessing ? (
-        <LaserScanner imagePreviewUrl={previewUrl || undefined} />
+        <LaserScanner imagePreviewUrl={previewUrl || undefined} statusText={t('analyzing_leaf')} />
       ) : mode === 'camera' ? (
         <CameraViewfinder onCapture={handleProcessImage} isProcessing={isProcessing} />
       ) : (
@@ -163,22 +160,22 @@ function ScanContent() {
             <ImagePlus className="w-8 h-8" />
           </div>
           <h3 className="text-sm font-bold text-slate-900 mb-1">
-            تصویر منتخب کریں یا یہاں ڈریگ کریں
+            {t('upload_click_title')}
           </h3>
           <p className="text-xs text-slate-500 max-w-[80%] mb-2">
-            Click to upload leaf photo or drag & drop (JPEG, PNG, WebP)
+            {t('upload_click_desc')}
           </p>
           <span className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-700 bg-emerald-100/70 px-2.5 py-1 rounded-full">
-            📁 گیلری سے اپ لوڈ کریں
+            {t('gallery_btn_label')}
           </span>
         </div>
       )}
 
       {/* User Field Tip */}
       <div className="bg-emerald-50/70 p-3.5 rounded-2xl border border-emerald-200 text-xs text-emerald-950 flex items-start gap-2">
-        <span className="font-bold shrink-0">💡 بہترین نتائج کے لیے:</span>
+        <span className="font-bold shrink-0">{t('scan_tip_title')}</span>
         <span className="text-[11px] leading-relaxed">
-          پتے کو سورج کی مناسب روشنی میں سیدھا رکھیں اور کیمرے کو بیماری کے داغ کے قریب لائیں۔
+          {t('scan_tip_desc')}
         </span>
       </div>
     </div>

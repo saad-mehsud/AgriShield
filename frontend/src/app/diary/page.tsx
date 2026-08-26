@@ -29,7 +29,7 @@ export default function DiaryPage() {
   }, []);
 
   const handleDelete = async (id: string) => {
-    if (confirm('کیا آپ اس اسکین کو ریکارڈ سے حذف کرنا چاہتے ہیں؟')) {
+    if (confirm(t('delete_scan_confirm'))) {
       try {
         await deleteScan(id);
         setScans(scans.filter((s) => s.id !== id));
@@ -52,7 +52,7 @@ export default function DiaryPage() {
               {t('diary')}
             </h2>
             <p className="text-[11px] text-slate-500">
-              کل محفوظ معائنے: {scans.length}
+              {t('diary_subtitle')} {scans.length}
             </p>
           </div>
         </div>
@@ -62,7 +62,7 @@ export default function DiaryPage() {
           className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-700 hover:bg-emerald-800 text-white font-bold text-xs shadow-sm transition-all"
         >
           <Camera className="w-3.5 h-3.5" />
-          <span>نیا اسکین</span>
+          <span>{t('new_scan')}</span>
         </Link>
       </div>
 
@@ -92,7 +92,7 @@ export default function DiaryPage() {
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-emerald-700 text-white font-bold text-xs shadow hover:bg-emerald-800 transition-all"
           >
             <Camera className="w-4 h-4" />
-            <span>پہلا اسکین شروع کریں</span>
+            <span>{t('start_first_scan')}</span>
           </Link>
         </div>
       )}

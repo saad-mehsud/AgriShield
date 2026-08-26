@@ -74,7 +74,7 @@ export function GradCamViewer({
         {activeView === 'heatmap' && (
           <div className="absolute bottom-2.5 start-2.5 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-xl text-[11px] font-medium text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
             <Eye className="w-3 h-3 text-amber-400" />
-            <span>Grad-CAM: سرخ رنگ بیمار پتوں کی نشاندہی کرتا ہے</span>
+            <span>{t('gradcam_caption')}</span>
           </div>
         )}
       </div>

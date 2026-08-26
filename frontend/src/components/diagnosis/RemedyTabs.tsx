@@ -12,11 +12,22 @@ interface RemedyTabsProps {
 }
 
 export function RemedyTabs({ remedies, symptomsUrdu, preventionUrdu }: RemedyTabsProps) {
-  const { t } = useTranslation();
-  const [activeTab, setActiveTab] = useState<'organic' | 'chemical' | 'symptoms'>('organic');
+  const { t, lang } = useTranslation();
+  const [activeTab, setActiveTab] = useState<'organic' | 'chemical'>('organic');
 
   const organicRemedies = remedies.filter((r) => r.remedy_type === 'ORGANIC');
   const chemicalRemedies = remedies.filter((r) => r.remedy_type === 'CHEMICAL');
+
+  // Choose appropriate title/instruction field based on language
+  const getRemedyTitle = (r: Remedy) => {
+    if (lang === 'en' && r.title_english) return r.title_english;
+    return r.title_urdu;
+  };
+
+  const getRemedyInstructions = (r: Remedy) => {
+    if (lang === 'en' && r.instructions_english) return r.instructions_english;
+    return r.instructions_urdu;
+  };
 
   return (
     <div className="bg-white rounded-3xl p-5 shadow-md border border-slate-200">
@@ -57,10 +68,10 @@ export function RemedyTabs({ remedies, symptomsUrdu, preventionUrdu }: RemedyTab
               <div key={idx} className="bg-emerald-50/70 rounded-2xl p-4 border border-emerald-200">
                 <h3 className="font-bold text-emerald-900 text-sm mb-2 flex items-center gap-1.5">
                   <Leaf className="w-4 h-4 text-emerald-600" />
-                  {remedy.title_urdu}
+                  {getRemedyTitle(remedy)}
                 </h3>
                 <p className="text-xs text-slate-800 leading-relaxed whitespace-pre-line mb-3">
-                  {remedy.instructions_urdu}
+                  {getRemedyInstructions(remedy)}
                 </p>
                 {remedy.safety_warning_urdu && (
                   <div className="flex items-start gap-1.5 text-[11px] text-amber-800 bg-amber-50 p-2.5 rounded-xl border border-amber-200">
@@ -71,12 +82,12 @@ export function RemedyTabs({ remedies, symptomsUrdu, preventionUrdu }: RemedyTab
               </div>
             ))
           ) : (
-            <p className="text-xs text-slate-500 text-center py-4">کوئی خاص دیسی علاج درج نہیں ہے۔</p>
+            <p className="text-xs text-slate-500 text-center py-4">{t('no_organic_remedy')}</p>
           )}
 
           {preventionUrdu && (
             <div className="bg-slate-50 rounded-2xl p-4 border border-slate-200">
-              <h4 className="font-bold text-slate-800 text-xs mb-1.5">حفاظتی تدابیر اور پرہیز:</h4>
+              <h4 className="font-bold text-slate-800 text-xs mb-1.5">{t('prevention_title')}</h4>
               <p className="text-xs text-slate-700 leading-relaxed">{preventionUrdu}</p>
             </div>
           )}
@@ -90,14 +101,14 @@ export function RemedyTabs({ remedies, symptomsUrdu, preventionUrdu }: RemedyTab
               <div key={idx} className="bg-slate-50 rounded-2xl p-4 border border-slate-200">
                 <h3 className="font-bold text-slate-900 text-sm mb-2 flex items-center gap-1.5">
                   <FlaskConical className="w-4 h-4 text-emerald-600" />
-                  {remedy.title_urdu}
+                  {getRemedyTitle(remedy)}
                 </h3>
 
                 {/* Local Brand Names */}
                 {remedy.local_brands && (
                   <div className="bg-emerald-50 rounded-xl p-3 mb-3 border border-emerald-200">
                     <p className="text-[11px] font-bold text-emerald-800 mb-1">
-                      مستند پاکستانی برانڈز (سنجینٹا / بائر / ایف ایم سی):
+                      {t('pakistani_brands_label')}
                     </p>
                     <p className="text-xs font-semibold text-emerald-950">
                       {remedy.local_brands}
@@ -108,19 +119,19 @@ export function RemedyTabs({ remedies, symptomsUrdu, preventionUrdu }: RemedyTab
                 {/* Active Ingredient */}
                 {remedy.active_ingredient && (
                   <p className="text-[11px] text-slate-600 mb-2">
-                    <span className="font-semibold">فعال کیمیکل (Active Ingredient): </span>
+                    <span className="font-semibold">{t('active_ingredient_label')} </span>
                     {remedy.active_ingredient}
                   </p>
                 )}
 
                 <p className="text-xs text-slate-800 leading-relaxed whitespace-pre-line mb-3">
-                  {remedy.instructions_urdu}
+                  {getRemedyInstructions(remedy)}
                 </p>
 
                 {/* Pre-Harvest Interval & Safety */}
                 <div className="flex items-center justify-between text-[11px] pt-2 border-t border-slate-200 text-slate-600">
-                  <span>فصل چنائی کا وقفہ (PHI):</span>
-                  <span className="font-bold text-slate-900">{remedy.pre_harvest_interval_days} دن</span>
+                  <span>{t('phi_label')}</span>
+                  <span className="font-bold text-slate-900">{remedy.pre_harvest_interval_days} {t('days')}</span>
                 </div>
 
                 {remedy.safety_warning_urdu && (
@@ -132,7 +143,7 @@ export function RemedyTabs({ remedies, symptomsUrdu, preventionUrdu }: RemedyTab
               </div>
             ))
           ) : (
-            <p className="text-xs text-slate-500 text-center py-4">صحت مند فصل کے لیے کیمیائی اسپرے کی ضرورت نہیں ہے۔</p>
+            <p className="text-xs text-slate-500 text-center py-4">{t('no_chemical_needed')}</p>
           )}
         </div>
       )}

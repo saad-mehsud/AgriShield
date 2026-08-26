@@ -10,7 +10,7 @@ interface DiagnosisCardProps {
 }
 
 export function DiagnosisCard({ data }: DiagnosisCardProps) {
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const isHealthy = data.pathogen_type === 'HEALTHY';
   const confidencePercent = Math.round(data.confidence * 100);
@@ -42,12 +42,16 @@ export function DiagnosisCard({ data }: DiagnosisCardProps) {
     }
   };
 
+  const cropTitle = lang === 'en' ? data.crop_name : `${data.crop_name_urdu} (${data.crop_name})`;
+  const diseaseTitle = lang === 'en' ? data.disease_name : data.disease_name_urdu;
+  const diseaseSubtitle = lang === 'en' ? data.disease_name_urdu : data.disease_name;
+
   return (
     <div className="bg-white rounded-3xl p-5 shadow-md border border-slate-200">
       {/* Header Badges */}
       <div className="flex items-center justify-between gap-2 mb-3">
         <span className="text-xs font-semibold px-2.5 py-1 rounded-full bg-slate-100 text-slate-700 border border-slate-200">
-          🌾 {data.crop_name_urdu} ({data.crop_name})
+          🌾 {cropTitle}
         </span>
         {severityBadge()}
       </div>
@@ -55,10 +59,10 @@ export function DiagnosisCard({ data }: DiagnosisCardProps) {
       {/* Main Disease Title */}
       <div className="mb-4">
         <h2 className="text-2xl font-bold text-slate-900 leading-tight mb-1">
-          {data.disease_name_urdu}
+          {diseaseTitle}
         </h2>
         <p className="text-sm font-medium text-slate-500">
-          {data.disease_name}
+          {diseaseSubtitle}
         </p>
       </div>
 

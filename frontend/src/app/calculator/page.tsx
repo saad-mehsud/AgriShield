@@ -20,7 +20,7 @@ export default function CalculatorPage() {
             {t('calculator')}
           </h2>
           <p className="text-[11px] text-slate-500">
-            ایکڑ، کنال اور مرلہ کے حساب سے 20 لیٹر ٹینکیوں اور دوا کی مقدار معلوم کریں
+            {t('calculator_subtitle')}
           </p>
         </div>
       </div>
@@ -30,20 +30,20 @@ export default function CalculatorPage() {
       {/* Guide Card */}
       <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3">
         <h4 className="font-bold text-slate-900 text-xs">
-          🌾 پاکستانی زرعی پیمائش کے اصول (Land Standards):
+          {t('land_rules_title')}
         </h4>
         <ul className="text-xs text-slate-700 space-y-2 leading-relaxed">
           <li className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-            <span>1 ایکڑ (Acre) = 8 کنال (Kanals) = 160 مرلہ (Marlas)</span>
+            <span>{t('land_rule_1')}</span>
           </li>
           <li className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-            <span>1 ایکڑ کے لیے اوسطاً 100 سے 120 لیٹر پانی (5 سے 6 ٹینکیاں) درکار ہوتی ہیں۔</span>
+            <span>{t('land_rule_2')}</span>
           </li>
           <li className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-emerald-500 shrink-0" />
-            <span>ہمیشہ صاف پانی استعمال کریں اور تیز دھوپ میں اسپرے سے گریز کریں۔</span>
+            <span>{t('land_rule_3')}</span>
           </li>
         </ul>
       </div>
