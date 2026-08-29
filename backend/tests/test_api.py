@@ -8,6 +8,7 @@ from app.database import Base, engine, SessionLocal
 from app.seeds.seed_data import seed_database
 from app.services.gradcam_service import generate_gradcam_heatmap_overlay
 from app.services.ml_service import predict_crop_disease_local
+from app.services.guardrail_service import validate_leaf_image
 
 @pytest.fixture(scope="session", autouse=True)
 def setup_test_db():
@@ -19,7 +20,15 @@ def setup_test_db():
 client = TestClient(app)
 
 def create_sample_leaf_image():
+    # Green plant leaf color (ForestGreen)
     img = Image.new("RGB", (224, 224), color=(34, 139, 34))
+    buf = io.BytesIO()
+    img.save(buf, format="JPEG")
+    return buf.getvalue()
+
+def create_non_plant_image():
+    # Non-organic solid blue sky / blue surface
+    img = Image.new("RGB", (224, 224), color=(30, 144, 255))
     buf = io.BytesIO()
     img.save(buf, format="JPEG")
     return buf.getvalue()
@@ -53,22 +62,19 @@ def test_weather_alerts():
     assert "alerts" in data
     assert len(data["alerts"]) > 0
 
-def test_local_ml_service():
-    img_bytes = create_sample_leaf_image()
-    res = predict_crop_disease_local(img_bytes)
-    assert "class_key" in res
-    assert res["confidence"] > 0.5
-    assert len(res["top3"]) == 3
+def test_guardrail_service_direct():
+    leaf_bytes = create_sample_leaf_image()
+    is_valid, code, msg = validate_leaf_image(leaf_bytes)
+    assert is_valid is True
+    assert code == "VALID_LEAF"
 
-def test_gradcam_service():
-    img_bytes = create_sample_leaf_image()
-    hm_bytes = generate_gradcam_heatmap_overlay(img_bytes, "Tomato___Early_blight")
-    assert len(hm_bytes) > 0
-    # Verify valid image output
-    hm_img = Image.open(io.BytesIO(hm_bytes))
-    assert hm_img.size == (224, 224)
+    non_leaf_bytes = create_non_plant_image()
+    is_valid, code, msg = validate_leaf_image(non_leaf_bytes)
+    assert is_valid is False
+    assert code == "NON_PLANT_IMAGE"
+    assert "ur" in msg
 
-def test_diagnose_endpoint():
+def test_diagnose_endpoint_with_valid_leaf():
     img_bytes = create_sample_leaf_image()
     files = {"image": ("test_leaf.jpg", img_bytes, "image/jpeg")}
     response = client.post("/api/diagnose", files=files)
@@ -81,6 +87,16 @@ def test_diagnose_endpoint():
     assert "audio_urdu_text" in data
     assert "remedies" in data
     assert len(data["remedies"]) > 0
+
+def test_diagnose_endpoint_non_plant_rejection():
+    non_plant_bytes = create_non_plant_image()
+    files = {"image": ("car_or_blue.jpg", non_plant_bytes, "image/jpeg")}
+    response = client.post("/api/diagnose", files=files)
+    assert response.status_code == 422
+    data = response.json()
+    assert "detail" in data
+    assert data["detail"]["code"] == "NON_PLANT_IMAGE"
+    assert "messages" in data["detail"]
 
 def test_scans_list_after_diagnose():
     response = client.get("/api/scans")

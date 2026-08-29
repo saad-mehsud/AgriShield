@@ -7,6 +7,7 @@ from app.services.colab_client import predict_with_colab
 from app.services.ml_service import predict_crop_disease_local
 from app.services.gradcam_service import generate_gradcam_heatmap_overlay
 from app.services.storage_service import save_leaf_and_heatmap
+from app.services.guardrail_service import validate_leaf_image
 
 router = APIRouter(prefix="/api", tags=["Diagnosis"])
 
@@ -25,7 +26,19 @@ async def diagnose_crop_leaf(
     if len(image_bytes) == 0:
         raise HTTPException(status_code=400, detail="Uploaded image file is empty")
 
-    # 1. Try Google Colab GPU Server first
+    # 1. Biological Plant / Leaf Guardrail Gate
+    is_valid, reason_code, messages = validate_leaf_image(image_bytes)
+    if not is_valid:
+        raise HTTPException(
+            status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+            detail={
+                "code": reason_code,
+                "message": messages.get("ur", messages["en"]),
+                "messages": messages
+            }
+        )
+
+    # 2. Try Google Colab GPU Server first
     colab_res = await predict_with_colab(image_bytes)
 
     if colab_res and "class_key" in colab_res:
@@ -37,7 +50,7 @@ async def diagnose_crop_leaf(
         # Save image & Colab heatmap
         image_url, heatmap_url, thumb_url = save_leaf_and_heatmap(image_bytes, heatmap_base64)
     else:
-        # 2. Local ML Engine & Grad-CAM Fallback
+        # 3. Local ML Engine & Grad-CAM Fallback
         local_res = predict_crop_disease_local(image_bytes, crop_hint)
         class_key = local_res["class_key"]
         confidence = local_res["confidence"]
@@ -48,7 +61,7 @@ async def diagnose_crop_leaf(
         heatmap_bytes = generate_gradcam_heatmap_overlay(image_bytes, class_key)
         image_url, heatmap_url, thumb_url = save_leaf_and_heatmap(image_bytes, heatmap_bytes)
 
-    # 3. Query Database for Disease & Pakistani Agrochemical Cures
+    # 4. Query Database for Disease & Pakistani Agrochemical Cures
     disease = db.query(Disease).filter(Disease.class_key == class_key).first()
     if not disease:
         # Fallback to general diseased/healthy match if exact class key missing
@@ -58,7 +71,7 @@ async def diagnose_crop_leaf(
 
     crop = disease.crop
 
-    # 4. Generate Urdu Speech Text
+    # 5. Generate Urdu Speech Text
     if disease.pathogen_type.value == "HEALTHY":
         audio_urdu = f"ماشاءاللہ، آپ کا {crop.name_urdu} کا پودا بالکل صحت مند ہے۔ کسی زہر یا اسپرے کی ضرورت نہیں ہے۔"
     else:
@@ -68,7 +81,7 @@ async def diagnose_crop_leaf(
             f"اس کے تدارک کے لیے فوری طور پر نچلے متاثرہ پتوں کو کاٹ کر تلف کریں اور {first_brand} کا اسپرے کریں۔"
         )
 
-    # 5. Persist Diagnostic Scan to Database
+    # 6. Persist Diagnostic Scan to Database
     scan = DiagnosticScan(
         crop_id=crop.id,
         disease_id=disease.id,
@@ -85,7 +98,7 @@ async def diagnose_crop_leaf(
     db.commit()
     db.refresh(scan)
 
-    # 6. Format Response
+    # 7. Format Response
     remedy_schemas = [
         RemedySchema(
             remedy_type=r.remedy_type,

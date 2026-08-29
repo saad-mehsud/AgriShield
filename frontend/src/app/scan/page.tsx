@@ -11,12 +11,13 @@ import { diagnoseLeaf } from '@/lib/api';
 function ScanContent() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const { t } = useTranslation();
+  const { t, lang } = useTranslation();
 
   const [mode, setMode] = useState<'camera' | 'upload'>('upload');
   const [isProcessing, setIsProcessing] = useState(false);
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
+  const [isOfflineError, setIsOfflineError] = useState(false);
   const [isDragging, setIsDragging] = useState(false);
   const fileInputRef = useRef<HTMLInputElement | null>(null);
 
@@ -29,6 +30,7 @@ function ScanContent() {
   const handleProcessImage = async (fileOrBlob: Blob | File) => {
     setIsProcessing(true);
     setErrorMsg(null);
+    setIsOfflineError(false);
 
     const localUrl = URL.createObjectURL(fileOrBlob);
     setPreviewUrl(localUrl);
@@ -43,9 +45,15 @@ function ScanContent() {
       router.push('/scan/result');
     } catch (err: any) {
       console.error('Diagnosis Error:', err);
-      const isConnectionError = err?.message?.includes('Failed to fetch') || err?.message?.includes('NetworkError');
-      if (isConnectionError) {
+      const isConnection = err?.message?.includes('Failed to fetch') || err?.message?.includes('NetworkError');
+      if (isConnection) {
+        setIsOfflineError(true);
         setErrorMsg(t('backend_offline_error'));
+      } else if (err?.messages && err.messages[lang]) {
+        // High-precision multilingual guardrail rejection message (e.g. non-plant image)
+        setErrorMsg(err.messages[lang]);
+      } else if (err?.message) {
+        setErrorMsg(err.message);
       } else {
         setErrorMsg(t('backend_offline_error'));
       }
@@ -117,17 +125,19 @@ function ScanContent() {
 
       {/* Error Message Alert */}
       {errorMsg && (
-        <div className="bg-red-50 text-red-800 p-4 rounded-2xl border border-red-200 flex flex-col gap-2 text-xs font-medium shadow-sm">
+        <div className="bg-red-50 text-red-800 p-4 rounded-2xl border border-red-200 flex flex-col gap-2 text-xs font-medium shadow-sm animate-in fade-in duration-200">
           <div className="flex items-center gap-2">
             <AlertCircle className="w-4 h-4 text-red-600 shrink-0" />
-            <span className="font-bold">{errorMsg}</span>
+            <span className="font-bold leading-relaxed">{errorMsg}</span>
           </div>
-          <div className="bg-white/80 p-2.5 rounded-xl border border-red-200/60 text-[11px] text-slate-700">
-            <p className="font-semibold mb-1">{t('backend_start_instruction')}</p>
-            <code className="block bg-slate-900 text-emerald-400 p-2 rounded-lg font-mono text-[10px]">
-              ./start.sh
-            </code>
-          </div>
+          {isOfflineError && (
+            <div className="bg-white/80 p-2.5 rounded-xl border border-red-200/60 text-[11px] text-slate-700">
+              <p className="font-semibold mb-1">{t('backend_start_instruction')}</p>
+              <code className="block bg-slate-900 text-emerald-400 p-2 rounded-lg font-mono text-[10px]">
+                ./start.sh
+              </code>
+            </div>
+          )}
         </div>
       )}
 
