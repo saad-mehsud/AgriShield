@@ -18,8 +18,9 @@ export default function AdvisoryPage() {
       ? `Hello Doctor, I need your advice regarding crop disease identification and spray dosage. (AgriShield Report)`
       : `السلام علیکم ڈاکٹر صاحب، مجھے اپنی فصل کی بیماری کی تشخیص اور دوا کے مشورے کے لیے آپ کی رہنمائی درکار ہے۔ (AgriShield Report)`;
 
+    const phone = process.env.NEXT_PUBLIC_AGRONOMIST_WHATSAPP || '923001234567';
     const text = encodeURIComponent(message);
-    window.open(`https://wa.me/923001234567?text=${text}`, '_blank');
+    window.open(`https://wa.me/${phone}?text=${text}`, '_blank');
   };
 
   return (
@@ -65,7 +66,7 @@ export default function AdvisoryPage() {
         </button>
       </div>
 
-      {/* Weather & Outbreak Card */}
+      {/* Weather & Outbreak Card — on desktop, shown in a 2-col grid */}
       {weatherAlerts && (
         <div className="bg-white rounded-3xl p-5 border border-slate-200 shadow-sm space-y-3">
           <div className="flex items-center justify-between">

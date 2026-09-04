@@ -33,6 +33,23 @@ export function useSpeechSynthesis() {
     }
   }, []);
 
+  // Automatically stop playback when the component using this hook unmounts
+  useEffect(() => {
+    return () => {
+      if (typeof window !== 'undefined') {
+        if ('speechSynthesis' in window) {
+          try {
+            window.speechSynthesis.cancel();
+          } catch (e) {}
+        }
+        if (window._activeAudioElement) {
+          window._activeAudioElement.pause();
+          window._activeAudioElement = null;
+        }
+      }
+    };
+  }, []);
+
   const stop = useCallback(() => {
     if (typeof window === 'undefined') return;
 

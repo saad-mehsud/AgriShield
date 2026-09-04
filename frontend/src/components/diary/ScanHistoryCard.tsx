@@ -14,8 +14,8 @@ export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
   const { t, lang } = useTranslation();
 
   const thumbUrl = scan.thumbnail_url
-    ? (scan.thumbnail_url.startsWith('http') ? scan.thumbnail_url : `${API_BASE}${scan.thumbnail_url}`)
-    : (scan.image_url.startsWith('http') ? scan.image_url : `${API_BASE}${scan.image_url}`);
+    ? (scan.thumbnail_url.startsWith('http') || scan.thumbnail_url.startsWith('blob:') || scan.thumbnail_url.startsWith('data:') ? scan.thumbnail_url : `${API_BASE}${scan.thumbnail_url}`)
+    : (scan.image_url.startsWith('http') || scan.image_url.startsWith('blob:') || scan.image_url.startsWith('data:') ? scan.image_url : `${API_BASE}${scan.image_url}`);
 
   const formattedDate = new Date(scan.scanned_at).toLocaleDateString(
     lang === 'en' ? 'en-US' : 'ur-PK',
@@ -39,11 +39,12 @@ export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
   return (
     <div className="bg-white rounded-3xl p-4 shadow-sm border border-slate-200 flex gap-3.5 items-center hover:shadow-md transition-shadow">
       {/* Thumbnail */}
-      <div className="w-18 h-18 rounded-2xl overflow-hidden bg-slate-900 shrink-0 border border-slate-200">
+      <div className="w-[72px] h-[72px] rounded-2xl overflow-hidden bg-slate-900 shrink-0 border border-slate-200">
         <img
           src={thumbUrl}
           alt={scan.disease_name}
           className="w-full h-full object-cover"
+          onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }}
         />
       </div>
 

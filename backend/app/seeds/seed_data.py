@@ -9,7 +9,7 @@ def seed_database(db: Session):
 
     json_path = os.path.join(os.path.dirname(__file__), "diseases_data.json")
     if not os.path.exists(json_path):
-        print(f"⚠️ Seeds file not found at {json_path}")
+        print(f"[WARNING] Seeds file not found at {json_path}")
         return
 
     with open(json_path, "r", encoding="utf-8") as f:
@@ -89,7 +89,7 @@ def seed_database(db: Session):
 
             db.commit()
 
-    print(f"✅ Seeding complete: {count_new_diseases} new disease profiles registered.")
+    print(f"[OK] Seeding complete: {count_new_diseases} new disease profiles registered.")
 
 if __name__ == "__main__":
     from app.database import SessionLocal

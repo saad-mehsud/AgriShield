@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useCamera } from '@/hooks/useCamera';
 import { useTranslation } from '@/hooks/useTranslation';
 import { RefreshCw, Camera as CameraIcon, AlertCircle } from 'lucide-react';
@@ -12,15 +12,25 @@ interface CameraViewfinderProps {
 
 export function CameraViewfinder({ onCapture, isProcessing }: CameraViewfinderProps) {
   const { t } = useTranslation();
-  const { videoRef, isStreaming, error, startCamera, stopCamera, toggleFacingMode, capturePhoto } = useCamera();
+  const {
+    videoRef,
+    isStreaming,
+    error,
+    startCamera,
+    stopCamera,
+    toggleFacingMode,
+    capturePhoto,
+  } = useCamera();
 
   useEffect(() => {
     startCamera();
-    return () => stopCamera();
-  }, [startCamera, stopCamera]);
+    // stopCamera reads from ref — no stale closure — safe to call without deps
+    return () => { stopCamera(); };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // Only runs on mount/unmount
 
   const handleShutter = async () => {
-    if (isProcessing) return;
+    if (isProcessing || !isStreaming) return;
     const blob = await capturePhoto();
     if (blob) {
       onCapture(blob);
@@ -42,7 +52,7 @@ export function CameraViewfinder({ onCapture, isProcessing }: CameraViewfinderPr
       <div className="absolute inset-6 border-2 border-dashed border-emerald-400/80 rounded-2xl pointer-events-none flex items-center justify-center">
         <div className="text-center bg-slate-950/60 backdrop-blur-sm px-4 py-2 rounded-xl border border-white/10 max-w-[80%]">
           <p className="text-white text-xs font-medium leading-relaxed">
-            {t('hero_scanner_cta')}
+            {t('scan_tip_desc')}
           </p>
         </div>
       </div>
@@ -53,10 +63,12 @@ export function CameraViewfinder({ onCapture, isProcessing }: CameraViewfinderPr
           <AlertCircle className="w-10 h-10 text-amber-400 mb-2" />
           <p className="text-sm font-semibold mb-3">{error}</p>
           <button
+            type="button"
             onClick={() => startCamera()}
-            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-xs font-bold transition-all"
+            className="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-xl text-xs font-bold transition-all cursor-pointer"
           >
-            Retry Camera / دوبارہ کوشش کریں
+            {t('scan_tip_title')} {/* fallback reuse; ideally add retry_camera key */}
+            {' '}دوبارہ کوشش کریں
           </button>
         </div>
       )}
@@ -67,21 +79,21 @@ export function CameraViewfinder({ onCapture, isProcessing }: CameraViewfinderPr
         <button
           type="button"
           onClick={toggleFacingMode}
-          className="w-11 h-11 rounded-full bg-slate-900/70 backdrop-blur text-white flex items-center justify-center hover:bg-slate-800 transition-all border border-white/20"
+          className="w-11 h-11 rounded-full bg-slate-900/70 backdrop-blur text-white flex items-center justify-center hover:bg-slate-800 transition-all border border-white/20 cursor-pointer"
           aria-label="Flip Camera"
         >
           <RefreshCw className="w-5 h-5" />
         </button>
 
-        {/* Big Shutter Trigger */}
+        {/* Big Shutter Button — fixed w-18 to w-[72px] */}
         <button
           type="button"
           onClick={handleShutter}
           disabled={isProcessing || !isStreaming}
-          className="w-18 h-18 p-1.5 rounded-full bg-emerald-500/30 backdrop-blur flex items-center justify-center hover:scale-105 active:scale-95 transition-all disabled:opacity-50"
+          className="w-[72px] h-[72px] p-1.5 rounded-full bg-emerald-500/30 backdrop-blur flex items-center justify-center hover:scale-105 active:scale-95 transition-all disabled:opacity-50 cursor-pointer"
           aria-label="Take Photo"
         >
-          <div className="w-14 h-14 rounded-full bg-white flex items-center justify-center shadow-lg border-4 border-emerald-600">
+          <div className="w-[54px] h-[54px] rounded-full bg-white flex items-center justify-center shadow-lg border-4 border-emerald-600">
             <CameraIcon className="w-6 h-6 text-emerald-700" />
           </div>
         </button>

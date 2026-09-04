@@ -67,7 +67,7 @@ export function DiagnosisCard({ data }: DiagnosisCardProps) {
       </div>
 
       {/* Metric Indicators */}
-      <div className="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100">
+      <div className="grid grid-cols-2 gap-3 pt-3 border-t border-slate-100 mb-3">
         <div className="bg-slate-50 rounded-2xl p-3 border border-slate-100">
           <p className="text-[11px] text-slate-500 mb-0.5">{t('confidence_label')}</p>
           <div className="flex items-center gap-1.5">
@@ -84,6 +84,37 @@ export function DiagnosisCard({ data }: DiagnosisCardProps) {
           </div>
         </div>
       </div>
+
+      {/* Top Alternative Predictions (Colab / Local ML Top-3 Probabilities) */}
+      {data.top3 && data.top3.length > 0 && (
+        <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-100 space-y-2">
+          <p className="text-[11px] font-bold text-slate-600 uppercase tracking-wider">
+            AI Confidence Distribution (Top-3)
+          </p>
+          <div className="space-y-1.5">
+            {data.top3.map((pred, idx) => {
+              const pct = Math.round(pred.confidence * 100);
+              const label = pred.disease_name || pred.class_key.replace(/___/g, ' - ').replace(/_/g, ' ');
+              return (
+                <div key={idx} className="space-y-0.5">
+                  <div className="flex justify-between text-[11px] font-medium text-slate-700">
+                    <span className="truncate max-w-[70%]">{label}</span>
+                    <span className="font-bold">{pct}%</span>
+                  </div>
+                  <div className="w-full bg-slate-200 h-1.5 rounded-full overflow-hidden">
+                    <div
+                      className={`h-full rounded-full transition-all ${
+                        idx === 0 ? 'bg-emerald-600' : idx === 1 ? 'bg-amber-500' : 'bg-slate-400'
+                      }`}
+                      style={{ width: `${Math.max(pct, 4)}%` }}
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      )}
     </div>
   );
 }

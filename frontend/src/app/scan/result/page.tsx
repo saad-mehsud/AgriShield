@@ -34,7 +34,7 @@ export default function ScanResultPage() {
         <p className="text-sm text-slate-500 font-medium">{t('no_recent_result')}</p>
         <Link
           href="/scan"
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-emerald-700 text-white font-bold text-xs shadow-md"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-emerald-700 text-white font-bold text-xs shadow-md hover:bg-emerald-800 transition-all"
         >
           <Camera className="w-4 h-4" />
           <span>{t('hero_scanner_cta')}</span>
@@ -59,7 +59,7 @@ export default function ScanResultPage() {
       <div className="flex items-center justify-between">
         <Link
           href="/scan"
-          className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-white px-3 py-1.5 rounded-xl border border-slate-200 shadow-sm"
+          className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-white px-3 py-2 min-h-[40px] rounded-xl border border-slate-200 shadow-sm transition-colors"
         >
           <ArrowLeft className="w-3.5 h-3.5" />
           <span>{t('scan_another')}</span>
@@ -68,46 +68,74 @@ export default function ScanResultPage() {
         <button
           type="button"
           onClick={handleShareWhatsApp}
-          className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-1.5 rounded-xl border border-emerald-200 shadow-sm transition-colors cursor-pointer"
+          className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-2 min-h-[40px] rounded-xl border border-emerald-200 shadow-sm transition-colors cursor-pointer"
         >
           <Share2 className="w-3.5 h-3.5 text-emerald-600" />
           <span>{t('share_btn')}</span>
         </button>
       </div>
 
-      {/* 1. Explainable AI (Grad-CAM) Visual Viewer */}
-      <GradCamViewer
-        originalImageUrl={data.image_url}
-        heatmapImageUrl={data.heatmap_url}
-        cropName={data.crop_name}
-        diseaseName={data.disease_name}
-      />
+      {/*
+        On desktop (lg+), split into 2 columns:
+        - Left: Grad-CAM viewer + Diagnosis card + Audio
+        - Right: Remedy tabs + Dosage calculator
+      */}
+      <div className="lg:grid lg:grid-cols-[1fr_380px] lg:gap-6 space-y-4 lg:space-y-0">
 
-      {/* 2. Diagnosis Summary Card */}
-      <DiagnosisCard data={data} />
+        {/* LEFT COLUMN */}
+        <div className="space-y-4">
+          {/* 1. Explainable AI (Grad-CAM) Visual Viewer */}
+          <GradCamViewer
+            originalImageUrl={data.image_url}
+            heatmapImageUrl={data.heatmap_url ?? undefined}
+            cropName={data.crop_name}
+            diseaseName={data.disease_name}
+          />
 
-      {/* 3. Voice Audio Player */}
-      <AudioPlayer textToSpeak={data.audio_urdu_text} />
+          {/* 2. Diagnosis Summary Card */}
+          <DiagnosisCard data={data} />
 
-      {/* 4. Dual Remedies (Organic vs Chemical Pakistani Brands) */}
-      <RemedyTabs
-        remedies={data.remedies}
-        symptomsUrdu={data.symptoms_urdu}
-        preventionUrdu={data.prevention_urdu}
-      />
+          {/* 3. Voice Audio Player */}
+          <AudioPlayer textToSpeak={data.audio_urdu_text} />
 
-      {/* 5. Spray Dosage Calculator (Acre / Kanal / Marla) */}
-      {data.dosage && <DosageCalculator defaultDosage={data.dosage} />}
+          {/* WhatsApp CTA — mobile only (desktop shows in right col) */}
+          <div className="lg:hidden">
+            <button
+              type="button"
+              onClick={handleShareWhatsApp}
+              className="w-full py-4 px-5 rounded-2xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-800/20 active:scale-[0.99] transition-all cursor-pointer"
+            >
+              <Share2 className="w-4 h-4" />
+              <span>{t('whatsapp_share')}</span>
+            </button>
+          </div>
+        </div>
 
-      {/* WhatsApp Agronomist Trigger */}
-      <button
-        type="button"
-        onClick={handleShareWhatsApp}
-        className="w-full py-4 px-5 rounded-2xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-800/20 active:scale-[0.99] transition-all cursor-pointer"
-      >
-        <Share2 className="w-4 h-4" />
-        <span>{t('whatsapp_share')}</span>
-      </button>
+        {/* RIGHT COLUMN */}
+        <div className="space-y-4">
+          {/* 4. Dual Remedies (Organic vs Chemical Pakistani Brands) */}
+          <RemedyTabs
+            remedies={data.remedies}
+            symptomsUrdu={data.symptoms_urdu}
+            preventionUrdu={data.prevention_urdu}
+          />
+
+          {/* 5. Spray Dosage Calculator (Acre / Kanal / Marla) */}
+          {data.dosage && <DosageCalculator defaultDosage={data.dosage} />}
+
+          {/* WhatsApp CTA — desktop only */}
+          <div className="hidden lg:block">
+            <button
+              type="button"
+              onClick={handleShareWhatsApp}
+              className="w-full py-4 px-5 rounded-2xl bg-emerald-800 hover:bg-emerald-900 text-white font-bold text-sm flex items-center justify-center gap-2 shadow-lg shadow-emerald-800/20 active:scale-[0.99] transition-all cursor-pointer"
+            >
+              <Share2 className="w-4 h-4" />
+              <span>{t('whatsapp_share')}</span>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }

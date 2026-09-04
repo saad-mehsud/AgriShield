@@ -29,6 +29,13 @@ export function TranslationProvider({ children }: { children: React.ReactNode })
 
   const isRTL = lang === 'ur' || lang === 'ps' || lang === 'sd';
 
+  useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.dir = isRTL ? 'rtl' : 'ltr';
+      document.documentElement.lang = lang;
+    }
+  }, [isRTL, lang]);
+
   const t = (key: keyof typeof translations.ur): string => {
     const dict = translations[lang] || translations.ur;
     return (dict as any)[key] || translations.en[key] || String(key);

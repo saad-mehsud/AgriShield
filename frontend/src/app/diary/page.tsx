@@ -72,7 +72,7 @@ export default function DiaryPage() {
           <Loader2 className="w-6 h-6 animate-spin text-emerald-600" />
         </div>
       ) : scans.length > 0 ? (
-        <div className="space-y-3">
+        <div className="space-y-3 md:grid md:grid-cols-2 md:gap-3 md:space-y-0 lg:grid-cols-2 xl:grid-cols-3">
           {scans.map((scan) => (
             <ScanHistoryCard
               key={scan.id}

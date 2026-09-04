@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
-import { Flame, Image as ImageIcon, Eye } from 'lucide-react';
+import { Flame, Image as ImageIcon, Eye, AlertTriangle } from 'lucide-react';
 import { API_BASE } from '@/lib/api';
 
 interface GradCamViewerProps {
@@ -20,15 +20,17 @@ export function GradCamViewer({
 }: GradCamViewerProps) {
   const { t } = useTranslation();
   const [activeView, setActiveView] = useState<'original' | 'heatmap'>('heatmap');
+  const [imgError, setImgError] = useState(false);
 
-  const fullOriginalUrl = originalImageUrl.startsWith('http')
-    ? originalImageUrl
-    : `${API_BASE}${originalImageUrl}`;
+  const fullOriginalUrl =
+    originalImageUrl.startsWith('http') || originalImageUrl.startsWith('blob:') || originalImageUrl.startsWith('data:')
+      ? originalImageUrl
+      : `${API_BASE}${originalImageUrl}`;
 
   const fullHeatmapUrl = heatmapImageUrl
-    ? (heatmapImageUrl.startsWith('http') || heatmapImageUrl.startsWith('data:')
-        ? heatmapImageUrl
-        : `${API_BASE}${heatmapImageUrl}`)
+    ? heatmapImageUrl.startsWith('http') || heatmapImageUrl.startsWith('blob:') || heatmapImageUrl.startsWith('data:')
+      ? heatmapImageUrl
+      : `${API_BASE}${heatmapImageUrl}`
     : fullOriginalUrl;
 
   return (
@@ -64,14 +66,22 @@ export function GradCamViewer({
 
       {/* Image Display */}
       <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden bg-slate-950 shadow-inner">
-        <img
-          src={activeView === 'heatmap' ? fullHeatmapUrl : fullOriginalUrl}
-          alt={`${cropName} - ${diseaseName}`}
-          className="w-full h-full object-cover transition-opacity duration-300"
-        />
+        {imgError ? (
+          <div className="w-full h-full flex flex-col items-center justify-center text-slate-400 gap-2">
+            <AlertTriangle className="w-8 h-8 text-amber-500" />
+            <p className="text-xs font-medium">Image unavailable</p>
+          </div>
+        ) : (
+          <img
+            src={activeView === 'heatmap' ? fullHeatmapUrl : fullOriginalUrl}
+            alt={`${cropName} - ${diseaseName}`}
+            className="w-full h-full object-cover transition-opacity duration-300"
+            onError={() => setImgError(true)}
+          />
+        )}
 
         {/* Explainable AI Tag */}
-        {activeView === 'heatmap' && (
+        {activeView === 'heatmap' && !imgError && (
           <div className="absolute bottom-2.5 start-2.5 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded-xl text-[11px] font-medium text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
             <Eye className="w-3 h-3 text-amber-400" />
             <span>{t('gradcam_caption')}</span>
