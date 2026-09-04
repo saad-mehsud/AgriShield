@@ -1,8 +1,10 @@
 from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.responses import Response
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.models import DiagnosticScan
 from app.schemas.schemas import ScanListResponse, ScanListItem
+from app.services.pdf_service import generate_prescription_pdf
 
 router = APIRouter(prefix="/api/scans", tags=["Scans"])
 
@@ -44,6 +46,30 @@ def list_scans(
         page=page,
         limit=limit,
         scans=items
+    )
+
+@router.get("/{scan_id}/pdf")
+def get_scan_prescription_pdf(scan_id: str, db: Session = Depends(get_db)):
+    """
+    Generates and returns an official 1-page PDF Prescription Slip.
+    """
+    scan = db.query(DiagnosticScan).filter(DiagnosticScan.id == scan_id).first()
+    if not scan:
+        raise HTTPException(status_code=404, detail="Scan record not found")
+
+    disease = scan.disease
+    crop = scan.crop
+    remedies = disease.remedies
+    dosage = disease.dosage_rules[0] if disease.dosage_rules else None
+
+    pdf_bytes = generate_prescription_pdf(scan, disease, crop, remedies, dosage)
+
+    return Response(
+        content=pdf_bytes,
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": f'inline; filename="AgriShield_Prescription_{scan_id[:8]}.pdf"'
+        }
     )
 
 @router.delete("/{scan_id}")

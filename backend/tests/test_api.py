@@ -104,3 +104,16 @@ def test_scans_list_after_diagnose():
     data = response.json()
     assert data["total"] > 0
     assert len(data["scans"]) > 0
+
+def test_get_scan_prescription_pdf():
+    # 1. First get a scan id from list
+    scans_res = client.get("/api/scans")
+    assert scans_res.status_code == 200
+    scan_id = scans_res.json()["scans"][0]["id"]
+
+    # 2. Request PDF endpoint
+    pdf_res = client.get(f"/api/scans/{scan_id}/pdf")
+    assert pdf_res.status_code == 200
+    assert pdf_res.headers["content-type"] == "application/pdf"
+    assert pdf_res.content.startswith(b"%PDF")
+    assert len(pdf_res.content) > 500

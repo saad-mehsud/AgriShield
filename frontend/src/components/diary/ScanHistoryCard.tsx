@@ -2,8 +2,8 @@
 
 import React from 'react';
 import { useTranslation } from '@/hooks/useTranslation';
-import { ScanItem, API_BASE } from '@/lib/api';
-import { Calendar, Trash2, Share2, AlertTriangle, CheckCircle2 } from 'lucide-react';
+import { ScanItem, API_BASE, getScanPdfUrl } from '@/lib/api';
+import { Calendar, Trash2, Share2, FileText } from 'lucide-react';
 
 interface ScanHistoryCardProps {
   scan: ScanItem;
@@ -34,6 +34,12 @@ export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
       `🌾 AgriShield Report:\nCrop: ${scan.crop_name} (${scan.crop_name_urdu})\nDisease: ${scan.disease_name} (${scan.disease_name_urdu})\nConfidence: ${Math.round(scan.confidence * 100)}%\nDate: ${formattedDate}`
     );
     window.open(`https://wa.me/?text=${text}`, '_blank');
+  };
+
+  const handleDownloadPdf = () => {
+    if (scan.id) {
+      window.open(getScanPdfUrl(scan.id), '_blank');
+    }
   };
 
   return (
@@ -70,6 +76,15 @@ export function ScanHistoryCard({ scan, onDelete }: ScanHistoryCardProps) {
 
       {/* Actions */}
       <div className="flex flex-col gap-2 shrink-0">
+        <button
+          type="button"
+          onClick={handleDownloadPdf}
+          className="w-8 h-8 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-colors border border-slate-200 cursor-pointer"
+          title={t('download_pdf_short')}
+        >
+          <FileText className="w-3.5 h-3.5 text-emerald-700" />
+        </button>
+
         <button
           type="button"
           onClick={handleShareWhatsApp}

@@ -4,13 +4,13 @@ import React, { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useTranslation } from '@/hooks/useTranslation';
-import { DiagnosisData } from '@/lib/api';
+import { DiagnosisData, getScanPdfUrl } from '@/lib/api';
 import { GradCamViewer } from '@/components/diagnosis/GradCamViewer';
 import { DiagnosisCard } from '@/components/diagnosis/DiagnosisCard';
 import { AudioPlayer } from '@/components/diagnosis/AudioPlayer';
 import { RemedyTabs } from '@/components/diagnosis/RemedyTabs';
 import { DosageCalculator } from '@/components/diagnosis/DosageCalculator';
-import { Share2, Camera, ArrowLeft } from 'lucide-react';
+import { Share2, Camera, ArrowLeft, FileText, Download } from 'lucide-react';
 
 export default function ScanResultPage() {
   const router = useRouter();
@@ -53,10 +53,16 @@ export default function ScanResultPage() {
     window.open(`https://wa.me/?text=${text}`, '_blank');
   };
 
+  const handleDownloadPdf = () => {
+    if (data.scan_id) {
+      window.open(getScanPdfUrl(data.scan_id), '_blank');
+    }
+  };
+
   return (
     <div className="space-y-4 pb-8">
       {/* Top Header Actions */}
-      <div className="flex items-center justify-between">
+      <div className="flex items-center justify-between gap-2">
         <Link
           href="/scan"
           className="flex items-center gap-1.5 text-xs font-bold text-slate-600 hover:text-slate-900 bg-white px-3 py-2 min-h-[40px] rounded-xl border border-slate-200 shadow-sm transition-colors"
@@ -65,14 +71,26 @@ export default function ScanResultPage() {
           <span>{t('scan_another')}</span>
         </Link>
 
-        <button
-          type="button"
-          onClick={handleShareWhatsApp}
-          className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-2 min-h-[40px] rounded-xl border border-emerald-200 shadow-sm transition-colors cursor-pointer"
-        >
-          <Share2 className="w-3.5 h-3.5 text-emerald-600" />
-          <span>{t('share_btn')}</span>
-        </button>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={handleDownloadPdf}
+            className="flex items-center gap-1.5 text-xs font-bold text-slate-800 bg-white hover:bg-slate-50 px-3 py-2 min-h-[40px] rounded-xl border border-slate-200 shadow-sm transition-colors cursor-pointer"
+            title={t('download_pdf_btn')}
+          >
+            <FileText className="w-3.5 h-3.5 text-emerald-700" />
+            <span>{t('download_pdf_short')}</span>
+          </button>
+
+          <button
+            type="button"
+            onClick={handleShareWhatsApp}
+            className="flex items-center gap-1.5 text-xs font-bold text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-3 py-2 min-h-[40px] rounded-xl border border-emerald-200 shadow-sm transition-colors cursor-pointer"
+          >
+            <Share2 className="w-3.5 h-3.5 text-emerald-600" />
+            <span>{t('share_btn')}</span>
+          </button>
+        </div>
       </div>
 
       {/*
@@ -98,8 +116,17 @@ export default function ScanResultPage() {
           {/* 3. Voice Audio Player */}
           <AudioPlayer textToSpeak={data.audio_urdu_text} />
 
-          {/* WhatsApp CTA — mobile only (desktop shows in right col) */}
-          <div className="lg:hidden">
+          {/* Action CTAs — mobile only (desktop shows in right col) */}
+          <div className="lg:hidden space-y-2.5">
+            <button
+              type="button"
+              onClick={handleDownloadPdf}
+              className="w-full py-3.5 px-5 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs flex items-center justify-center gap-2 border border-slate-200 shadow-sm active:scale-[0.99] transition-all cursor-pointer"
+            >
+              <Download className="w-4 h-4 text-emerald-700" />
+              <span>{t('download_pdf_btn')}</span>
+            </button>
+
             <button
               type="button"
               onClick={handleShareWhatsApp}
@@ -123,8 +150,17 @@ export default function ScanResultPage() {
           {/* 5. Spray Dosage Calculator (Acre / Kanal / Marla) */}
           {data.dosage && <DosageCalculator defaultDosage={data.dosage} />}
 
-          {/* WhatsApp CTA — desktop only */}
-          <div className="hidden lg:block">
+          {/* Action CTAs — desktop only */}
+          <div className="hidden lg:block space-y-2.5">
+            <button
+              type="button"
+              onClick={handleDownloadPdf}
+              className="w-full py-3.5 px-5 rounded-2xl bg-white hover:bg-slate-50 text-slate-800 font-bold text-xs flex items-center justify-center gap-2 border border-slate-200 shadow-sm active:scale-[0.99] transition-all cursor-pointer"
+            >
+              <Download className="w-4 h-4 text-emerald-700" />
+              <span>{t('download_pdf_btn')}</span>
+            </button>
+
             <button
               type="button"
               onClick={handleShareWhatsApp}
