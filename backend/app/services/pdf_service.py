@@ -207,8 +207,13 @@ def generate_prescription_pdf(scan, disease, crop, remedies, dosage=None) -> byt
     elements.append(Spacer(1, 6))
 
     # 5. Spray Dosage Table (Pakistani Land Units)
-    chem_g = dosage.chemical_per_acre_grams if dosage else 250.0
-    water_l = dosage.water_per_acre_liters if dosage else 100.0
+    chem_g = float(dosage.chemical_per_acre_grams) if (dosage and dosage.chemical_per_acre_grams) else 250.0
+    water_l = float(dosage.water_per_acre_liters) if (dosage and dosage.water_per_acre_liters) else 100.0
+    if water_l <= 0:
+        water_l = 100.0
+
+    tanks_1_acre = max(1, int(water_l / 20))
+    dosage_per_tank = round(chem_g / tanks_1_acre, 1)
 
     elements.append(Paragraph("Spray Dosage Calculator (20-Liter Knapsack Tanks / ایکڑ کا حساب)", section_heading))
     dosage_data = [
@@ -224,17 +229,17 @@ def generate_prescription_pdf(scan, disease, crop, remedies, dosage=None) -> byt
             Paragraph("1 Acre (ایکڑ)", body_regular),
             Paragraph("1.0 Acre (8 Kanals)", body_regular),
             Paragraph(f"{int(water_l)} Liters", body_regular),
-            Paragraph(f"{int(water_l / 20)} Tanks", body_regular),
+            Paragraph(f"{tanks_1_acre} Tanks", body_regular),
             Paragraph(f"{int(chem_g)} g / ml", body_bold),
-            Paragraph(f"{round(chem_g / (water_l / 20), 1)} g/tank", body_bold)
+            Paragraph(f"{dosage_per_tank} g/tank", body_bold)
         ],
         [
             Paragraph("1 Kanal (کنال)", body_regular),
             Paragraph("0.125 Acre (20 Marlas)", body_regular),
-            Paragraph(f"{int(water_l / 8)} Liters", body_regular),
+            Paragraph(f"{max(1, int(water_l / 8))} Liters", body_regular),
             Paragraph("1 Tank", body_regular),
             Paragraph(f"{round(chem_g / 8, 1)} g / ml", body_regular),
-            Paragraph(f"{round(chem_g / 8, 1)} g/tank", body_regular)
+            Paragraph(f"{dosage_per_tank} g/tank", body_regular)
         ],
         [
             Paragraph("4 Marlas (مرلہ)", body_regular),
@@ -242,7 +247,7 @@ def generate_prescription_pdf(scan, disease, crop, remedies, dosage=None) -> byt
             Paragraph("5 Liters", body_regular),
             Paragraph("0.25 Tank", body_regular),
             Paragraph(f"{round(chem_g / 40, 1)} g / ml", body_regular),
-            Paragraph(f"{round(chem_g / 8, 1)} g/tank", body_regular)
+            Paragraph(f"{dosage_per_tank} g/tank", body_regular)
         ]
     ]
     dosage_table = Table(dosage_data, colWidths=[90, 100, 85, 85, 95, 85])
