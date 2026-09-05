@@ -1,674 +1,42 @@
 [
   {
-    "crop_slug": "cotton",
-    "crop_name_en": "Cotton",
-    "crop_name_ur": "کپاس",
-    "crop_name_ps": "پنبه",
-    "category": "Cash Crop",
-    "class_key": "Cotton___Leaf_Curl_Virus",
-    "disease_name_en": "Cotton Leaf Curl Virus (CLCuV)",
-    "disease_name_ur": "کپاس کا پتا مڑاؤ وائرس",
-    "disease_name_ps": "د پنبې پاڼو تاویدو وائرس",
-    "pathogen_type": "VIRAL",
-    "severity_default": "CRITICAL",
-    "symptoms_en": "Upward or downward leaf curling, vein thickening, and enation (leaf-like growth) under leaves, stunted growth caused by whitefly vector.",
-    "symptoms_ur": "پتے اوپر یا نیچے کی طرف مڑ جاتے ہیں، رگیں موٹی ہو جاتی ہیں اور پتے کی پشت پر چھوٹے پتوں نما ابھار بن جاتے ہیں۔ یہ بیماری سفید مکھی کے ذریعے پھیلتی ہے۔",
-    "prevention_en": "Plant CLCuV-tolerant certified seed varieties, manage weed hosts around fields, and spray to control whitefly populations early.",
-    "prevention_ur": "محکمہ زراعت کی تصدیق شدہ بیماری کے خلاف مزاحمت رکھنے والی اقسام کاشت کریں اور سفید مکھی کا بروقت کنٹرول کریں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "سفید مکھی کا دیسی / قدرتی کنٹرول",
-        "instructions_ur": "کھیت میں فی ایکڑ 10 پیلے چپکنے والے کارڈز (Yellow Sticky Traps) لگائیں۔ تمباکو کا پانی (250 گرام ابلا ہوا تمباکو فی 10 لیٹر پانی) ملا کر اسپرے کریں۔",
-        "active_ingredient": "Neem / Tobacco Extract",
-        "local_brands": "دیسی تمباکو محلول",
-        "phi": 0,
-        "warning_ur": "صبح سویرے یا شام کے وقت اسپرے کریں۔"
-      },
-      {
-        "type": "CHEMICAL",
-        "title_ur": "سفید مکھی کا کیمیائی تدارک (پاکستانی برانڈز)",
-        "instructions_ur": "سفید مکھی کے مکمل خاتمے کے لیے پائری پروکسی فین یا اسپیوروٹینرامٹ کا اسپرے 100 لیٹر پانی میں ملا کر کریں۔",
-        "active_ingredient": "Pyriproxyfen 10.8% EC / Spirotetramat",
-        "local_brands": "Movento (بائر پاکستان), Polo (سنجینٹا), Oshin (کنزو)",
-        "phi": 14,
-        "warning_ur": "اسپرے کرتے وقت حفاظتی لباس اور ماسک پہنیں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 200.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 40.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "cotton",
-    "crop_name_en": "Cotton",
-    "crop_name_ur": "کپاس",
-    "crop_name_ps": "پنبه",
-    "category": "Cash Crop",
-    "class_key": "Cotton___Bacterial_blight",
-    "disease_name_en": "Cotton Bacterial Blight (Black Arm)",
-    "disease_name_ur": "کپاس کا بیکٹیریل بلائٹ (کالی بازو)",
-    "disease_name_ps": "د پنبې باکتریایي بلائٹ",
-    "pathogen_type": "BACTERIAL",
-    "severity_default": "HIGH",
-    "symptoms_en": "Angular water-soaked spots on leaves that turn dark brown, black lesions on branches causing them to break.",
-    "symptoms_ur": "پتوں پر کونیے دار پانی بھرے دھبے بنتے ہیں جو بعد میں گہرے کالے ہو جاتے ہیں، شاخوں پر سیاہ دھبے بن کر شاخیں ٹوٹ جاتی ہیں۔",
-    "prevention_en": "Acid delinting of cotton seeds before sowing; avoid flood irrigation touching lower foliage.",
-    "prevention_ur": "کاشت سے قبل بیج کو تیزاب سے صاف کریں اور کھیت میں پانی کا نکاس درست رکھیں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "تانبے کا بورڈو مکسچر",
-        "instructions_ur": "نیلا تھوتھا (کاپر سلفیٹ) اور چونا 1:1 کے تناسب سے 100 لیٹر پانی میں ملا کر اسپرے کریں۔",
-        "active_ingredient": "Bordeaux Mixture",
-        "local_brands": "دیسی بورڈو محلول",
-        "phi": 3,
-        "warning_ur": "محلول کو مٹی کے برتن یا پلاسٹک کے ڈرم میں تیار کریں۔"
-      },
-      {
-        "type": "CHEMICAL",
-        "title_ur": "کاپر آکسی کلورائیڈ اسپرے",
-        "instructions_ur": "کاپر آکسی کلورائیڈ 500 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
-        "active_ingredient": "Copper Oxychloride 50% WP + Kasugamycin",
-        "local_brands": "Cuprocaffaro (سنجینٹا), Kasumin (ایف ایم سی), Champion (علی اکبر گروپ)",
-        "phi": 7,
-        "warning_ur": "دھوپ کی شدت میں اسپرے نہ کریں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 500.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 100.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "cotton",
-    "crop_name_en": "Cotton",
-    "crop_name_ur": "کپاس",
-    "crop_name_ps": "پنبه",
-    "category": "Cash Crop",
-    "class_key": "Cotton___healthy",
-    "disease_name_en": "Healthy Cotton",
-    "disease_name_ur": "صحت مند کپاس",
-    "disease_name_ps": "روغه پنبه",
-    "pathogen_type": "HEALTHY",
-    "severity_default": "LOW",
-    "symptoms_en": "Vibrant green foliage with no discoloration, curling, or lesions.",
-    "symptoms_ur": "پودے کے پتے صاف، ہرے اور بیماری کے نشانات سے پاک ہیں۔",
-    "prevention_en": "Maintain balanced NPK fertilization and monitor for insect pests weekly.",
-    "prevention_ur": "کھاد کا متوازن استعمال جاری رکھیں اور ہر ہفتے پیسٹ اسکاؤٹنگ کریں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "حفاظتی دیکھ بھال",
-        "instructions_ur": "کسی زہر کی ضرورت نہیں۔ مناسب گوڈی اور پانی کا خیال رکھیں۔",
-        "active_ingredient": null,
-        "local_brands": null,
-        "phi": 0,
-        "warning_ur": null
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 0.0,
-      "water_per_acre_liters": 0.0,
-      "knapsack_tank_ratio": 0.0,
-      "application_method": "None"
-    }
-  },
-  {
-    "crop_slug": "wheat",
-    "crop_name_en": "Wheat",
-    "crop_name_ur": "گندم",
-    "crop_name_ps": "غنم",
-    "category": "Cereal",
-    "class_key": "Wheat___Yellow_rust",
-    "disease_name_en": "Wheat Yellow (Stripe) Rust",
-    "disease_name_ur": "گندم کی پیلی کنگی (سٹرائپ رسٹ)",
-    "disease_name_ps": "د غنمو ژیړه کنګي",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "CRITICAL",
-    "symptoms_en": "Bright yellow powder pustules arranged in parallel stripes along the leaf veins.",
-    "symptoms_ur": "پتوں کی رگوں کے ساتھ پیلے رنگ کے سفوفی دھبے قطاروں کی صورت میں ظاہر ہوتے ہیں۔ ہاتھ لگانے پر پیلا پاؤڈر انگلیوں پر لگ جاتا ہے۔",
-    "prevention_en": "Sow rust-resistant varieties approved by PARC (e.g., Akbar-19, Dilkash, Fakhar-e-Bhakkar).",
-    "prevention_ur": "محکمہ زراعت کی منظور شدہ کنگی کے خلاف قوت مدافعت والی گندم کی اقسام کاشت کریں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "کھٹی لسی اور راکھ کا اسپرے",
-        "instructions_ur": "پرانی کھٹی لسی (5 لیٹر) اور لکڑی کی چھنی ہوئی راکھ کو 100 لیٹر پانی میں ملا کر اسپرے کریں۔",
-        "active_ingredient": "Lactic acid / Bio-fungicide",
-        "local_brands": "دیسی لسی محلول",
-        "phi": 0,
-        "warning_ur": "ابتدائی علامات ظاہر ہوتے ہی اسپرے کریں۔"
-      },
-      {
-        "type": "CHEMICAL",
-        "title_ur": "کنگی کش کیمیائی اسپرے (سنجینٹا / بائر)",
-        "instructions_ur": "ٹیبوکونازول یا ایزوکسسٹروبن کا اسپرے فوری طور پر کنگی کے حملے کی صورت میں کریں۔",
-        "active_ingredient": "Tebuconazole 250 EC / Azoxystrobin + Difenoconazole",
-        "local_brands": "Folicur (بائر), Amistar Top (سنجینٹا), Tilt (سنجینٹا)",
-        "phi": 14,
-        "warning_ur": "ہوا کی سمت میں اسپرے کریں تاکہ تمام کھیت میں یکساں قطرے گریں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 200.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 40.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "wheat",
-    "crop_name_en": "Wheat",
-    "crop_name_ur": "گندم",
-    "crop_name_ps": "غنم",
-    "category": "Cereal",
-    "class_key": "Wheat___Brown_rust",
-    "disease_name_en": "Wheat Brown (Leaf) Rust",
-    "disease_name_ur": "گندم کی بھوری کنگی (براؤن رسٹ)",
-    "disease_name_ps": "د غنمو نصواري کنګي",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "HIGH",
-    "symptoms_en": "Small, round to oval brown-orange pustules scattered randomly across the upper leaf surface.",
-    "symptoms_ur": "پتوں کی اوپری سطح پر بے ترتیب گول یا بیضوی بھورے نارنجی رنگ کے کنگی کے دانے بن جاتے ہیں۔",
-    "prevention_en": "Eradicate alternate hosts and avoid excessive nitrogen application in late crop stages.",
-    "prevention_ur": "نائٹروجن (یوریا) کا غیر متوازن استعمال نہ کریں اور فصل کی باقاعدہ نگرانی رکھیں۔",
-    "remedies": [
-      {
-        "type": "CHEMICAL",
-        "title_ur": "پروپیکونازول یا ٹیبوکونازول اسپرے",
-        "instructions_ur": "200 ملی لیٹر ٹیبوکونازول فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
-        "active_ingredient": "Propiconazole 25% EC / Tebuconazole",
-        "local_brands": "Tilt (سنجینٹا), Folicur (بائر پاکستان), Score (سنجینٹا)",
-        "phi": 14,
-        "warning_ur": "دانے بننے کے عمل کے دوران وقت پر اسپرے کریں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 200.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 40.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "wheat",
-    "crop_name_en": "Wheat",
-    "crop_name_ur": "گندم",
-    "crop_name_ps": "غنم",
-    "category": "Cereal",
-    "class_key": "Wheat___healthy",
-    "disease_name_en": "Healthy Wheat",
-    "disease_name_ur": "صحت مند گندم",
-    "disease_name_ps": "روغ غنم",
-    "pathogen_type": "HEALTHY",
-    "severity_default": "LOW",
-    "symptoms_en": "Healthy green leaves with no rust pustules or chlorotic patches.",
-    "symptoms_ur": "گندم کے پتے سرسبز اور کنگی کے داغوں سے پاک ہیں۔",
-    "prevention_en": "Apply timely irrigation at tillering, booting, and grain filling stages.",
-    "prevention_ur": "فصل کو وقت پر پانی اور فاسفورس کھاد دیں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "حفاظتی تدابیر",
-        "instructions_ur": "کسی زہر کے اسپرے کی ضرورت نہیں۔ باقاعدگی سے نگرانی رکھیں۔",
-        "active_ingredient": null,
-        "local_brands": null,
-        "phi": 0,
-        "warning_ur": null
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 0.0,
-      "water_per_acre_liters": 0.0,
-      "knapsack_tank_ratio": 0.0,
-      "application_method": "None"
-    }
-  },
-  {
-    "crop_slug": "rice",
-    "crop_name_en": "Rice",
-    "crop_name_ur": "دھان / چاول",
-    "crop_name_ps": "وریجې",
-    "category": "Cereal",
-    "class_key": "Rice___Leaf_blast",
-    "disease_name_en": "Rice Leaf Blast",
-    "disease_name_ur": "دھان کا بلاسٹ / پتا جھلسائو",
-    "disease_name_ps": "د وریجو پاڼو بلاست",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "HIGH",
-    "symptoms_en": "Spindle-shaped or eye-shaped lesions with gray/whitish centers and dark reddish-brown borders.",
-    "symptoms_ur": "پتوں پر آنکھ کی شکل کے تکلا نما دھبے جن کے درمیان کا حصہ راکھ کے رنگ کا اور کنارے گہرے بھورے ہوتے ہیں۔",
-    "prevention_en": "Avoid excessive nitrogen, treat nursery seeds before transplanting, maintain proper water depth.",
-    "prevention_ur": "پنیری کی منتقلی سے قبل پودوں کو پھپھوندی کش دوا کے محلول میں ڈبوئیں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "نیم آئل اور مائیکروبیل اسپرے",
-        "instructions_ur": "نیم کا تیل 50 ملی لیٹر فی 10 لیٹر پانی میں ملا کر ہر ہفتے اسپرے کریں۔",
-        "active_ingredient": "Azadirachtin / Neem extract",
-        "local_brands": "دیسی نیم تیل",
-        "phi": 0,
-        "warning_ur": "شام کے وقت اسپرے کریں۔"
-      },
-      {
-        "type": "CHEMICAL",
-        "title_ur": "ٹرائیسائیکلازول اسپرے (سنجینٹا / کینزو)",
-        "instructions_ur": "ٹرائیسائیکلازول 75 ڈبلیو پی 120 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
-        "active_ingredient": "Tricyclazole 75% WP OR Isoprothiolane 40% EC",
-        "local_brands": "Beam (ایف ایم سی), Fuji-One (کینزو), Nativo (بائر پاکستان)",
-        "phi": 21,
-        "warning_ur": "فصل کے گوبھ کے مرحلے پر پہلا حفاظتی اسپرے کریں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 120.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 24.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "rice",
-    "crop_name_en": "Rice",
-    "crop_name_ur": "دھان / چاول",
-    "crop_name_ps": "وریجې",
-    "category": "Cereal",
-    "class_key": "Rice___Brown_spot",
-    "disease_name_en": "Rice Brown Spot",
-    "disease_name_ur": "دھان کا بھورا دھبا روگ",
-    "disease_name_ps": "د وریجو نصواري داغونه",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "MODERATE",
-    "symptoms_en": "Small, circular to oval dark brown spots on leaves resembling sesame seeds, with yellow halos.",
-    "symptoms_ur": "پتوں پر تل کے بیج نما چھوٹے گول گہرے بھورے داغ جن کے گرد پیلا ہالہ بنتا ہے۔",
-    "prevention_en": "Improve soil fertility (potash and zinc application), avoid soil drought.",
-    "prevention_ur": "زمین میں پوٹاش اور زنک کا استعمال کریں اور کھیت کو سوکھنے نہ دیں۔",
-    "remedies": [
-      {
-        "type": "CHEMICAL",
-        "title_ur": "مینکوزیب یا نیٹیوو کا اسپرے",
-        "instructions_ur": "مینکوزیب 250 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
-        "active_ingredient": "Mancozeb 75% WP / Trifloxystrobin + Tebuconazole",
-        "local_brands": "Nativo (بائر پاکستان), Score (سنجینٹا), Dithane M-45",
-        "phi": 14,
-        "warning_ur": "علامات کے آغاز پر اسپرے کریں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 250.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 50.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "rice",
-    "crop_name_en": "Rice",
-    "crop_name_ur": "دھان / چاول",
-    "crop_name_ps": "وریجې",
-    "category": "Cereal",
-    "class_key": "Rice___healthy",
-    "disease_name_en": "Healthy Rice",
-    "disease_name_ur": "صحت مند دھان",
-    "disease_name_ps": "روغې وریجې",
-    "pathogen_type": "HEALTHY",
-    "severity_default": "LOW",
-    "symptoms_en": "Lush green leaves with strong tillers and healthy panicle formation.",
-    "symptoms_ur": "دھان کی فصل سرسبز اور بیماریوں سے مکمل پاک ہے۔",
-    "prevention_en": "Maintain 2-3 inches standing water during active tillering stage.",
-    "prevention_ur": "پانی کی سطح مناسب رکھیں اور جڑی بوٹیوں کو تلف کریں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "حفاظتی دیکھ بھال",
-        "instructions_ur": "کوئی زہر درکار نہیں۔ معمول کی دیکھ بھال جاری رکھیں۔",
-        "active_ingredient": null,
-        "local_brands": null,
-        "phi": 0,
-        "warning_ur": null
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 0.0,
-      "water_per_acre_liters": 0.0,
-      "knapsack_tank_ratio": 0.0,
-      "application_method": "None"
-    }
-  },
-  {
-    "crop_slug": "sugarcane",
-    "crop_name_en": "Sugarcane",
-    "crop_name_ur": "کماد / گنا",
-    "crop_name_ps": "ګني",
-    "category": "Cash Crop",
-    "class_key": "Sugarcane___Red_Rot",
-    "disease_name_en": "Sugarcane Red Rot (Cancer of Sugarcane)",
-    "disease_name_ur": "گنے کا رت روگ / کینسر",
-    "disease_name_ps": "د ګني سور رت روګ",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "CRITICAL",
-    "symptoms_en": "Third and fourth leaves from top wither and dry, internal cane tissue shows dull red color interrupted by horizontal white patches with alcohol smell.",
-    "symptoms_ur": "اوپر سے تیسرا چوتھا پتا سوکھنا شروع ہوتا ہے، گنا کاٹنے پر اندر سے لال رنگ کا نکلتا ہے جس پر سفید دھبے ہوتے ہیں اور کھٹی شراب کی بو آتی ہے۔",
-    "prevention_en": "Plant disease-free sets, treat sets with fungicide before sowing, crop rotation with non-host crops.",
-    "prevention_ur": "متاثرہ کھیت سے بیج مت لیں اور بیج کے سموں کو دوا والے پانی میں ڈبو کر لگائیں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "متاثرہ پودوں کو تلف کرنا",
-        "instructions_ur": "بیمار گنوں کو جڑ سے اکھاڑ کر کھیت سے دور جلا دیں اور اس جگہ چونا ڈالیں۔",
-        "active_ingredient": "Lime dusting / Sanitation",
-        "local_brands": "چونا پاؤڈر",
-        "phi": 0,
-        "warning_ur": "متاثرہ کھیت کی موڈھی فصل (Ratoon) ہرگز نہ رکھیں۔"
-      },
-      {
-        "type": "CHEMICAL",
-        "title_ur": "تھائیو فینیٹ میتھائل بیج ٹریٹمنٹ",
-        "instructions_ur": "کاشت سے پہلے گنے کے سموں کو تھائیوفینیٹ میتھائل کے 0.2% محلول میں 15 منٹ ڈبوئیں۔",
-        "active_ingredient": "Thiophanate-Methyl 70% WP / Carbendazim",
-        "local_brands": "Topsin-M (ایف ایم سی), Derosal (بائر پاکستان)",
-        "phi": 30,
-        "warning_ur": "زمین کے نکاس کا خاص خیال رکھیں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 400.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 80.0,
-      "application_method": "Soil Drench / Set Treatment"
-    }
-  },
-  {
-    "crop_slug": "tomato",
-    "crop_name_en": "Tomato",
-    "crop_name_ur": "ٹماٹر",
-    "crop_name_ps": "بانجان",
-    "category": "Vegetable",
-    "class_key": "Tomato___Early_blight",
-    "disease_name_en": "Tomato Early Blight",
-    "disease_name_ur": "ٹماٹر کا اگیتا جھلسائو",
-    "disease_name_ps": "د رومیانو مخکینی سوځیدنه",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "HIGH",
-    "symptoms_en": "Concentric dark brown rings on older lower leaves forming a target-board pattern, leaf yellowing and drop.",
-    "symptoms_ur": "پرانے نچلے پتوں پر گہرے بھورے رنگ کے گول گول دائرے (نشانہ بورڈ نما) بنتے ہیں، بعد میں پتے پیلے ہو کر جھڑ جاتے ہیں۔",
-    "prevention_en": "Prune lower leaves touching soil, avoid overhead sprinkler watering, practice 2-year crop rotation.",
-    "prevention_ur": "نچلے پتے کاٹ دیں تاکہ زمین سے نہ لگیں اور پودوں کے اوپر سے پانی نہ ڈالیں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "نیم کا تیل اور کٹے پتوں کا جلانا",
-        "instructions_ur": "نچلے متاثرہ پتوں کو کاٹ کر جلا دیں۔ نیم کا تیل 50 ملی لیٹر فی 10 لیٹر پانی میں ملا کر ہر 7 دن بعد اسپرے کریں۔",
-        "active_ingredient": "Neem Oil 50ml / 10L",
-        "local_brands": "دیسی نیم آئل",
-        "phi": 0,
-        "warning_ur": "پودوں کے نیچے جڑوں کو پانی دیں۔"
-      },
-      {
-        "type": "CHEMICAL",
-        "title_ur": "ریڈومل گولڈ یا سکور کا اسپرے",
-        "instructions_ur": "مینکوزیب + میٹالکسل 250 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
-        "active_ingredient": "Mancozeb 75% WP + Metalaxyl 8% / Difenoconazole",
-        "local_brands": "Ridomil Gold (سنجینٹا), Score 250 EC (سنجینٹا), Nativo (بائر پاکستان)",
-        "phi": 7,
-        "warning_ur": "ٹماٹر توڑنے سے 7 دن پہلے اسپرے روک دیں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 250.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 50.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "tomato",
-    "crop_name_en": "Tomato",
-    "crop_name_ur": "ٹماٹر",
-    "crop_name_ps": "بانجان",
-    "category": "Vegetable",
-    "class_key": "Tomato___Late_blight",
-    "disease_name_en": "Tomato Late Blight",
-    "disease_name_ur": "ٹماٹر کا پچھیتا جھلسائو",
-    "disease_name_ps": "د رومیانو وروستنی سوځیدنه",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "CRITICAL",
-    "symptoms_en": "Large irregular water-soaked dark lesions on leaves and stems, white fungal mold on underside during humid weather.",
-    "symptoms_ur": "پتوں اور شاخوں پر پانی بھرے گہرے کالے بڑے دھبے، نم موسم میں پتے کی نچلی سطح پر سفید رنگ کی پھپھوندی دکھائی دیتی ہے۔ پودا راتوں رات جل جاتا ہے۔",
-    "prevention_en": "Ensure good field drainage, space plants properly for air circulation, avoid working in wet fields.",
-    "prevention_ur": "فصل میں ہواداری کا خیال رکھیں اور گیلے کھیت میں کام نہ کریں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "بیکنگ سوڈا اور تانبے کا اسپرے",
-        "instructions_ur": "بیکنگ سوڈا 5 گرام اور کاپر سلفیٹ فی لیٹر پانی میں ملا کر احتیاطی اسپرے کریں۔",
-        "active_ingredient": "Copper / Sodium Bicarbonate",
-        "local_brands": "دیسی کاپر محلول",
-        "phi": 1,
-        "warning_ur": "شدید حملے کی صورت میں فوری کیمیائی علاج کریں۔"
-      },
-      {
-        "type": "CHEMICAL",
-        "title_ur": "سنجینٹا ریڈومل گولڈ اسپرے",
-        "instructions_ur": "میٹالکسل + مینکوزیب 250 گرام فی 100 لیٹر پانی فی ایکڑ فوری اسپرے کریں۔",
-        "active_ingredient": "Dimethomorph + Mancozeb / Metalaxyl-M",
-        "local_brands": "Ridomil Gold (سنجینٹا), Acrobat (بی اے ایس ایف), Aliette (بائر)",
-        "phi": 7,
-        "warning_ur": "پہلا اسپرے بارش یا شدید کہرے کے بعد فوری کریں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 250.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 50.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "tomato",
-    "crop_name_en": "Tomato",
-    "crop_name_ur": "ٹماٹر",
-    "crop_name_ps": "بانجان",
-    "category": "Vegetable",
-    "class_key": "Tomato___Tomato_Yellow_Leaf_Curl_Virus",
-    "disease_name_en": "Tomato Yellow Leaf Curl Virus (TYLCV)",
-    "disease_name_ur": "ٹماٹر کا پیلا پتا مڑاؤ وائرس",
-    "disease_name_ps": "د رومیانو ژیړ پاڼو تاویدو وائرس",
-    "pathogen_type": "VIRAL",
-    "severity_default": "CRITICAL",
-    "symptoms_en": "Upward leaf cupping, severe yellowing of leaf margins, bushy stunted plants, dropping of flowers.",
-    "symptoms_ur": "پتے پیالے کی شکل میں اوپر مڑ جاتے ہیں، کناروں سے پیلے ہو جاتے ہیں اور پودے کا قد چھوٹا رہ جاتا ہے، پھول گر جاتے ہیں۔",
-    "prevention_en": "Control whitefly vectors using fine mesh insect netting and yellow sticky traps.",
-    "prevention_ur": "سفید مکھی کا بروقت خاتمہ کریں کیونکہ یہ وائرس مکھی کے ذریعے منتقل ہوتا ہے۔",
-    "remedies": [
-      {
-        "type": "CHEMICAL",
-        "title_ur": "سفید مکھی کش اسپرے",
-        "instructions_ur": "ایسیٹامیپرڈ یا پائری پروکسی فین کا اسپرے 100 لیٹر پانی میں ملا کر کریں۔",
-        "active_ingredient": "Acetamiprid 20% SP / Spirotetramat",
-        "local_brands": "Mospilan (کینزو), Movento (بائر پاکستان), Confidor (بائر)",
-        "phi": 7,
-        "warning_ur": "پودے کی نچلی سطح پر اسپرے کا پہنچنا لازمی ہے۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 150.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 30.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "tomato",
-    "crop_name_en": "Tomato",
-    "crop_name_ur": "ٹماٹر",
-    "crop_name_ps": "بانجان",
-    "category": "Vegetable",
-    "class_key": "Tomato___healthy",
-    "disease_name_en": "Healthy Tomato",
-    "disease_name_ur": "صحت مند ٹماٹر",
-    "disease_name_ps": "روغ رومیان",
-    "pathogen_type": "HEALTHY",
-    "severity_default": "LOW",
-    "symptoms_en": "Vigorous green leaves with balanced flowering and fruit set.",
-    "symptoms_ur": "پودے کے پتے صاف، ہرے اور بیماری کے داغوں سے پاک ہیں۔",
-    "prevention_en": "Stake plants off the ground and maintain regular watering without wetting leaves.",
-    "prevention_ur": "پودوں کو بانس کا سہارا دیں اور متوازن کھاد دیں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "حفاظتی دیکھ بھال",
-        "instructions_ur": "کسی زہر کی ضرورت نہیں۔ معمول کی دیکھ بھال جاری رکھیں۔",
-        "active_ingredient": null,
-        "local_brands": null,
-        "phi": 0,
-        "warning_ur": null
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 0.0,
-      "water_per_acre_liters": 0.0,
-      "knapsack_tank_ratio": 0.0,
-      "application_method": "None"
-    }
-  },
-  {
-    "crop_slug": "potato",
-    "crop_name_en": "Potato",
-    "crop_name_ur": "آلو",
-    "crop_name_ps": "الوګان",
-    "category": "Vegetable",
-    "class_key": "Potato___Early_blight",
-    "disease_name_en": "Potato Early Blight",
-    "disease_name_ur": "آلو کا اگیتا جھلسائو",
-    "disease_name_ps": "د الوګانو مخکینی سوځیدنه",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "HIGH",
-    "symptoms_en": "Dark brown circular spots with concentric rings on older leaves, causing foliage to dry up and die.",
-    "symptoms_ur": "پرانے پتوں پر گہرے بھورے گول دائرے بنتے ہیں، پتے سوکھ کر جل جاتے ہیں۔",
-    "prevention_en": "Plant certified seed tubers; apply balanced potash fertilizer to strengthen cell walls.",
-    "prevention_ur": "تصدیق شدہ بیج کاشت کریں اور پوٹاش کھاد کا مناسب استعمال کریں۔",
-    "remedies": [
-      {
-        "type": "CHEMICAL",
-        "title_ur": "مینکوزیب یا سکور اسپرے",
-        "instructions_ur": "مینکوزیب 250 گرام فی 100 لیٹر پانی فی ایکڑ اسپرے کریں۔",
-        "active_ingredient": "Mancozeb 75% WP / Difenoconazole",
-        "local_brands": "Score (سنجینٹا), Dithane M-45, Nativo (بائر)",
-        "phi": 7,
-        "warning_ur": "پہلا اسپرے بیماری کے ابتدائی نشانات پر کریں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 250.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 50.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "potato",
-    "crop_name_en": "Potato",
-    "crop_name_ur": "آلو",
-    "crop_name_ps": "الوګان",
-    "category": "Vegetable",
-    "class_key": "Potato___Late_blight",
-    "disease_name_en": "Potato Late Blight",
-    "disease_name_ur": "آلو کا پچھیتا جھلسائو",
-    "disease_name_ps": "د الوګانو وروستنی سوځیدنه",
-    "pathogen_type": "FUNGAL",
-    "severity_default": "CRITICAL",
-    "symptoms_en": "Dark brown to purplish water-soaked lesions on leaves and stems, with white mildew under humid conditions. Can destroy a field in 3 days.",
-    "symptoms_ur": "پتوں پر پانی بھرے جامنی بھورے دھبے، نم موسم میں پتے کے نچلے حصے پر سفید پھپھوندی بنتی ہے اور 3 دن میں پوری فصل تباہ ہو سکتی ہے۔",
-    "prevention_en": "Hill up soil around stems to protect tubers; monitor weather for fog/humidity above 80%.",
-    "prevention_ur": "دھند اور شدید سردی کے دنوں میں احتیاطی اسپرے کریں۔ مٹی کو پودے کے گرد اونچا رکھیں۔",
-    "remedies": [
-      {
-        "type": "CHEMICAL",
-        "title_ur": "ریڈومل گولڈ / ایکروبیٹ اسپرے",
-        "instructions_ur": "میٹالکسل + مینکوزیب 250 گرام فی 100 لیٹر پانی فی ایکڑ فوری اسپرے کریں۔",
-        "active_ingredient": "Metalaxyl-M + Mancozeb / Dimethomorph",
-        "local_brands": "Ridomil Gold (سنجینٹا), Acrobat (بی اے ایس ایف), Melody Duo (بائر)",
-        "phi": 7,
-        "warning_ur": "دھند والے موسم میں ہر 7 دن بعد دہرائیں۔"
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 250.0,
-      "water_per_acre_liters": 100.0,
-      "knapsack_tank_ratio": 50.0,
-      "application_method": "Foliar Spray"
-    }
-  },
-  {
-    "crop_slug": "potato",
-    "crop_name_en": "Potato",
-    "crop_name_ur": "آلو",
-    "crop_name_ps": "الوګان",
-    "category": "Vegetable",
-    "class_key": "Potato___healthy",
-    "disease_name_en": "Healthy Potato",
-    "disease_name_ur": "صحت مند آلو",
-    "disease_name_ps": "روغ الوګان",
-    "pathogen_type": "HEALTHY",
-    "severity_default": "LOW",
-    "symptoms_en": "Lush foliage with strong stems and no blighted lesions.",
-    "symptoms_ur": "آلو کی فصل سرسبز اور جھلسائو کے دھبوں سے پاک ہے۔",
-    "prevention_en": "Maintain regular ridge earthing and controlled furrow irrigation.",
-    "prevention_ur": "کھیلیوں پر پانی چڑھائیں تاکہ ٹیوبرز سورج کی روشنی سے ہرے نہ ہوں۔",
-    "remedies": [
-      {
-        "type": "ORGANIC",
-        "title_ur": "حفاظتی دیکھ بھال",
-        "instructions_ur": "کسی زہر کی ضرورت نہیں۔ کھیلیوں کا خیال رکھیں۔",
-        "active_ingredient": null,
-        "local_brands": null,
-        "phi": 0,
-        "warning_ur": null
-      }
-    ],
-    "dosage": {
-      "chemical_per_acre_grams": 0.0,
-      "water_per_acre_liters": 0.0,
-      "knapsack_tank_ratio": 0.0,
-      "application_method": "None"
-    }
-  },
-  {
-    "crop_slug": "citrus",
-    "crop_name_en": "Citrus / Orange",
-    "crop_name_ur": "کینو / مالٹا / لیموں",
-    "crop_name_ps": "مالټه",
+    "crop_slug": "apple",
+    "crop_name_en": "Apple",
+    "crop_name_ur": "سیب",
+    "crop_name_ps": "سیب",
     "category": "Fruit",
-    "class_key": "Orange___Haunglongbing_(Citrus_greening)",
-    "disease_name_en": "Citrus Greening (Huanglongbing / HLB)",
-    "disease_name_ur": "کینو کا گریننگ روگ (سائلا روگ)",
-    "disease_name_ps": "د مالټې ژیړوالی",
-    "pathogen_type": "BACTERIAL",
-    "severity_default": "CRITICAL",
-    "symptoms_en": "Asymmetrical yellow mottling on leaves, vein yellowing and corking, small lopsided bitter fruits that stay green at base.",
-    "symptoms_ur": "پتوں پر بے ترتیب پیلے دھبے، رگیں موٹی اور ابھری ہوئی ہو جاتی ہیں، پھل چھوٹا اور ترچھا رہ جاتا ہے اور نیچے سے ہرا رہتا ہے۔",
-    "prevention_en": "Control citrus psylla insect vectors, prune severely infected branches, apply zinc and micronutrients.",
-    "prevention_ur": "سٹرس سائلا کیڑے کا فوری تدارک کریں اور زنک و مائیکرو نیوٹرینٹس کا اسپرے کریں۔",
+    "class_key": "apple black rot",
+    "disease_name_en": "Apple Black Rot",
+    "disease_name_ur": "سیب کا کالا زخم",
+    "disease_name_ps": "د سیب تیوری رنګ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Dark sunken lesions appear on fruit and leaves, often spreading from old wounds and damaged tissues.",
+    "symptoms_ur": "پھل اور پتوں پر گہرے گھریلے سیاہ دھبے ظاہر ہوتے ہیں جو زخموں سے پھیلتے ہیں۔",
+    "prevention_en": "Remove infected fruit and prune damaged limbs; avoid fruit injuries during harvest and handling.",
+    "prevention_ur": "بیمار پھل ہٹائیں اور زخمی شاخیں کاٹ دیں۔ جمع آوری کے دوران پھل کو زخمی نہ ہونے دیں۔",
     "remedies": [
       {
+        "type": "ORGANIC",
+        "title_ur": "انفیکشن شدہ پھل اور شاخوں کو ہٹانا",
+        "instructions_ur": "بیمار پھل اور متاثرہ شاخیں فوراً جمع کر کے جلا دیں۔ درختوں میں ہوا اور روشنی کا بہاؤ بہتر رکھیں۔",
+        "active_ingredient": "Sanitation / Pruning",
+        "local_brands": "دیسی باغبانی صفائی",
+        "phi": 0,
+        "warning_ur": "باغ میں گرا ہوا پھل ہرگز نہ چھوڑیں۔"
+      },
+      {
         "type": "CHEMICAL",
-        "title_ur": "سٹرس سائلا کنٹرول (امیڈاکلوپرڈ / مووینٹو)",
-        "instructions_ur": "امیڈاکلوپرڈ یا کلوتھیانڈن کا اسپرے 100 ملی لیٹر فی 100 لیٹر پانی میں ملا کر کریں۔",
-        "active_ingredient": "Imidacloprid 200 SL / Clothianidin",
-        "local_brands": "Confidor (بائر پاکستان), Movento (بائر), Actara (سنجینٹا)",
-        "phi": 21,
-        "warning_ur": "پھول آنے کے دوران اسپرے نہ کریں تاکہ شہد کی مکھیاں محفوظ رہیں۔"
+        "title_ur": "فنگسائیڈ یا میٹافکس اسپرے",
+        "instructions_ur": "فنگسائیڈ یا میٹافکس کے مطابق اسپرے کرتے ہوئے باغ کو باقاعدگی سے علاج کریں۔",
+        "active_ingredient": "Azoxystrobin / Captan",
+        "local_brands": "Amistar (سنجینٹا), Captan (مستند مارکیٹ)",
+        "phi": 7,
+        "warning_ur": "خطرناک مائکروبیل حملے میں ہر 7 دن بعد دوبارہ اسپرے کریں۔"
       }
     ],
     "dosage": {
-      "chemical_per_acre_grams": 100.0,
+      "chemical_per_acre_grams": 80.0,
       "water_per_acre_liters": 100.0,
       "knapsack_tank_ratio": 20.0,
       "application_method": "Foliar Spray"
@@ -680,25 +48,238 @@
     "crop_name_ur": "سیب",
     "crop_name_ps": "سیب",
     "category": "Fruit",
-    "class_key": "Apple___Apple_scab",
-    "disease_name_en": "Apple Scab",
-    "disease_name_ur": "سیب کی خارش (ایپل اسکیب)",
-    "disease_name_ps": "د مڼې خارښت",
+    "class_key": "apple leaf",
+    "disease_name_en": "Healthy Apple Leaves",
+    "disease_name_ur": "صحت مند سیب کے پتے",
+    "disease_name_ps": "روغ سیب پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green, firm, and free from disease symptoms.",
+    "symptoms_ur": "پتے سرسبز، مضبوط اور بیماری کے کوئی نشان سے خالی ہیں۔",
+    "prevention_en": "Maintain balanced irrigation and monitor for pests regularly.",
+    "prevention_ur": "باقاعدہ پانی اور باغ کی نگرانی جاری رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر درکار نہیں۔ باغ کو باقاعدہ دیکھ بھال دیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "apple",
+    "crop_name_en": "Apple",
+    "crop_name_ur": "سیب",
+    "crop_name_ps": "سیب",
+    "category": "Fruit",
+    "class_key": "apple mosaic virus",
+    "disease_name_en": "Apple Mosaic Virus",
+    "disease_name_ur": "سیب کا موزیک وائرس",
+    "disease_name_ps": "د سیب موزیک ویروس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Yellow-green mosaic patterns and irregular patches appear on leaves, reducing vigor.",
+    "symptoms_ur": "پتوں پر پیلے سبز موزیک نما داغ اور بے ضابطہ نمونے ظاہر ہوتے ہیں۔",
+    "prevention_en": "Use certified virus-free planting material and remove infected trees.",
+    "prevention_ur": "وائرل فری بیج اور درخت استعمال کریں اور متاثرہ درختوں کو الگ کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "مستقبل سے بچاؤ اور درخت نکالنا",
+        "instructions_ur": "متاثرہ درختوں کو جلد از جلد الگ کریں اور صحت مند بیج استعمال کریں۔",
+        "active_ingredient": "Sanitation / Certification",
+        "local_brands": "باغبانہ مٹی کا نظام",
+        "phi": 0,
+        "warning_ur": "کوئی کیمیائی علاج وائرس کے خلاف کارآمد نہیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "apple",
+    "crop_name_en": "Apple",
+    "crop_name_ur": "سیب",
+    "crop_name_ps": "سیب",
+    "category": "Fruit",
+    "class_key": "apple rust",
+    "disease_name_en": "Apple Rust",
+    "disease_name_ur": "سیب کا رسٹ",
+    "disease_name_ps": "د سیب رسټ",
     "pathogen_type": "FUNGAL",
-    "severity_default": "HIGH",
-    "symptoms_en": "Olive-green to velvety brown-black spots on leaves and scabby corky lesions on fruit skin.",
-    "symptoms_ur": "پتوں پر زیتونی ہرے سے بھورے مخملی دھبے اور سیب کے پھل پر کھردرے چھلکے نما داغ بن جاتے ہیں۔",
-    "prevention_en": "Rake and destroy fallen leaves in autumn, prune orchard canopy for sunlight penetration.",
-    "prevention_ur": "خزاں میں گرے ہوئے پتوں کو جلا دیں اور درختوں کی کانٹ چھانٹ درست کریں۔",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Orange or rusty pustules on leaf undersides and leaf yellowing develop progressively.",
+    "symptoms_ur": "پتوں کے نیچے نارنجی یا بھوری رنگ کے رسٹ داغ پیدا ہوتے ہیں اور پتے پیلے پڑنے لگتے ہیں۔",
+    "prevention_en": "Improve airflow in orchard and remove diseased leaves promptly.",
+    "prevention_ur": "باغ میں ہوا کا بہاؤ بہتر رکھیں اور متاثرہ پتے جلد ہٹا دیں۔",
     "remedies": [
       {
         "type": "CHEMICAL",
-        "title_ur": "سکور یا نیٹیوو کا اسپرے",
-        "instructions_ur": "ڈائیفینوکونازول 50 ملی لیٹر فی 100 لیٹر پانی ملا کر اسپرے کریں۔",
-        "active_ingredient": "Difenoconazole 250 EC / Captan 50% WP",
-        "local_brands": "Score 250 EC (سنجینٹا), Nativo (بائر), Antracol (بائر)",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "فنگسائیڈ یا دیگر مناسب قارچ کش اسپرے باغ میں مناسب فاصلے سے کریں۔",
+        "active_ingredient": "Trifloxystrobin / Mancozeb",
+        "local_brands": "Nativo (بائر), Score (سنجینٹا)",
+        "phi": 7,
+        "warning_ur": "بارش سے پہلے اسپرے نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 90.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 18.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "apple",
+    "crop_name_en": "Apple",
+    "crop_name_ur": "سیب",
+    "crop_name_ps": "سیب",
+    "category": "Fruit",
+    "class_key": "apple scab",
+    "disease_name_en": "Apple Scab",
+    "disease_name_ur": "سیب کا اسکیب",
+    "disease_name_ps": "د سیب اسکاب",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Olive-green patches appear on leaves and fruit, causing scabby, corky lesions.",
+    "symptoms_ur": "پتوں اور پھلوں پر زيتونی رنگ کے داغ بنتے ہیں اور سطح خاردار بن جاتی ہے۔",
+    "prevention_en": "Remove fallen leaves in autumn and maintain canopy ventilation.",
+    "prevention_ur": "خزاں میں گرے ہوئے پتے جمع کر کے جلا دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "انٹی فنگل اسپرے",
+        "instructions_ur": "فارمیشن کے مطابق مناسب انٹی فنگل سپرے کریں اور بارش کے بعد دوبارہ کریں۔",
+        "active_ingredient": "Difenoconazole / Captan",
+        "local_brands": "Score (سنجینٹا), Captan (مستند مارکیٹ)",
+        "phi": 7,
+        "warning_ur": "چہلکتے ہوئے بادل کے بعد دوبارہ نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 100.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 20.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "banana",
+    "crop_name_en": "Banana",
+    "crop_name_ur": "کیلا",
+    "crop_name_ps": "کیلا",
+    "category": "Fruit",
+    "class_key": "banana leaf",
+    "disease_name_en": "Healthy Banana Leaves",
+    "disease_name_ur": "صحت مند کیلے کے پتے",
+    "disease_name_ps": "روغ کیلا پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are broad, green, and free from blotches or wilt.",
+    "symptoms_ur": "پتے وسیع، ہرے اور کوئی بیماری کا نشان نہیں۔",
+    "prevention_en": "Keep soil drainage good and avoid leaf injury from wind.",
+    "prevention_ur": "مٹی کی نکاسی بہتر رکھیں اور ہوا سے پتے نہ ٹوٹنے دیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں، بدستور پانی اور نچوڑ کی نگرانی رکھیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "banana",
+    "crop_name_en": "Banana",
+    "crop_name_ur": "کیلا",
+    "crop_name_ps": "کیلا",
+    "category": "Fruit",
+    "class_key": "banana panama disease",
+    "disease_name_en": "Banana Panama Disease",
+    "disease_name_ur": "کیلے کا پناما روگ",
+    "disease_name_ps": "د کیلا پناما ناروغي",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Yellowing and wilting begin from older leaves, leading to plant collapse.",
+    "symptoms_ur": "پرانے پتے پیلے پڑ کر گل جاتے ہیں اور پودا مکمل تڑپ کر گر جاتا ہے۔",
+    "prevention_en": "Use disease-free suckers and rotate away from infected fields.",
+    "prevention_ur": "مستقل صحت مند کلیں استعمال کریں اور متاثرہ باغ سے دور چلیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ ڈرم ٹریٹمنٹ",
+        "instructions_ur": "بیج یا کلا کے ٹکڑے کو مناسب فنگسائیڈ میں ڈبو کر لگائیں۔",
+        "active_ingredient": "Fosetyl-Al / Carbendazim",
+        "local_brands": "Aliette (بائر), Topsin-M (ایف ایم سی)",
         "phi": 14,
-        "warning_ur": "پھول کھلنے سے پہلے اور گرنے کے بعد اسپرے کریں۔"
+        "warning_ur": "مستقل بترابہری پودوں کو باہر رکھیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 120.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 25.0,
+      "application_method": "Soil Drench / Sucker Treatment"
+    }
+  },
+  {
+    "crop_slug": "basil",
+    "crop_name_en": "Basil",
+    "crop_name_ur": "سبزیات / ریحان",
+    "crop_name_ps": "باسيل",
+    "category": "Herb",
+    "class_key": "basil downy mildew",
+    "disease_name_en": "Basil Downy Mildew",
+    "disease_name_ur": "ریحان کا ڈاؤنائی ملڈیو",
+    "disease_name_ps": "د باسيل ډاوني ميلديو",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Leaf underside shows grayish growth while upper surfaces become yellow and distorted.",
+    "symptoms_ur": "پتے کی نیچلی سطح پر خاکستری پھپھوندی بنتی ہے اور اوپر کا رنگ پیلا ہو جاتا ہے۔",
+    "prevention_en": "Improve spacing and reduce humidity around plants during the night.",
+    "prevention_ur": "پودوں کے درمیان فاصلہ بہتر رکھیں اور رات کے دوران نمی کم کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "تجرباتی قدرتی کنٹرول",
+        "instructions_ur": "دودھ کے ساتھ ملائے گئے تیل کے اسپرے سے اور ہوا کے بہاؤ کو بہتر بنائیں۔",
+        "active_ingredient": "Neem oil / Bio-fungicide",
+        "local_brands": "دیسی نیم آئل",
+        "phi": 0,
+        "warning_ur": "رات کے وقت پانی نہ رکھیے۔"
+      },
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "مناسب فنگسائیڈ اسپرے بجائے دن کے گرم وقت میں کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane (مستند), Copper Spray",
+        "phi": 3,
+        "warning_ur": "اسپرے کے بعد منتجلی سے کٹائی نہ کریں۔"
       }
     ],
     "dosage": {
@@ -709,21 +290,89 @@
     }
   },
   {
-    "crop_slug": "apple",
-    "crop_name_en": "Apple",
-    "crop_name_ur": "سیب",
-    "crop_name_ps": "سیب",
-    "category": "Fruit",
-    "class_key": "Apple___healthy",
-    "disease_name_en": "Healthy Apple",
-    "disease_name_ur": "صحت مند سیب",
-    "disease_name_ps": "روغه مڼه",
+    "crop_slug": "basil",
+    "crop_name_en": "Basil",
+    "crop_name_ur": "ریحان",
+    "crop_name_ps": "باسيل",
+    "category": "Herb",
+    "class_key": "basil leaf",
+    "disease_name_en": "Healthy Basil Leaves",
+    "disease_name_ur": "صحت مند ریحان کے پتے",
+    "disease_name_ps": "روغ باسيل پاڼې",
     "pathogen_type": "HEALTHY",
     "severity_default": "LOW",
-    "symptoms_en": "Clean glossy green foliage with unblemished fruit development.",
-    "symptoms_ur": "سیب کے پتے صاف اور داغوں سے پاک ہیں۔",
-    "prevention_en": "Apply dormant copper spray during winter to prevent overwintering fungal spores.",
-    "prevention_ur": "سردیوں میں بورڈو مکسچر کا حفاظتی اسپرے کریں۔",
+    "symptoms_en": "Leaves are green with no yellowing, mildew, or distortion.",
+    "symptoms_ur": "پتے ہرا، صاف اور کوئی مرضی کا نشان نہیں۔",
+    "prevention_en": "Avoid overcrowding and keep foliage dry in the evening.",
+    "prevention_ur": "پودوں کے درمیان فاصلہ رکھیں اور شام کو پانی کم دیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی بیماری نہیں، فاصلہ اور ہوا کا انتظام رکھیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "bean",
+    "crop_name_en": "Bean",
+    "crop_name_ur": "لوبیا",
+    "crop_name_ps": "لوبیا",
+    "category": "Legume",
+    "class_key": "bean halo blight",
+    "disease_name_en": "Bean Halo Blight",
+    "disease_name_ur": "لوبیا کا ہالو بلائٹ",
+    "disease_name_ps": "د لوبیا هالو بليت",
+    "pathogen_type": "BACTERIAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Water-soaked lesions form with yellow halo and leaf chlorosis around the spots.",
+    "symptoms_ur": "پتوں پر پانی بھرے دھبے بن کر ان کے ارد گرد پیلا ہالہ بنتا ہے۔",
+    "prevention_en": "Use clean seed and remove infected debris from the field.",
+    "prevention_ur": "صاف بیج استعمال کریں اور متاثرہ فضلہ ہٹا دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "بیکٹیریل کنٹرول اسپرے",
+        "instructions_ur": "متناسب بیکٹیریل کنٹرول اسپرے وقت پر کریں۔",
+        "active_ingredient": "Copper / Streptomycin",
+        "local_brands": "Copper Spray (مستند)، Streptomycin",
+        "phi": 7,
+        "warning_ur": "کاشت سے پہلے بیج صاف کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "bean",
+    "crop_name_en": "Bean",
+    "crop_name_ur": "لوبیا",
+    "crop_name_ps": "لوبیا",
+    "category": "Legume",
+    "class_key": "bean leaf",
+    "disease_name_en": "Healthy Bean Leaves",
+    "disease_name_ur": "صحت مند لوبیا کے پتے",
+    "disease_name_ps": "روغ لوبیا پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are deep green and free from rust or halo symptoms.",
+    "symptoms_ur": "پتے گہرے سبز اور کوئی بیماری کا نشان نہیں۔",
+    "prevention_en": "Keep field sanitation and regular scouting in place.",
+    "prevention_ur": "باغ کی صفائی اور باقاعدہ نگرانی جاری رکھیں۔",
     "remedies": [
       {
         "type": "ORGANIC",
@@ -740,6 +389,2658 @@
       "water_per_acre_liters": 0.0,
       "knapsack_tank_ratio": 0.0,
       "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "bean",
+    "crop_name_en": "Bean",
+    "crop_name_ur": "لوبیا",
+    "crop_name_ps": "لوبیا",
+    "category": "Legume",
+    "class_key": "bean mosaic virus",
+    "disease_name_en": "Bean Mosaic Virus",
+    "disease_name_ur": "لوبیا کا موزیک وائرس",
+    "disease_name_ps": "د لوبیا موزیک ویروس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Mottled yellow-green patches and reduced leaf size appear on infected plants.",
+    "symptoms_ur": "پتوں پر پیلے سبز موزیک نما دھبے اور چھوٹے پتے پیدا ہوتے ہیں۔",
+    "prevention_en": "Use virus-free seed and remove diseased plants early.",
+    "prevention_ur": "وائرل فری بیج استعمال کریں اور متاثرہ پودے جلد ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی طریقہ",
+        "instructions_ur": "متاثرہ پودے ہٹائیں، بھاری کٹی لگانے سے بچیں اور کیڑوں کو نہ آنے دیں۔",
+        "active_ingredient": "Sanitation / Vector control",
+        "local_brands": "باغبانی صفائی",
+        "phi": 0,
+        "warning_ur": "کوئی شفا بخش کیمیائی علاج نہیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "bean",
+    "crop_name_en": "Bean",
+    "crop_name_ur": "لوبیا",
+    "crop_name_ps": "لوبیا",
+    "category": "Legume",
+    "class_key": "bean rust",
+    "disease_name_en": "Bean Rust",
+    "disease_name_ur": "لوبیا کا رسٹ",
+    "disease_name_ps": "د لوبیا رسټ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Small rust-coloured pustules form on leaves, leading to yellowing and defoliation.",
+    "symptoms_ur": "پتوں پر بھوری نارنجی رسٹ داغ بنتے ہیں جس سے پتے پیلے پڑ کر گر جاتے ہیں۔",
+    "prevention_en": "Use resistant varieties, avoid dense canopy, and improve airflow.",
+    "prevention_ur": "مزاحم اقسام کاشت کریں اور باغ میں ہوا کا بہاؤ بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "متاثرہ باغ میں فنگسائیڈ اسپرے کریں اور جلد از جلد متاثرہ پتے ہٹائیں۔",
+        "active_ingredient": "Mancozeb / Trifloxystrobin",
+        "local_brands": "Dithane (مستند), Nativo",
+        "phi": 7,
+        "warning_ur": "انگلوں پر اسپرے کرتے وقت ماسک پہنیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "bell_pepper",
+    "crop_name_en": "Bell Pepper",
+    "crop_name_ur": "پپریکنا",
+    "crop_name_ps": "پپر",
+    "category": "Vegetable",
+    "class_key": "bell pepper leaf",
+    "disease_name_en": "Healthy Bell Pepper Leaves",
+    "disease_name_ur": "صحت مند پپریکنا کے پتے",
+    "disease_name_ps": "روغ پپر پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green and healthy with no disease lesions.",
+    "symptoms_ur": "پتے سبز، صحت مند اور کوئی داغ نہیں۔",
+    "prevention_en": "Keep irrigation steady and inspect for bacterial or fungal issues weekly.",
+    "prevention_ur": "پانی مسلسل رکھیں اور ہفتہ وارسہ نگرانی کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "bell_pepper",
+    "crop_name_en": "Bell Pepper",
+    "crop_name_ur": "پپریکنا",
+    "crop_name_ps": "پپر",
+    "category": "Vegetable",
+    "class_key": "bell pepper leaf spot",
+    "disease_name_en": "Bell Pepper Leaf Spot",
+    "disease_name_ur": "پپریکنا کا پتے کا دھبہ",
+    "disease_name_ps": "د پپر پاڼو داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Circular leaf spots enlarge and merge, causing early defoliation.",
+    "symptoms_ur": "گول دھبے پھیل کر مل جاتے ہیں، پتے گرنے لگتے ہیں۔",
+    "prevention_en": "Reduce humidity and remove infected lower leaves.",
+    "prevention_ur": "نم پھیلنے سے بچیں اور بحالتها پتے ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "باغ میں جوڑ بناتے ہوئے فنگسائیڈ اسپرے کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "ہوا کی سمت میں اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "blueberry",
+    "crop_name_en": "Blueberry",
+    "crop_name_ur": "بلیوبیری",
+    "crop_name_ps": "بلیوبیری",
+    "category": "Fruit",
+    "class_key": "blueberry leaf",
+    "disease_name_en": "Healthy Blueberry Leaves",
+    "disease_name_ur": "صحت مند بلیوبیری کے پتے",
+    "disease_name_ps": "روغ بليوبيري پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are deep green, glossy, and free from fungal lesions.",
+    "symptoms_ur": "پتے گہرے سبز، چمکدار اور کسی داغ سے خالی ہیں۔",
+    "prevention_en": "Maintain pruning and good drainage around berry rows.",
+    "prevention_ur": "باغ میں ہوا اور پانی کا مناسب بہاؤ رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں، صفائی اور ہوا کا انتظام ہی کافی ہے۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "blueberry",
+    "crop_name_en": "Blueberry",
+    "crop_name_ur": "بلیوبیری",
+    "crop_name_ps": "بلیوبیری",
+    "category": "Fruit",
+    "class_key": "blueberry rust",
+    "disease_name_en": "Blueberry Rust",
+    "disease_name_ur": "بلیوبیری کا رسٹ",
+    "disease_name_ps": "د بلیوبیری رسټ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Orange pustules appear on leaves, leading to premature defoliation.",
+    "symptoms_ur": "پتوں پر نارنجی رسٹ داغ بنتے ہیں اور پتے جلد گرنے لگتے ہیں۔",
+    "prevention_en": "Improve spacing and remove infected leaves quickly.",
+    "prevention_ur": "فاصلہ بہتر رکھیں اور متاثرہ پتے جلد ہٹا دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "مناسب فنگسائیڈ اسپرے باغ میں ایک بار پھر تیس دن بعد دہرائیں۔",
+        "active_ingredient": "Mancozeb / Sulfur",
+        "local_brands": "Sulfur Dust, Mancozeb",
+        "phi": 5,
+        "warning_ur": "حساس باغ میں دوہری چھڑکاؤ سے پہلے مشورہ لیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 75.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "broccoli",
+    "crop_name_en": "Broccoli",
+    "crop_name_ur": "براکولی",
+    "crop_name_ps": "براکولي",
+    "category": "Vegetable",
+    "class_key": "broccoli downy mildew",
+    "disease_name_en": "Broccoli Downy Mildew",
+    "disease_name_ur": "براکولی کا ڈاؤنائی ملڈیو",
+    "disease_name_ps": "د بروكولي ډاوني ميلديو",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "The underside of leaves shows gray mold while upper surfaces become yellowed and weak.",
+    "symptoms_ur": "پتوں کے نیچے خاکستری پھپھوندی اور اوپر پیلا رنگ ظاہر ہوتا ہے۔",
+    "prevention_en": "Avoid overhead watering and improve field ventilation.",
+    "prevention_ur": "اوپر سے پانی نہ ڈالو اور باغ میں ہوا کا بہاؤ بہتر رکھو۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "فنگسائیڈ اسپرے کے ساتھ ساتھ پتے صاف رکھیں۔",
+        "active_ingredient": "Copper / Mancozeb",
+        "local_brands": "Copper Spray, Dithane",
+        "phi": 7,
+        "warning_ur": "حملے کے دوران رگڑ دینا نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "broccoli",
+    "crop_name_en": "Broccoli",
+    "crop_name_ur": "براکولی",
+    "crop_name_ps": "براکولي",
+    "category": "Vegetable",
+    "class_key": "broccoli leaf",
+    "disease_name_en": "Healthy Broccoli Leaves",
+    "disease_name_ur": "صحت مند بروکولی کے پتے",
+    "disease_name_ps": "روغ بروكولي پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are uniform green and show no stress or mildew.",
+    "symptoms_ur": "پتے یکساں سبز اور کوئی داغ نہیں۔",
+    "prevention_en": "Maintain good fertility and avoid waterlogging.",
+    "prevention_ur": "پانی زیادہ نہ رہنے دیں اور غذائی توازن رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں، باقاعدگی سے پانی اور صفائی۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "cabbage",
+    "crop_name_en": "Cabbage",
+    "crop_name_ur": "گوبھی",
+    "crop_name_ps": "کبب",
+    "category": "Vegetable",
+    "class_key": "cabbage alternaria leaf spot",
+    "disease_name_en": "Cabbage Alternaria Leaf Spot",
+    "disease_name_ur": "گوبھی کا النٹرناریا لیف اسپاٹ",
+    "disease_name_ps": "د كنبب Alternaria داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Brown circular spots with concentric rings appear on older leaves.",
+    "symptoms_ur": "بڑھے ہوئے پتے پر گہرے بھورے گول دائرے بنتے ہیں۔",
+    "prevention_en": "Rotate crops and reduce humidity around canopy.",
+    "prevention_ur": "فصل کا ردوبدل رکھیں اور نمی کم کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "فنگسائیڈ کی مناسب مقدار کا اسپرے کریں اور نچلے پتے ہٹا دیں۔",
+        "active_ingredient": "Mancozeb / Difenoconazole",
+        "local_brands": "Dithane, Score",
+        "phi": 7,
+        "warning_ur": "پانی کی سطح کم houden۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "cabbage",
+    "crop_name_en": "Cabbage",
+    "crop_name_ur": "گوبھی",
+    "crop_name_ps": "کبب",
+    "category": "Vegetable",
+    "class_key": "cabbage leaf",
+    "disease_name_en": "Healthy Cabbage Leaves",
+    "disease_name_ur": "صحت مند گوبھی کے پتے",
+    "disease_name_ps": "روغ كبب پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are firm and green without lesions or chlorosis.",
+    "symptoms_ur": "پتے سخت، ہرا اور بے داغ ہیں۔",
+    "prevention_en": "Keep irrigation balanced and monitor pests regularly.",
+    "prevention_ur": "پانی اور صفائی کا توازن رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "carrot",
+    "crop_name_en": "Carrot",
+    "crop_name_ur": "گاجر",
+    "crop_name_ps": "گاجر",
+    "category": "Vegetable",
+    "class_key": "carrot cavity spot",
+    "disease_name_en": "Carrot Cavity Spot",
+    "disease_name_ur": "گاجر کا کیویٹی سپاٹ",
+    "disease_name_ps": "د گاجر كاوئتي داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Lesions on roots form small sunken cavities, reducing root quality.",
+    "symptoms_ur": "جلدی کے اندر گھرا ہوا داغ بنتا ہے جس سے جڑ کا معیار خراب ہوتا ہے۔",
+    "prevention_en": "Avoid wet soil and rotate carrot fields regularly.",
+    "prevention_ur": "نمی والی زمین سے بچیں اور فصل کا ردوبدل رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "مناسب فنگسائیڈ",
+        "instructions_ur": "مٹی کے ساتھ ملنی والی بیماری کے لیے مناسب فنگسائیڈ استعمال کریں۔",
+        "active_ingredient": "Copper / Fungicide",
+        "local_brands": "Copper Spray",
+        "phi": 7,
+        "warning_ur": "بجائے کے بعد ڈرلنگ یا کٹائی نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 60.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Soil Drench"
+    }
+  },
+  {
+    "crop_slug": "cauliflower",
+    "crop_name_en": "Cauliflower",
+    "crop_name_ur": "کولوبی",
+    "crop_name_ps": "کولوبی",
+    "category": "Vegetable",
+    "class_key": "cauliflower alternaria leaf spot",
+    "disease_name_en": "Cauliflower Alternaria Leaf Spot",
+    "disease_name_ur": "کولوبی کا الانٹرناریا داغ",
+    "disease_name_ps": "د كولوبي Alternaria داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Circular brown spots form on leaves with concentric rings.",
+    "symptoms_ur": "پتوں پر گول بھورے دائرے بنتے ہیں اور پودا کمزور ہو جاتا ہے۔",
+    "prevention_en": "Use clean seed and avoid overhead irrigation.",
+    "prevention_ur": "صاف بیج استعمال کریں اور اوپر سے پانی نہ ڈالیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "متاثرہ پتے ہٹائیں اور مناسب فنگسائیڈ تکلیف کے مطابق استعمال کریں۔",
+        "active_ingredient": "Mancozeb / Difenoconazole",
+        "local_brands": "Dithane, Score",
+        "phi": 7,
+        "warning_ur": "پودوں میں نم برف نہیں رکھیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "cauliflower",
+    "crop_name_en": "Cauliflower",
+    "crop_name_ur": "کولوبی",
+    "crop_name_ps": "کولوبی",
+    "category": "Vegetable",
+    "class_key": "cauliflower leaf",
+    "disease_name_en": "Healthy Cauliflower Leaves",
+    "disease_name_ur": "صحت مند کولوبی کے پتے",
+    "disease_name_ps": "روغ كولوبي پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are firm and green with no visible disease symptoms.",
+    "symptoms_ur": "پتے مضبوط، ہرے اور بے داغ ہیں۔",
+    "prevention_en": "Keep fields well drained and inspect regularly.",
+    "prevention_ur": "زمین کی نکاسی درست رکھیں اور باقاعدگی سے دیکھ بھال کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "celery",
+    "crop_name_en": "Celery",
+    "crop_name_ur": "سیلری",
+    "crop_name_ps": "سيلري",
+    "category": "Vegetable",
+    "class_key": "celery anthracnose",
+    "disease_name_en": "Celery Anthracnose",
+    "disease_name_ur": "سیلری کا اینتھراکنوس",
+    "disease_name_ps": "د سلري انتراكنوز",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Leaf spots with dark margins and water-soaked centers spread rapidly in wet weather.",
+    "symptoms_ur": "پتوں پر سیاہ کنارے والے گہرے داغ بنتے ہیں اور نم موسم میں پھیلتے ہیں۔",
+    "prevention_en": "Avoid leaf wetness by irrigating early in the day.",
+    "prevention_ur": "پانی صبح میں دیں تاکہ پتے دن میں خشک ہو جائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "مناسب فنگسائیڈ پوٹاش کے ساتھ استعمال کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "نسل کے بعد پتے جلد ہٹائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 60.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "celery",
+    "crop_name_en": "Celery",
+    "crop_name_ur": "سیلری",
+    "crop_name_ps": "سيلري",
+    "category": "Vegetable",
+    "class_key": "celery early blight",
+    "disease_name_en": "Celery Early Blight",
+    "disease_name_ur": "سیلری کا ابتدائی جھلساؤ",
+    "disease_name_ps": "د سلري مخکيني سوزش",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Circular dark spots develop on lower leaves and enlarge in concentric rings.",
+    "symptoms_ur": "نچلے پتے پر گول بھورے دائرے بنتے ہیں جو بڑھ کر حلقوں میں بدل جاتے ہیں۔",
+    "prevention_en": "Prune lower leaves and avoid dense canopy conditions.",
+    "prevention_ur": "نچلے پتے کاٹ دیں اور کیڑوں سے محفوظ رہیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "گوبر اور فنگسائیڈ اس ترتیب میں استعمال کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "پانی کو قریب سے نہ چھوڑیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 65.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "celery",
+    "crop_name_en": "Celery",
+    "crop_name_ur": "سیلری",
+    "crop_name_ps": "سيلري",
+    "category": "Vegetable",
+    "class_key": "celery leaf",
+    "disease_name_en": "Healthy Celery Leaves",
+    "disease_name_ur": "صحت مند سیلری کے پتے",
+    "disease_name_ps": "روغ سلري پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are bright green and crisp with no sign of fungal spots.",
+    "symptoms_ur": "پتے چمکدار سبز اور بے داغ ہیں۔",
+    "prevention_en": "Maintain regular irrigation and airflow around celery lines.",
+    "prevention_ur": "باقاعدہ پانی دیں اور ہوا کا بہاؤ بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "cherry",
+    "crop_name_en": "Cherry",
+    "crop_name_ur": "چیری",
+    "crop_name_ps": "چېري",
+    "category": "Fruit",
+    "class_key": "cherry leaf",
+    "disease_name_en": "Healthy Cherry Leaves",
+    "disease_name_ur": "صحت مند چیری کے پتے",
+    "disease_name_ps": "روغ چېري پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green, firm, and free of lesions.",
+    "symptoms_ur": "پتے سبز، مضبوط اور بے داغ ہیں۔",
+    "prevention_en": "Keep orchard air flow good and prune lightly after fruit set.",
+    "prevention_ur": "باغ میں ہوا کا بہاؤ درست رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "cherry",
+    "crop_name_en": "Cherry",
+    "crop_name_ur": "چیری",
+    "crop_name_ps": "چېري",
+    "category": "Fruit",
+    "class_key": "cherry leaf spot",
+    "disease_name_en": "Cherry Leaf Spot",
+    "disease_name_ur": "چیری کا لیف اسپاٹ",
+    "disease_name_ps": "د چېري پاڼو داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Small dark spots develop and eventually drop leaves prematurely.",
+    "symptoms_ur": "چھوٹے سیاہ داغ بنتے ہیں اور پتے جلد گر جاتے ہیں۔",
+    "prevention_en": "Remove fallen leaves and maintain canopy sanitation.",
+    "prevention_ur": "گرا ہوا پتا ہٹائیں اور باغ کی صفائی رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "باغ میں مناسب فنگسائیڈ کا اسپرے کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "نچلے پتے جلد ہی ہٹائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 65.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 13.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "cherry",
+    "crop_name_en": "Cherry",
+    "crop_name_ur": "چیری",
+    "crop_name_ps": "چېري",
+    "category": "Fruit",
+    "class_key": "cherry powdery mildew",
+    "disease_name_en": "Cherry Powdery Mildew",
+    "disease_name_ur": "چیری کا پاوڈری ملڈیو",
+    "disease_name_ps": "د چېري پاودري ميلديو",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "White powdery fungal growth develops on leaves and stems.",
+    "symptoms_ur": "پتوں اور شاخوں پر سفید گندھا سا کف ظاہر ہوتا ہے۔",
+    "prevention_en": "Avoid dense foliage and irrigate early in the day.",
+    "prevention_ur": "دن میں پانی دے کر شام کو پتے خشک رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "سلفر یا فنگسائیڈ",
+        "instructions_ur": "سلفر یا مناسب فنگسائیڈ کا اسپرے کریں۔",
+        "active_ingredient": "Sulfur / Potassium bicarbonate",
+        "local_brands": "Sulfur Dust, Potassium Bicarbonate",
+        "phi": 7,
+        "warning_ur": "میٹھا موسم میں دوبارہ اسپرے نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 60.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "citrus",
+    "crop_name_en": "Citrus",
+    "crop_name_ur": "کینو",
+    "crop_name_ps": "مالته",
+    "category": "Fruit",
+    "class_key": "citrus canker",
+    "disease_name_en": "Citrus Canker",
+    "disease_name_ur": "کینو کا کینکر",
+    "disease_name_ps": "د مالته كانكر",
+    "pathogen_type": "BACTERIAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Brown corky lesions with yellow halos appear on leaves and fruit.",
+    "symptoms_ur": "پتوں اور پھلوں پر بھورے کچلے ہوئے داغ اور پیلے ہالہ بنتے ہیں۔",
+    "prevention_en": "Prune infected branches and avoid overhead irrigation.",
+    "prevention_ur": "متاثرہ شاخیں کاٹ دیں اور اوپر سے پانی نہ ڈالیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "کاپر اسپرے",
+        "instructions_ur": "کاپر اسپرے مناسب مقدار میں باغ میں لگائیں۔",
+        "active_ingredient": "Copper oxychloride / Copper hydroxide",
+        "local_brands": "Copper Spray, Champion",
+        "phi": 7,
+        "warning_ur": "باغ کے اندر ہوا چھوڑیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "citrus",
+    "crop_name_en": "Citrus",
+    "crop_name_ur": "کینو",
+    "crop_name_ps": "مالته",
+    "category": "Fruit",
+    "class_key": "citrus greening disease",
+    "disease_name_en": "Citrus Greening Disease",
+    "disease_name_ur": "کینو کا گریننگ روگ",
+    "disease_name_ps": "د مالته پتلولو مرض",
+    "pathogen_type": "BACTERIAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Leaf yellowing, asymmetrical growth, poor fruit quality, and stunted plants.",
+    "symptoms_ur": "پتوں میں پیلا رنگ، غیر متوازن نمو، کمزور پھل اور پودا چھوٹا رہتا ہے۔",
+    "prevention_en": "Control psyllid vectors and remove severely infected trees.",
+    "prevention_ur": "پائلا کیڑے کو کنٹرول کریں اور بہت خراب درختوں کو ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "مائیکرو انسیٹ کنٹرول",
+        "instructions_ur": "انسیٹ کنٹرول اسپرے وقت پر لگائیں اور درختوں کی صفائی رکھیں۔",
+        "active_ingredient": "Imidacloprid / Thiamethoxam",
+        "local_brands": "Confidor, Actara",
+        "phi": 14,
+        "warning_ur": "کسی بھی درخت کو چھوٹا نہ چھوڑیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 90.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 18.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "coffee",
+    "crop_name_en": "Coffee",
+    "crop_name_ur": "کافی",
+    "crop_name_ps": "کافی",
+    "category": "Plantation Crop",
+    "class_key": "coffee leaf",
+    "disease_name_en": "Healthy Coffee Leaves",
+    "disease_name_ur": "صحت مند کافی کے پتے",
+    "disease_name_ps": "روغ کافی پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are deep green and show no lesions or chlorosis.",
+    "symptoms_ur": "پتے گہرے سبز اور بے داغ ہیں۔",
+    "prevention_en": "Maintain balanced nutrition and ventilation in coffee rows.",
+    "prevention_ur": "باقاعدہ غذائی توازن اور ہوا کا تنوع رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "coffee",
+    "crop_name_en": "Coffee",
+    "crop_name_ur": "کافی",
+    "crop_name_ps": "کافی",
+    "category": "Plantation Crop",
+    "class_key": "coffee leaf rust",
+    "disease_name_en": "Coffee Leaf Rust",
+    "disease_name_ur": "کافی کا لیف رسٹ",
+    "disease_name_ps": "د کافی پاڼو رسټ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Orange-yellow rust pustules form on underside of leaves and spread quickly.",
+    "symptoms_ur": "پتوں کے نیچے نارنجی پیلے رسٹ داغ بنتے ہیں اور تیزی سے پھیلتے ہیں۔",
+    "prevention_en": "Prune for airflow and avoid excess moisture in the canopy.",
+    "prevention_ur": "ہوا کا بہاؤ بہتر بنائیں اور زیادہ نمی نہ ہونے دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "فنگسائیڈ کا مناسب اسپرے باغ میں لگایں۔",
+        "active_ingredient": "Copper / Trifloxystrobin",
+        "local_brands": "Copper Spray, Nativo",
+        "phi": 7,
+        "warning_ur": "باغ کا بیج بھی صاف رکھیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "corn",
+    "crop_name_en": "Corn",
+    "crop_name_ur": "مکئی",
+    "crop_name_ps": "ذرت",
+    "category": "Cereal",
+    "class_key": "corn gray leaf spot",
+    "disease_name_en": "Corn Gray Leaf Spot",
+    "disease_name_ur": "مکئی کا خاکستری داغ",
+    "disease_name_ps": "د ذرت خاکستي داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Long gray lesions form parallel to leaf veins and reduce photosynthesis.",
+    "symptoms_ur": "پتوں پر لمبے خاکستری داغ بنتے ہیں جو رگ کے متوازی ہوتے ہیں۔",
+    "prevention_en": "Avoid prolonged leaf wetness and use resistant hybrids.",
+    "prevention_ur": "پتوں کی نمیاہی کم رکھیں اور مزاحم قسمیں بنائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "مناسب فنگسائیڈ کا اسپرے خرچ کے مطابق کریں۔",
+        "active_ingredient": "Azoxystrobin / Propiconazole",
+        "local_brands": "Amistar, Tilt",
+        "phi": 7,
+        "warning_ur": "پتوں کو بارش کے بعد صاف نہ چھوڑیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "corn",
+    "crop_name_en": "Corn",
+    "crop_name_ur": "مکئی",
+    "crop_name_ps": "ذرت",
+    "category": "Cereal",
+    "class_key": "corn leaf",
+    "disease_name_en": "Healthy Corn Leaves",
+    "disease_name_ur": "صحت مند مکئی کے پتے",
+    "disease_name_ps": "روغ ذرت پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green, erect, and disease-free.",
+    "symptoms_ur": "پتے سبز، سیدھے اور بے داغ ہیں۔",
+    "prevention_en": "Keep crop nutrition balanced and scout often.",
+    "prevention_ur": "غذائیت اور نگرانی کا تعین رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "corn",
+    "crop_name_en": "Corn",
+    "crop_name_ur": "مکئی",
+    "crop_name_ps": "ذرت",
+    "category": "Cereal",
+    "class_key": "corn northern leaf blight",
+    "disease_name_en": "Corn Northern Leaf Blight",
+    "disease_name_ur": "مکئی کا نارتھرن لیف بلائٹ",
+    "disease_name_ps": "د ذرت شمالي بلائت",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Long elliptical gray-green lesions appear on leaves, leading to leaf death.",
+    "symptoms_ur": "بڑے شفاف بھورے داغ بنتے ہیں اور پتے مر جاتے ہیں۔",
+    "prevention_en": "Use resistant hybrids and avoid dense plant canopy.",
+    "prevention_ur": "مزاحم قسمیں کاشت کریں اور پودے بہت گھنے نہ ہونے دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "تجربہ شدہ فنگسائیڈ اسپرے کریں۔",
+        "active_ingredient": "Propiconazole / Azoxystrobin",
+        "local_brands": "Tilt, Amistar",
+        "phi": 7,
+        "warning_ur": "پتوں کی نمیاہی کم رکھیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 90.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 18.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "corn",
+    "crop_name_en": "Corn",
+    "crop_name_ur": "مکئی",
+    "crop_name_ps": "ذرت",
+    "category": "Cereal",
+    "class_key": "corn rust",
+    "disease_name_en": "Corn Rust",
+    "disease_name_ur": "مکئی کا رسٹ",
+    "disease_name_ps": "د ذرت رسټ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Small orange-brown pustules form on leaves and spread with humidity.",
+    "symptoms_ur": "پتوں پر نارنجی بھورے رسٹ داغ بنتے ہیں اور نمی کے ساتھ پھیلتے ہیں۔",
+    "prevention_en": "Reduce excessive nitrogen and remove infected leaves.",
+    "prevention_ur": "زیادہ نائٹروجن نہ دیں اور متاثرہ پتے ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "تجربہ شدہ فنگسائیڈ سے باغ کا علاج کریں۔",
+        "active_ingredient": "Tebuconazole / Trifloxystrobin",
+        "local_brands": "Folicur, Nativo",
+        "phi": 7,
+        "warning_ur": "پانی کے بعد جلد دوبارہ نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 75.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "corn",
+    "crop_name_en": "Corn",
+    "crop_name_ur": "مکئی",
+    "crop_name_ps": "ذرت",
+    "category": "Cereal",
+    "class_key": "corn smut",
+    "disease_name_en": "Corn Smut",
+    "disease_name_ur": "مکئی کا سموٹ",
+    "disease_name_ps": "د ذرت سموټ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Large black galls form on ears and leaves, reducing grain quality.",
+    "symptoms_ur": "کارخانے اور پتے پر سیاہ گول غدود بنتے ہیں، پیداوار خراب ہوتی ہے۔",
+    "prevention_en": "Remove infected plant parts and avoid injuries to developing ears.",
+    "prevention_ur": "بیمار حصے ہٹائیں اور پودوں کو تکلیف نہ دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ مشورہ",
+        "instructions_ur": "متاثرہ حصے جلد ہٹائیں اور فنگسائیڈ پیشہ ورانہ طور پر استعمال کریں۔",
+        "active_ingredient": "Systemic fungicide / Sanitation",
+        "local_brands": "Fungicide + sanitation",
+        "phi": 7,
+        "warning_ur": "پودے کے زخمی حصوں سے پرہیز کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "cucumber",
+    "crop_name_en": "Cucumber",
+    "crop_name_ur": "کھیرا",
+    "crop_name_ps": "کھیرا",
+    "category": "Vegetable",
+    "class_key": "cucumber angular leaf spot",
+    "disease_name_en": "Cucumber Angular Leaf Spot",
+    "disease_name_ur": "کھیری کا زاویہ دار داغ",
+    "disease_name_ps": "د کھیري زاويه داغ",
+    "pathogen_type": "BACTERIAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Angular water-soaked lesions spread across leaves and become papery with age.",
+    "symptoms_ur": "پتوں پر کونی دار پانی بھرے داغ بن جاتے ہیں جو بعد میں کاغذ نما ہو جاتے ہیں۔",
+    "prevention_en": "Avoid sprinkler irrigation and remove infected leaves weekly.",
+    "prevention_ur": "سپرینکلر پانی نہ ڈالیں اور متاثرہ پتے ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "کاپر اسپرے",
+        "instructions_ur": "کاپر اسپرے مناسب مقدار میں لگائیں۔",
+        "active_ingredient": "Copper / Streptomycin",
+        "local_brands": "Copper Spray",
+        "phi": 7,
+        "warning_ur": "چوکسی سے کٹائی نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "cucumber",
+    "crop_name_en": "Cucumber",
+    "crop_name_ur": "کھیرا",
+    "crop_name_ps": "کھیرا",
+    "category": "Vegetable",
+    "class_key": "cucumber bacterial wilt",
+    "disease_name_en": "Cucumber Bacterial Wilt",
+    "disease_name_ur": "کھیری کا بیکٹیریل ویلٹ",
+    "disease_name_ps": "د کھیري بكتيريال ويلت",
+    "pathogen_type": "BACTERIAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Leaves wilt suddenly, stems blacken, and vines collapse without obvious leaf spots.",
+    "symptoms_ur": "پتے اچانک گلنے لگتے ہیں، شاخیں کالے ہو جاتی ہیں اور پودا گر جاتا ہے۔",
+    "prevention_en": "Control beetles and use healthy transplants; remove wilted vines immediately.",
+    "prevention_ur": "کیڑے سے بچاؤ اور متاثرہ پودے جلد ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "انسیٹ کنٹرول",
+        "instructions_ur": "کیڑے کے حملے کو پیشگی کنٹرول کریں اور متاثرہ پودے فاتح کر دیں۔",
+        "active_ingredient": "Insecticide / sanitation",
+        "local_brands": "Insecticide spray",
+        "phi": 7,
+        "warning_ur": "باغ کی صفائی اور ہٹانا ضروری ہے۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 75.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Soil + Foliar"
+    }
+  },
+  {
+    "crop_slug": "cucumber",
+    "crop_name_en": "Cucumber",
+    "crop_name_ur": "کھیرا",
+    "crop_name_ps": "کھیرا",
+    "category": "Vegetable",
+    "class_key": "cucumber leaf",
+    "disease_name_en": "Healthy Cucumber Leaves",
+    "disease_name_ur": "صحت مند کھیری کے پتے",
+    "disease_name_ps": "روغ کھیري پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are fresh green with no wilt or spot symptoms.",
+    "symptoms_ur": "پتے سبز، تازہ اور بے داغ ہیں۔",
+    "prevention_en": "Use steady irrigation and keep foliage dry overnight.",
+    "prevention_ur": "پانی کو مناسب رکھیں اور رات کو پتے نہ بھیگیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "cucumber",
+    "crop_name_en": "Cucumber",
+    "crop_name_ur": "کھیرا",
+    "crop_name_ps": "کھیرا",
+    "category": "Vegetable",
+    "class_key": "cucumber powdery mildew",
+    "disease_name_en": "Cucumber Powdery Mildew",
+    "disease_name_ur": "کھیری کا پاوڈری ملڈیو",
+    "disease_name_ps": "د کھیري پاودري ميلديو",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "White powdery growth develops on upper leaf surfaces and spreads quickly.",
+    "symptoms_ur": "پتوں کی اوپر سطح پر سفید گندھا سا زنگ آتا ہے۔",
+    "prevention_en": "Improve air circulation and avoid excess nitrogen.",
+    "prevention_ur": "ہوا کا بہاؤ بہتر رکھیں اور زیادہ نائٹروجن نہ دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "پودوں کو مناسب فنگسائیڈ سے چھڑکیں۔",
+        "active_ingredient": "Sulfur / Potassium bicarbonate",
+        "local_brands": "Sulfur Dust, Potassium Bicarbonate",
+        "phi": 7,
+        "warning_ur": "دوسرے دن کے بعد دوبارہ نہیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "eggplant",
+    "crop_name_en": "Eggplant",
+    "crop_name_ur": "بینگن",
+    "crop_name_ps": "بنجان",
+    "category": "Vegetable",
+    "class_key": "eggplant cercospora leaf spot",
+    "disease_name_en": "Eggplant Cercospora Leaf Spot",
+    "disease_name_ur": "بینگن کا سیروسپورا ڈاغ",
+    "disease_name_ps": "د بينجان سيروسپورا داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Leaf lesions form with tan centers and dark borders, causing defoliation.",
+    "symptoms_ur": "پتوں پر بھورے وسط اور سیاہ کناروں والے داغ بن جاتے ہیں۔",
+    "prevention_en": "Rotate crops and keep foliage dry during the evening.",
+    "prevention_ur": "فصل کا ردوبدل رکھیں اور شام کو پتے نہیں بھیگیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "باقاعدگی سے فنگسائیڈ اسپرے کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "پتوں کے زخم مکمل طور پر خشک ہونے کے بعد دوبارہ اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 75.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "eggplant",
+    "crop_name_en": "Eggplant",
+    "crop_name_ur": "بینگن",
+    "crop_name_ps": "بنجان",
+    "category": "Vegetable",
+    "class_key": "eggplant leaf",
+    "disease_name_en": "Healthy Eggplant Leaves",
+    "disease_name_ur": "صحت مند بینگن کے پتے",
+    "disease_name_ps": "روغ بنجان پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are dark green and healthy.",
+    "symptoms_ur": "پتے گہرے سبز اور صحت مند ہیں۔",
+    "prevention_en": "Keep crop rows ventilated and monitor for insect feeding.",
+    "prevention_ur": "باقاعدہ نگرانی اور ہوا کا بہاؤ رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "garlic",
+    "crop_name_en": "Garlic",
+    "crop_name_ur": "لہسن",
+    "crop_name_ps": "لهسن",
+    "category": "Vegetable",
+    "class_key": "garlic leaf",
+    "disease_name_en": "Healthy Garlic Leaves",
+    "disease_name_ur": "صحت مند لہسن کے پتے",
+    "disease_name_ps": "روغ لهسن پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green and firm.",
+    "symptoms_ur": "پتے سبز اور مضبوط ہیں۔",
+    "prevention_en": "Keep soil moisture even and avoid dense canopy.",
+    "prevention_ur": "مٹی کا نم پانی مناسب رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "garlic",
+    "crop_name_en": "Garlic",
+    "crop_name_ur": "لہسن",
+    "crop_name_ps": "لهسن",
+    "category": "Vegetable",
+    "class_key": "garlic leaf blight",
+    "disease_name_en": "Garlic Leaf Blight",
+    "disease_name_ur": "لہسن کا لیف بلائٹ",
+    "disease_name_ps": "د لهسن پاڼو بلائت",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Gray-green lesions develop on leaves and spread in patches.",
+    "symptoms_ur": "پتوں پر خاکستری سبز داغ بنتے ہیں اور پھیلتے ہیں۔",
+    "prevention_en": "Avoid water stress and improve spacing.",
+    "prevention_ur": "پانی کا توازن رکھیں اور پودے هموار رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "متاثرہ پودوں پر مناسب فنگسائیڈ لگائیں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "پانی کے بعد جلد دوبارہ نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "garlic",
+    "crop_name_en": "Garlic",
+    "crop_name_ur": "لہسن",
+    "crop_name_ps": "لهسن",
+    "category": "Vegetable",
+    "class_key": "garlic rust",
+    "disease_name_en": "Garlic Rust",
+    "disease_name_ur": "لہسن کا رسٹ",
+    "disease_name_ps": "د لهسن رسټ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Rusty lesions appear on leaf blades and reduce vigor.",
+    "symptoms_ur": "پتوں پر بھوری نارنجی داغ پیدا ہوتے ہیں۔",
+    "prevention_en": "Maintain airflow and reduce prolonged leaf wetness.",
+    "prevention_ur": "پتوں کی نمی کم رکھیں اور ہوا کا بہاؤ بہتر بنائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "متناسب فنگسائیڈ کو وقت پر لگائیں۔",
+        "active_ingredient": "Sulfur / Mancozeb",
+        "local_brands": "Sulfur Dust, Mancozeb",
+        "phi": 7,
+        "warning_ur": "زیادہ گرم دنوں میں رسٹ والے پتے ہٹائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "ginger",
+    "crop_name_en": "Ginger",
+    "crop_name_ur": "ادرک",
+    "crop_name_ps": "زردالو",
+    "category": "Spice",
+    "class_key": "ginger leaf",
+    "disease_name_en": "Healthy Ginger Leaves",
+    "disease_name_ur": "صحت مند ادرک کے پتے",
+    "disease_name_ps": "روغ ادرك پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are bright green and healthy.",
+    "symptoms_ur": "پتے چمکدار سبز اور صحت مند ہیں۔",
+    "prevention_en": "Keep soil moist and avoid plant stress.",
+    "prevention_ur": "زمین میں پانی کا توازن رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "ginger",
+    "crop_name_en": "Ginger",
+    "crop_name_ur": "ادرک",
+    "crop_name_ps": "زردالو",
+    "category": "Spice",
+    "class_key": "ginger leaf spot",
+    "disease_name_en": "Ginger Leaf Spot",
+    "disease_name_ur": "ادرک کا لیف اسپاٹ",
+    "disease_name_ps": "د ادرك پاڼو داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Dark brown or tan spots form on leaf blades and reduce vigor.",
+    "symptoms_ur": "پتوں پر گہرے بھورے یا ٹین رنگ کے داغ بنتے ہیں۔",
+    "prevention_en": "Reduce overhead watering and remove infected leaves.",
+    "prevention_ur": "اوپر سے پانی کم کریں اور متاثرہ پتے ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "مناسب فنگسائیڈ کا اسپرے ذرا تیزی سے کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "پتوں پر پانی جمع نہ ہونے دیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 14.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "ginger",
+    "crop_name_en": "Ginger",
+    "crop_name_ur": "ادرک",
+    "crop_name_ps": "زردالو",
+    "category": "Spice",
+    "class_key": "ginger sheath blight",
+    "disease_name_en": "Ginger Sheath Blight",
+    "disease_name_ur": "ادرک کا شیٹ بلائٹ",
+    "disease_name_ps": "د ادرك شيث بلائت",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Leaf sheaths become blighted and stems collapse under high humidity.",
+    "symptoms_ur": "پتوں کے گھیرے جھلسنے لگتے ہیں اور شاخیں نباتی نمی میں گر جاتی ہیں۔",
+    "prevention_en": "Improve drainage and avoid waterlogging around ginger beds.",
+    "prevention_ur": "نکاسی بہتر رکھیں اور پانی جمع نہ ہونے دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "بجلی کے سائز کے انتظام کے ساتھ فنگسائیڈ استعمال کریں۔",
+        "active_ingredient": "Carbendazim / Propiconazole",
+        "local_brands": "Topsin-M, Tilt",
+        "phi": 7,
+        "warning_ur": "نمی زیادہ ہونے پر دوبارہ اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "grape",
+    "crop_name_en": "Grape",
+    "crop_name_ur": "انگور",
+    "crop_name_ps": "انگور",
+    "category": "Fruit",
+    "class_key": "grape black rot",
+    "disease_name_en": "Grape Black Rot",
+    "disease_name_ur": "انگور کا بلیک روت",
+    "disease_name_ps": "د انگور بليك روت",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Sunken black lesions develop on berries and leaves, reducing fruit quality.",
+    "symptoms_ur": "انگور اور پتے پر گہرے سیاہ داغ بنتے ہیں اور پھل کا معیار خراب ہوتا ہے۔",
+    "prevention_en": "Remove infected berries and improve canopy ventilation.",
+    "prevention_ur": "بیمار انگوٹھے پھل ہٹائیں اور ہوا کا بہاؤ بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "باغ میں مناسب فنگسائیڈ چڑھائیں۔",
+        "active_ingredient": "Mancozeb / Captan",
+        "local_brands": "Dithane, Captan",
+        "phi": 7,
+        "warning_ur": "پتوں پر پانی جمع نہ ہونے دیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 90.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 18.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "grape",
+    "crop_name_en": "Grape",
+    "crop_name_ur": "انگور",
+    "crop_name_ps": "انگور",
+    "category": "Fruit",
+    "class_key": "grape downy mildew",
+    "disease_name_en": "Grape Downy Mildew",
+    "disease_name_ur": "انگور کا ڈاؤنائی ملڈیو",
+    "disease_name_ps": "د انگور ډاوني ميلديو",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Yellow oil spots on leaves with white mold on the underside.",
+    "symptoms_ur": "پتوں پر پیلے تیل کے داغ اور نیچے سفید پھپھوندی دکھائی دیتی ہے۔",
+    "prevention_en": "Improve airflow and remove infected leaves quickly.",
+    "prevention_ur": "ہوا کا بہاؤ بہتر رکھیں اور متاثرہ پتے جلد ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "کاپر یا فنگسائیڈ",
+        "instructions_ur": "کاپر یا مناسب فنگسائیڈ اسپرے کریں۔",
+        "active_ingredient": "Copper / Mancozeb",
+        "local_brands": "Copper Spray, Dithane",
+        "phi": 7,
+        "warning_ur": "نمی کے بعد دوبارہ اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "grape",
+    "crop_name_en": "Grape",
+    "crop_name_ur": "انگور",
+    "crop_name_ps": "انگور",
+    "category": "Fruit",
+    "class_key": "grape leaf",
+    "disease_name_en": "Healthy Grape Leaves",
+    "disease_name_ur": "صحت مند انگور کے پتے",
+    "disease_name_ps": "روغ انگور پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green and free from lesions.",
+    "symptoms_ur": "پتے سبز اور بے داغ ہیں۔",
+    "prevention_en": "Keep vines pruned for better ventilation.",
+    "prevention_ur": "لٹکی ہوئی شاخوں کو کٹ کر ہوا کا بہاؤ بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "grape",
+    "crop_name_en": "Grape",
+    "crop_name_ur": "انگور",
+    "crop_name_ps": "انگور",
+    "category": "Fruit",
+    "class_key": "grape leaf spot",
+    "disease_name_en": "Grape Leaf Spot",
+    "disease_name_ur": "انگور کا لیف اسپاٹ",
+    "disease_name_ps": "د انگور پاڼو داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Leaf spots enlarge, dry out, and reduce photosynthesis.",
+    "symptoms_ur": "پتوں پر داغ بڑے ہوتے جاتے ہیں اور وہ سرخ یا سیاہ ہو جاتے ہیں۔",
+    "prevention_en": "Prune dense foliage and reduce excess moisture.",
+    "prevention_ur": "گھنے پتے کٹائیں اور پانی زیادہ نہ چھوڑیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "بعض فنگسائیڈ سے باغ میں اسپرے کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "پتوں کو آلودہ چھوڑ نہ دیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "grapevine",
+    "crop_name_en": "Grapevine",
+    "crop_name_ur": "انگور کی بیل",
+    "crop_name_ps": "انگور بیل",
+    "category": "Fruit",
+    "class_key": "grapevine leafroll disease",
+    "disease_name_en": "Grapevine Leafroll Disease",
+    "disease_name_ur": "انگور بیل کا لیف رول روگ",
+    "disease_name_ps": "د انگور بيلي leafroll مرض",
+    "pathogen_type": "VIRAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Leaf edges roll inward and turn reddish or purple while fruit ripens poorly.",
+    "symptoms_ur": "پتے اندر مڑ جاتے ہیں اور سرخ یا جامنی رنگ میں بدل جاتے ہیں۔",
+    "prevention_en": "Use certified virus-free propagation material and remove infected vines.",
+    "prevention_ur": "وائرل فری بیل استعمال کریں اور متاثرہ بیل ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "مستقبل کے لیے حفاظتی عمل",
+        "instructions_ur": "حضوری چٹائی اور مرضِ وائرل کے ڈرنک سے بچنا ضروری ہے۔",
+        "active_ingredient": "Sanitation / Certification",
+        "local_brands": "باغبانی صفائی",
+        "phi": 0,
+        "warning_ur": "کوئی شفا بخش جادوئی علاج نہیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "lettuce",
+    "crop_name_en": "Lettuce",
+    "crop_name_ur": "سلاد",
+    "crop_name_ps": "سلاد",
+    "category": "Vegetable",
+    "class_key": "lettuce downy mildew",
+    "disease_name_en": "Lettuce Downy Mildew",
+    "disease_name_ur": "سلاد کا ڈاؤنائی ملڈیو",
+    "disease_name_ps": "د سالاد ډاوني ميلديو",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Irregular yellow patches appear and underside develops fuzzy spores.",
+    "symptoms_ur": "پتوں پر غیر معمولی پیلے دھبے اور نیچے سفید مخملی پھپھوندی بن جاتی ہے۔",
+    "prevention_en": "Improve airflow and avoid night irrigation.",
+    "prevention_ur": "رات کو پانی نہ دیں اور ہوا کا بہاؤ بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "فنگسائیڈ کا مناسب وقت پر استعمال کریں۔",
+        "active_ingredient": "Copper / Mancozeb",
+        "local_brands": "Copper Spray, Dithane",
+        "phi": 7,
+        "warning_ur": "نمی کے بعد دوبارہ اسپرے کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "lettuce",
+    "crop_name_en": "Lettuce",
+    "crop_name_ur": "سلاد",
+    "crop_name_ps": "سلاد",
+    "category": "Vegetable",
+    "class_key": "lettuce leaf",
+    "disease_name_en": "Healthy Lettuce Leaves",
+    "disease_name_ur": "صحت مند سلاد کے پتے",
+    "disease_name_ps": "روغ سالاد پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are crisp, fresh, and free from lesions.",
+    "symptoms_ur": "پتے تازہ، کرسپی اور بے داغ ہیں۔",
+    "prevention_en": "Avoid excess humidity and keep leaves dry overnight.",
+    "prevention_ur": "رات کو پتے نہ بھیگیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "lettuce",
+    "crop_name_en": "Lettuce",
+    "crop_name_ur": "سلاد",
+    "crop_name_ps": "سلاد",
+    "category": "Vegetable",
+    "class_key": "lettuce mosaic virus",
+    "disease_name_en": "Lettuce Mosaic Virus",
+    "disease_name_ur": "سلاد کا موزیک وائرس",
+    "disease_name_ps": "د سالاد موزیک ویروس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Mosaic mottling and distorted leaves reduce marketability.",
+    "symptoms_ur": "پتوں پر موزیک نما پیلا داغ اور خرابی پیدا ہوتی ہے۔",
+    "prevention_en": "Use clean seed and control aphid vectors.",
+    "prevention_ur": "صاف بیج استعمال کریں اور افیڈز کو کنٹرول کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "انسیٹ کنٹرول",
+        "instructions_ur": "افیڈز کو کنٹرول کریں کیونکہ وہ وائرس پھیلاتے ہیں۔",
+        "active_ingredient": "Imidacloprid / Acephate",
+        "local_brands": "Confidor, Acephate",
+        "phi": 7,
+        "warning_ur": "کوئی علاج وائرس کو ختم نہیں کرتا۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 60.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "maple",
+    "crop_name_en": "Maple",
+    "crop_name_ur": "میپل",
+    "crop_name_ps": "میپل",
+    "category": "Tree",
+    "class_key": "maple leaf",
+    "disease_name_en": "Healthy Maple Leaves",
+    "disease_name_ur": "صحت مند میپل کے پتے",
+    "disease_name_ps": "روغ ميپل پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are healthy, green, and intact.",
+    "symptoms_ur": "پتے سبز اور صحت مند ہیں۔",
+    "prevention_en": "Allow canopy air movement and regular observation.",
+    "prevention_ur": "ہوا کا بہاؤ رکھیں اور باقاعدہ نگرانی کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "maple",
+    "crop_name_en": "Maple",
+    "crop_name_ur": "میپل",
+    "crop_name_ps": "میپل",
+    "category": "Tree",
+    "class_key": "maple tar spot",
+    "disease_name_en": "Maple Tar Spot",
+    "disease_name_ur": "میپل کا ٹار اسپاٹ",
+    "disease_name_ps": "د ميپل تار داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Black tar-like spots form on leaves and reduce photosynthesis.",
+    "symptoms_ur": "پتوں پر سیاہ ٹار کی طرح داغ بنتے ہیں۔",
+    "prevention_en": "Remove fallen leaves and reduce excessive moisture.",
+    "prevention_ur": "گرا ہوا پتا ہٹا دیں اور زیادہ نمی نہ ہونے دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "فنگسائیڈ سب سے پہلے سایکال میں لگائیں۔",
+        "active_ingredient": "Copper / Fungicide",
+        "local_brands": "Copper Spray",
+        "phi": 7,
+        "warning_ur": "باغ میں ہوا کا بہاؤ کم نہ ہونے دیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 60.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "peach",
+    "crop_name_en": "Peach",
+    "crop_name_ur": "آڑو",
+    "crop_name_ps": "آډو",
+    "category": "Fruit",
+    "class_key": "peach leaf",
+    "disease_name_en": "Healthy Peach Leaves",
+    "disease_name_ur": "صحت مند آڑو کے پتے",
+    "disease_name_ps": "روغ آډو پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green and healthy.",
+    "symptoms_ur": "پتے سبز اور صحت مند ہیں۔",
+    "prevention_en": "Monitor leaves and maintain airflow.",
+    "prevention_ur": "باقاعدہ نگرانی اور ہوا کا بہاؤ رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "peach",
+    "crop_name_en": "Peach",
+    "crop_name_ur": "آڑو",
+    "crop_name_ps": "آډو",
+    "category": "Fruit",
+    "class_key": "peach leaf curl",
+    "disease_name_en": "Peach Leaf Curl",
+    "disease_name_ur": "آڑو کا لیف کرل",
+    "disease_name_ps": "د آډو پاڼو کرل",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Leaves curl upward, thicken, and turn red or yellow.",
+    "symptoms_ur": "پتے اوپر مڑ جاتے ہیں، موٹے ہو جاتے ہیں اور سرخ یا پیلے ہو جاتے ہیں۔",
+    "prevention_en": "Apply dormant spray before bud break and prune infected shoots.",
+    "prevention_ur": "نچوڑ سے پہلے dormancy اسپرے کریں اور متاثرہ شاخیں کاٹ دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "کاپر یا فنگسائیڈ",
+        "instructions_ur": "دوران خواب میں مناسب اسپرے کریں۔",
+        "active_ingredient": "Copper / Lime sulfur",
+        "local_brands": "Copper Spray, Lime sulfur",
+        "phi": 7,
+        "warning_ur": "باغ میں ہوا اور روشنی کا توازن رکھیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 60.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Dormant Spray"
+    }
+  },
+  {
+    "crop_slug": "plum",
+    "crop_name_en": "Plum",
+    "crop_name_ur": "آلوچہ",
+    "crop_name_ps": "آلوچه",
+    "category": "Fruit",
+    "class_key": "plum leaf",
+    "disease_name_en": "Healthy Plum Leaves",
+    "disease_name_ur": "صحت مند آلوچہ کے پتے",
+    "disease_name_ps": "روغ آلوچه پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green and healthy.",
+    "symptoms_ur": "پتے سبز اور صحت مند ہیں۔",
+    "prevention_en": "Regular scanning and sanitation keep them healthy.",
+    "prevention_ur": "باقاعدگی سے صفائی اور نگرانی رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "plum",
+    "crop_name_en": "Plum",
+    "crop_name_ur": "آلوچہ",
+    "crop_name_ps": "آلوچه",
+    "category": "Fruit",
+    "class_key": "plum pocket disease",
+    "disease_name_en": "Plum Pocket Disease",
+    "disease_name_ur": "آلوچہ کا پاؤکٹ روگ",
+    "disease_name_ps": "د آلوچه پاؤکٹ مرض",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Fruit enlarges abnormally and becomes hollow and distorted.",
+    "symptoms_ur": "پھل غیر معمولی طور پر بڑھتا ہے اور خالی، بد شکل ہو جاتا ہے۔",
+    "prevention_en": "Remove infected fruits and prune infected twigs.",
+    "prevention_ur": "متاثرہ پھل اور شاخیں ہٹائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "مناسب فنگسائیڈ کا مناسب وقت پر استعمال کریں۔",
+        "active_ingredient": "Copper / Fungicide",
+        "local_brands": "Copper Spray",
+        "phi": 7,
+        "warning_ur": "ٹوٹا ہوا داغ مکمل طور پر ہٹائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 65.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 13.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "potato",
+    "crop_name_en": "Potato",
+    "crop_name_ur": "آلو",
+    "crop_name_ps": "الوګان",
+    "category": "Vegetable",
+    "class_key": "potato early blight",
+    "disease_name_en": "Potato Early Blight",
+    "disease_name_ur": "آلو کا ابتدائی جھلساؤ",
+    "disease_name_ps": "د الوګان مخکيني سوځيدنه",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Dark concentric rings develop on older leaves and defoliate gradually.",
+    "symptoms_ur": "پرانے پتے پر گہرے دائرے اور داغ بنتے ہیں اور وہ آہستہ آہستہ گرنے لگتے ہیں۔",
+    "prevention_en": "Remove lower infected foliage and maintain balanced fertilization.",
+    "prevention_ur": "نچلے مٹی سے لگنے والے پتے ہٹائیں اور غذائیت کا توازن رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "متاثرہ باغ میں فنگسائیڈ کے مطابق اسپرے کریں۔",
+        "active_ingredient": "Mancozeb / Difenoconazole",
+        "local_brands": "Dithane, Score",
+        "phi": 7,
+        "warning_ur": "شام کے وقت استعمال نہ کریں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "potato",
+    "crop_name_en": "Potato",
+    "crop_name_ur": "آلو",
+    "crop_name_ps": "الوګان",
+    "category": "Vegetable",
+    "class_key": "potato late blight",
+    "disease_name_en": "Potato Late Blight",
+    "disease_name_ur": "آلو کا پچھتا جھلساؤ",
+    "disease_name_ps": "د الوګان وروستني سوزش",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Water-soaked lesions spread fast, turning black and killing foliage within days.",
+    "symptoms_ur": "پتوں پر پانی سے بھرے بھورے داغ تیزی سے پھیلتے ہیں اور چند دنوں میں پودا مر جاتا ہے۔",
+    "prevention_en": "Use resistant varieties and time sprays before high humidity periods.",
+    "prevention_ur": "مزاحم اقسام استعمال کریں اور نمی بڑھنے سے پہلے اسپرے کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "ریڈومل گولڈ اسپرے",
+        "instructions_ur": "فوری طور پر میٹالکسل + مینکوزیب استعمال کریں۔",
+        "active_ingredient": "Metalaxyl-M + Mancozeb",
+        "local_brands": "Ridomil Gold",
+        "phi": 7,
+        "warning_ur": "حملہ بڑھنے پر ہر 7 دن بعد دہرائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 90.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 18.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "potato",
+    "crop_name_en": "Potato",
+    "crop_name_ur": "آلو",
+    "crop_name_ps": "الوګان",
+    "category": "Vegetable",
+    "class_key": "potato leaf",
+    "disease_name_en": "Healthy Potato Leaves",
+    "disease_name_ur": "صحت مند آلو کے پتے",
+    "disease_name_ps": "روغ الوګان پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green and show no disease lesions.",
+    "symptoms_ur": "پتے سبز، صحت مند اور بے داغ ہیں۔",
+    "prevention_en": "Maintain good field hygiene and balanced nutrition.",
+    "prevention_ur": "باقاعدہ صفائی اور غذائی توازن رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "raspberry",
+    "crop_name_en": "Raspberry",
+    "crop_name_ur": "راسبیری",
+    "crop_name_ps": "راسبیری",
+    "category": "Fruit",
+    "class_key": "raspberry leaf",
+    "disease_name_en": "Healthy Raspberry Leaves",
+    "disease_name_ur": "صحت مند راسبیری کے پتے",
+    "disease_name_ps": "روغ راسبيري پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green, firm, and free from spots.",
+    "symptoms_ur": "پتے سبز، مضبوط اور بے داغ ہیں۔",
+    "prevention_en": "Prune and keep the canopy airy.",
+    "prevention_ur": "باغ میں ہوا کا بہاؤ بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "rice",
+    "crop_name_en": "Rice",
+    "crop_name_ur": "چاول",
+    "crop_name_ps": "وریجې",
+    "category": "Cereal",
+    "class_key": "rice blast",
+    "disease_name_en": "Rice Blast",
+    "disease_name_ur": "چاول کا بلاسٹ",
+    "disease_name_ps": "د وريجې بلاست",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Spindle-shaped lesions with gray centers form on leaves and panicles.",
+    "symptoms_ur": "پتوں اور خوشے پر مچھلی کی شکل کے داغ بنتے ہیں۔",
+    "prevention_en": "Use balanced nitrogen and resistant varieties.",
+    "prevention_ur": "نائٹروجن متوازن رکھیں اور مزاحم قسمیں استعمال کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "فنگسائیڈ کا مناسب اسپرے لگائیں اور درست موسم میں کریں۔",
+        "active_ingredient": "Tricyclazole / Isoprothiolane",
+        "local_brands": "Beam, Fuji-One",
+        "phi": 14,
+        "warning_ur": "باغ میں پانی مناسب رکھیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 90.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 18.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "rice",
+    "crop_name_en": "Rice",
+    "crop_name_ur": "چاول",
+    "crop_name_ps": "وریجې",
+    "category": "Cereal",
+    "class_key": "rice leaf",
+    "disease_name_en": "Healthy Rice Leaves",
+    "disease_name_ur": "صحت مند چاول کے پتے",
+    "disease_name_ps": "روغ وريجې پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green, strong, and disease-free.",
+    "symptoms_ur": "پتے سبز، مضبوط اور بے داغ ہیں۔",
+    "prevention_en": "Maintain proper water depth and timely weeding.",
+    "prevention_ur": "پانی اور جڑی بوٹیوں کا انتظام صحیح رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "rice",
+    "crop_name_en": "Rice",
+    "crop_name_ur": "چاول",
+    "crop_name_ps": "وریجې",
+    "category": "Cereal",
+    "class_key": "rice sheath blight",
+    "disease_name_en": "Rice Sheath Blight",
+    "disease_name_ur": "چاول کا شیٹ بلائٹ",
+    "disease_name_ps": "د وريجې شيث بلائت",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Lesions on leaf sheaths spread upward and cause lodging.",
+    "symptoms_ur": "پتے کے گھیرے پر داغ بنتے ہیں اور پودا گرنے لگتا ہے۔",
+    "prevention_en": "Maintain spacing and improve drainage in paddy fields.",
+    "prevention_ur": "فاصلہ اور نکاسی کو بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "فنگسائیڈ درست مقدار میں لگائیں۔",
+        "active_ingredient": "Validamycin / Azoxystrobin",
+        "local_brands": "Validamycin, Amistar",
+        "phi": 14,
+        "warning_ur": "پانی کے مقام پر خاص توجہ دیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "soybean",
+    "crop_name_en": "Soybean",
+    "crop_name_ur": "سوی بین",
+    "crop_name_ps": "سوي بين",
+    "category": "Legume",
+    "class_key": "soybean leaf",
+    "disease_name_en": "Healthy Soybean Leaves",
+    "disease_name_ur": "صحت مند سوی بین کے پتے",
+    "disease_name_ps": "روغ سوي بين پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green and healthy.",
+    "symptoms_ur": "پتے سبز اور صحت مند ہیں۔",
+    "prevention_en": "Keep plants well spaced and inspect for defoliators.",
+    "prevention_ur": "فاصلہ بہتر رکھیں اور کٹنے والے کیڑوں کو دیکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "squash",
+    "crop_name_en": "Squash",
+    "crop_name_ur": "کدو",
+    "crop_name_ps": "کدو",
+    "category": "Vegetable",
+    "class_key": "squash leaf",
+    "disease_name_en": "Healthy Squash Leaves",
+    "disease_name_ur": "صحت مند کدو کے پتے",
+    "disease_name_ps": "روغ کدو پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are green and uniform.",
+    "symptoms_ur": "پتے سبز اور یکساں ہیں۔",
+    "prevention_en": "Practice crop rotation and regular scouting.",
+    "prevention_ur": "فصل کا ردوبدل رکھیں اور باقاعدگی سے نگرانی کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "squash",
+    "crop_name_en": "Squash",
+    "crop_name_ur": "کدو",
+    "crop_name_ps": "کدو",
+    "category": "Vegetable",
+    "class_key": "squash powdery mildew",
+    "disease_name_en": "Squash Powdery Mildew",
+    "disease_name_ur": "کدو کا پاوڈری ملڈیو",
+    "disease_name_ps": "د کدو پاودري ميلديو",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "White powdery growth spreads over leaf surfaces and reduces photosynthesis.",
+    "symptoms_ur": "پتوں پر سفید گندھا سا کپڑا بنتا ہے اور سیاہ ہو کر گرنے لگتا ہے۔",
+    "prevention_en": "Reduce humidity and prune to increase airflow.",
+    "prevention_ur": "نمی کم رکھیں اور ہوا کا بہاؤ بہتر بنائیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "باقاعدگی سے مناسب فنگسائیڈ استعمال کریں۔",
+        "active_ingredient": "Sulfur / Potassium bicarbonate",
+        "local_brands": "Sulfur Dust, Potassium Bicarbonate",
+        "phi": 7,
+        "warning_ur": "دوبارہ اسپرے سے پہلے حسب ضرورت دیکھیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 65.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "strawberry",
+    "crop_name_en": "Strawberry",
+    "crop_name_ur": "اسٹرابیری",
+    "crop_name_ps": "اسٹرابيري",
+    "category": "Fruit",
+    "class_key": "strawberry anthracnose",
+    "disease_name_en": "Strawberry Anthracnose",
+    "disease_name_ur": "اسٹرابیری کا اینتھراکنوس",
+    "disease_name_ps": "د اسٹرابيري انتراكنوز",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Fruit and leaves get dark sunken lesions and die back rapidly.",
+    "symptoms_ur": "پھل اور پتے گہرے دھبوں میں گھروں ہوجاتے ہیں اور جلد مر جاتے ہیں۔",
+    "prevention_en": "Remove infected fruits and improve drainage.",
+    "prevention_ur": "بیمار پھل ہٹائیں اور زمین کی نکاسی بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "باقاعدگی سے فنگسائیڈ لگائیں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "مرتبہ منظم صفائی یقینی بنائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "strawberry",
+    "crop_name_en": "Strawberry",
+    "crop_name_ur": "اسٹرابیری",
+    "crop_name_ps": "اسٹرابيري",
+    "category": "Fruit",
+    "class_key": "strawberry leaf",
+    "disease_name_en": "Healthy Strawberry Leaves",
+    "disease_name_ur": "صحت مند اسٹرابیری کے پتے",
+    "disease_name_ps": "روغ اسٹرابيري پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are fresh green and disease-free.",
+    "symptoms_ur": "پتے تازہ سبز اور بے داغ ہیں۔",
+    "prevention_en": "Maintain mulch and overall orchard hygiene.",
+    "prevention_ur": "باغ کی صفائی اور مالچ کا نظم رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "strawberry",
+    "crop_name_en": "Strawberry",
+    "crop_name_ur": "اسٹرابیری",
+    "crop_name_ps": "اسٹرابيري",
+    "category": "Fruit",
+    "class_key": "strawberry leaf scorch",
+    "disease_name_en": "Strawberry Leaf Scorch",
+    "disease_name_ur": "اسٹرابیری کا لیف سکارچ",
+    "disease_name_ps": "د اسٹرابيري پاڼو سكارچ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Leaf margins burn, turn brown, and curl under stress.",
+    "symptoms_ur": "پتوں کے کنارے جلتے ہیں، بھورے ہو جاتے ہیں اور مڑ جاتے ہیں۔",
+    "prevention_en": "Avoid water stress and improve soil drainage.",
+    "prevention_ur": "پانی کے دباؤ اور مٹی کی نکاسی بہتر رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "مناسب فنگسائیڈ کا اسپرے بہترین طریقے سے لگائیں۔",
+        "active_ingredient": "Copper / Mancozeb",
+        "local_brands": "Copper Spray, Dithane",
+        "phi": 7,
+        "warning_ur": "باغ میں کمزور پودے ہٹائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tobacco",
+    "crop_name_en": "Tobacco",
+    "crop_name_ur": "تمباکو",
+    "crop_name_ps": "تمباکو",
+    "category": "Cash Crop",
+    "class_key": "tobacco leaf",
+    "disease_name_en": "Healthy Tobacco Leaves",
+    "disease_name_ur": "صحت مند تمباکو کے پتے",
+    "disease_name_ps": "روغ تمباکو پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are broad, green, and free from lesions.",
+    "symptoms_ur": "پتے وسیع، سبز اور بے داغ ہیں۔",
+    "prevention_en": "Keep leaf surfaces dry and monitor pest pressure.",
+    "prevention_ur": "پتے خشک رکھیں اور کیڑوں کی نگرانی کریں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "tobacco",
+    "crop_name_en": "Tobacco",
+    "crop_name_ur": "تمباکو",
+    "crop_name_ps": "تمباکو",
+    "category": "Cash Crop",
+    "class_key": "tobacco mosaic virus",
+    "disease_name_en": "Tobacco Mosaic Virus",
+    "disease_name_ur": "تمباکو کا موزیک وائرس",
+    "disease_name_ps": "د تمباکو موزیک ویروس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Mottled patches and distortion appear on leaves.",
+    "symptoms_ur": "پتوں پر پیلے سبز موزیک نما داغ اور خرابی ظاہر ہوتی ہے۔",
+    "prevention_en": "Use clean seed and avoid mechanical transmission.",
+    "prevention_ur": "صاف بیج استعمال کریں اور میکانیکی انتقال سے بچیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی پودوں کی دیکھ بھال",
+        "instructions_ur": "بیمار پودے الگ کریں اور چھوٹے زخموں سے بچیں۔",
+        "active_ingredient": "Sanitation / Exclusion",
+        "local_brands": "باغبانی صفائی",
+        "phi": 0,
+        "warning_ur": "کوئی خاص جادوئی علاج نہیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "رومیان",
+    "category": "Vegetable",
+    "class_key": "tomato bacterial leaf spot",
+    "disease_name_en": "Tomato Bacterial Leaf Spot",
+    "disease_name_ur": "ٹماٹر کا بیکٹیریل لیف اسپاٹ",
+    "disease_name_ps": "د روميان باكتيريالي داغ",
+    "pathogen_type": "BACTERIAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Water-soaked spots develop on leaves and fruits, often expanding rapidly.",
+    "symptoms_ur": "پتوں اور پھلوں پر پانی بھرے داغ بنتے ہیں جو جلد پھیل جاتے ہیں۔",
+    "prevention_en": "Use clean seed and avoid overhead irrigation after midday.",
+    "prevention_ur": "صاف بیج استعمال کریں اور دوپہر کے بعد پانی نہ دیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "کاپر اسپرے",
+        "instructions_ur": "کاپر اسپرے مناسب مقدار میں لگائیں۔",
+        "active_ingredient": "Copper / Streptomycin",
+        "local_brands": "Copper Spray, Streptomycin",
+        "phi": 7,
+        "warning_ur": "باقاعدہ صفائی اور داغ ہٹانا ضروری ہے۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "رومیان",
+    "category": "Vegetable",
+    "class_key": "tomato early blight",
+    "disease_name_en": "Tomato Early Blight",
+    "disease_name_ur": "ٹماٹر کا ابتدائی جھلساؤ",
+    "disease_name_ps": "د روميان مخکيني سوزش",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Target-like brown rings appear on lower leaves and spread upward.",
+    "symptoms_ur": "نچلے پتے پر گول بھورے دائرے بنتے ہیں اور اوپر کی طرف پھیلتے ہیں۔",
+    "prevention_en": "Prune lower foliage and mulch to reduce soil splash.",
+    "prevention_ur": "نچلے پتے کاٹ دیں اور مٹی کے چھڑکاؤ کو کم کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "مینکوزیب / سکور اسپرے",
+        "instructions_ur": "مینکوزیب یا سکور کا اسپرے مناسب مقدار میں لگائیں۔",
+        "active_ingredient": "Mancozeb / Difenoconazole",
+        "local_brands": "Dithane, Score",
+        "phi": 7,
+        "warning_ur": "پانی کی چڑھاؤ سے بچیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 90.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 18.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "رومیان",
+    "category": "Vegetable",
+    "class_key": "tomato late blight",
+    "disease_name_en": "Tomato Late Blight",
+    "disease_name_ur": "ٹماٹر کا پچھتا جھلساؤ",
+    "disease_name_ps": "د روميان وروستني سوزش",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Irregular dark lesions spread rapidly under cool wet conditions.",
+    "symptoms_ur": "گہرے سیاہ داغ تیزی سے پھیلتے ہیں اور نم موسم میں پودا جلد مر جاتا ہے۔",
+    "prevention_en": "Use field drainage and prevent cool-damp conditions on the canopy.",
+    "prevention_ur": "نمی اور ہلکی ٹھنڈ میں پودوں کو گرم اور خشک رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "ریڈومل گولڈ اسپرے",
+        "instructions_ur": "میٹالکسل + مینکوزیب کا فوری اسپرے استعمال کریں۔",
+        "active_ingredient": "Metalaxyl-M + Mancozeb",
+        "local_brands": "Ridomil Gold",
+        "phi": 7,
+        "warning_ur": "ہر 7 دن بعد دوبارہ لگائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 90.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 18.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "رومیان",
+    "category": "Vegetable",
+    "class_key": "tomato leaf",
+    "disease_name_en": "Healthy Tomato Leaves",
+    "disease_name_ur": "صحت مند ٹماٹر کے پتے",
+    "disease_name_ps": "روغ روميان پاڼې",
+    "pathogen_type": "HEALTHY",
+    "severity_default": "LOW",
+    "symptoms_en": "Leaves are deep green and free from lesions.",
+    "symptoms_ur": "پتے گہرے سبز اور کھیلتے نہیں۔",
+    "prevention_en": "Maintain steady watering and support stems to reduce stress.",
+    "prevention_ur": "پانی کا توازن رکھیں اور پودوں کو سہارا دیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "حفاظتی دیکھ بھال",
+        "instructions_ur": "کوئی زہر نہیں۔",
+        "active_ingredient": null,
+        "local_brands": null,
+        "phi": 0,
+        "warning_ur": null
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "رومیان",
+    "category": "Vegetable",
+    "class_key": "tomato leaf mold",
+    "disease_name_en": "Tomato Leaf Mold",
+    "disease_name_ur": "ٹماٹر کا لیف مولڈ",
+    "disease_name_ps": "د روميان پاڼو مولڈ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Fuzzy gray mold develops on leaf undersides and spreads with humidity.",
+    "symptoms_ur": "پتوں کے نیچے خاکستری پھپھوندی بنتی ہے اور مہینے میں پھیلتی ہے۔",
+    "prevention_en": "Reduce humidity and prune dense foliage.",
+    "prevention_ur": "نمی کم کریں اور پودوں کے اندر ہوا رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "ملٹی فنگسائیڈ اسپرے سے علاج کریں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "سمندریی پانی چھڑکنے سے بچیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "رومیان",
+    "category": "Vegetable",
+    "class_key": "tomato mosaic virus",
+    "disease_name_en": "Tomato Mosaic Virus",
+    "disease_name_ur": "ٹماٹر کا موزیک وائرس",
+    "disease_name_ps": "د روميان موزيك ویروس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "MODERATE",
+    "symptoms_en": "Leaf mottling and plant stunting reduce vigor and fruit set.",
+    "symptoms_ur": "پتوں پر موزیک داغ اور پودا کمزور ہو جاتا ہے۔",
+    "prevention_en": "Use clean seed and avoid mechanical transmission during pruning.",
+    "prevention_ur": "صاف بیج استعمال کریں اور پرننگ کے دوران آلات کو صاف رکھیں۔",
+    "remedies": [
+      {
+        "type": "ORGANIC",
+        "title_ur": "ریگولیشن اور صفائی",
+        "instructions_ur": "بیمار پودے الگ کریں اور آلات کو صاف رکھیں۔",
+        "active_ingredient": "Sanitation / Vector control",
+        "local_brands": "باغبانی صفائی",
+        "phi": 0,
+        "warning_ur": "کوئی خاص کیمیائی علاج ٹھیک نہیں کرتا۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 0.0,
+      "water_per_acre_liters": 0.0,
+      "knapsack_tank_ratio": 0.0,
+      "application_method": "None"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "رومیان",
+    "category": "Vegetable",
+    "class_key": "tomato septoria leaf spot",
+    "disease_name_en": "Tomato Septoria Leaf Spot",
+    "disease_name_ur": "ٹماٹر کا سیپٹوریہ لیف اسپاٹ",
+    "disease_name_ps": "د روميان سبتوريا داغ",
+    "pathogen_type": "FUNGAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Small tan spots with dark borders form and merge on lower leaves.",
+    "symptoms_ur": "چھوٹے ہلکے بھورے داغ سیاہ کناروں کے ساتھ بنتے ہیں اور مل جاتے ہیں۔",
+    "prevention_en": "Prune lower foliage and keep the canopy dry.",
+    "prevention_ur": "نچلے پتے کاٹ دیں اور پودوں کو خشک رکھیں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "فنگسائیڈ اسپرے",
+        "instructions_ur": "نچلے پتے کو ہٹاتے ہوئے فنگسائیڈ لگائیں۔",
+        "active_ingredient": "Mancozeb / Copper",
+        "local_brands": "Dithane, Copper Spray",
+        "phi": 7,
+        "warning_ur": "پانی کے بعد دوبارہ نہ لگائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 80.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 16.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "tomato",
+    "crop_name_en": "Tomato",
+    "crop_name_ur": "ٹماٹر",
+    "crop_name_ps": "رومیان",
+    "category": "Vegetable",
+    "class_key": "tomato yellow leaf curl virus",
+    "disease_name_en": "Tomato Yellow Leaf Curl Virus",
+    "disease_name_ur": "ٹماٹر کا پیلا پتا مڑاؤ وائرس",
+    "disease_name_ps": "د روميان ژيړ پاڼو كرل ویروس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "CRITICAL",
+    "symptoms_en": "Leaves curl upward, turn yellow, and plants become stunted and unproductive.",
+    "symptoms_ur": "پتے اوپر مڑ جاتے ہیں، پیلے ہو جاتے ہیں اور پودا کمزور ہو جاتا ہے۔",
+    "prevention_en": "Control whitefly vectors and use resistant varieties.",
+    "prevention_ur": "سفید مکھی کو کنٹرول کریں اور مزاحم اقسام استعمال کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "انسیٹ کنٹرول اسپرے",
+        "instructions_ur": "سفید مکھی کو انسیٹ کنٹرول سے روکیں۔",
+        "active_ingredient": "Imidacloprid / Acetamiprid",
+        "local_brands": "Confidor, Mospilan",
+        "phi": 7,
+        "warning_ur": "بے ترتیب پودے ہٹائیں۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 70.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 15.0,
+      "application_method": "Foliar Spray"
+    }
+  },
+  {
+    "crop_slug": "zucchini",
+    "crop_name_en": "Zucchini",
+    "crop_name_ur": "زکینی",
+    "crop_name_ps": "زکینی",
+    "category": "Vegetable",
+    "class_key": "zucchini yellow mosaic virus",
+    "disease_name_en": "Zucchini Yellow Mosaic Virus",
+    "disease_name_ur": "زکینی کا پیلا موزیک وائرس",
+    "disease_name_ps": "د زكيني ژيړ موزيك ویروس",
+    "pathogen_type": "VIRAL",
+    "severity_default": "HIGH",
+    "symptoms_en": "Yellow-green mosaic patterns cover leaves and reduce fruit quality.",
+    "symptoms_ur": "پتوں پر پیلے سبز موزیک داغ اور کمزور پیداوار دیکھائی دیتی ہے۔",
+    "prevention_en": "Remove infected vines and control aphids that spread the virus.",
+    "prevention_ur": "متاثرہ پودے ہٹائیں اور افیڈز کو کنٹرول کریں۔",
+    "remedies": [
+      {
+        "type": "CHEMICAL",
+        "title_ur": "انسیٹ کنٹرول",
+        "instructions_ur": "افیڈز کے کنٹرول کے لیے مناسب انسیٹ کنٹرول اسپرے لگائیں۔",
+        "active_ingredient": "Imidacloprid / Acephate",
+        "local_brands": "Confidor, Acephate",
+        "phi": 7,
+        "warning_ur": "کوئی علاج وائرل سے مکمل نجات نہیں دیتا۔"
+      }
+    ],
+    "dosage": {
+      "chemical_per_acre_grams": 60.0,
+      "water_per_acre_liters": 100.0,
+      "knapsack_tank_ratio": 12.0,
+      "application_method": "Foliar Spray"
     }
   }
 ]

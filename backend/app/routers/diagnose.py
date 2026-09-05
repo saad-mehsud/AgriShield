@@ -3,7 +3,6 @@ from sqlalchemy.orm import Session
 from app.database import get_db
 from app.schemas.schemas import DiagnosisResponse, RemedySchema, DosageSchema, TopPredictionItem
 from app.models.models import DiagnosticScan, Disease, Crop
-from app.services.colab_client import predict_with_colab
 from app.services.ml_service import predict_crop_disease_local
 from app.services.gradcam_service import generate_gradcam_heatmap_overlay
 from app.services.storage_service import save_leaf_and_heatmap
@@ -38,28 +37,16 @@ async def diagnose_crop_leaf(
             }
         )
 
-    # 2. Try Google Colab GPU Server first
-    colab_res = await predict_with_colab(image_bytes)
+    # 2. Run local model inference directly from the saved checkpoint.
+    local_res = predict_crop_disease_local(image_bytes, crop_hint)
+    class_key = local_res["class_key"]
+    confidence = local_res["confidence"]
+    latency_ms = local_res["inference_latency_ms"]
+    top3_raw = local_res["top3"]
 
-    if colab_res and "class_key" in colab_res:
-        class_key = colab_res["class_key"]
-        confidence = colab_res.get("confidence", 0.95)
-        latency_ms = colab_res.get("inference_latency_ms", 18.0)
-        heatmap_base64 = colab_res.get("heatmap_base64")
-        top3_raw = colab_res.get("top3", [])
-        # Save image & Colab heatmap
-        image_url, heatmap_url, thumb_url = save_leaf_and_heatmap(image_bytes, heatmap_base64)
-    else:
-        # 3. Local ML Engine & Grad-CAM Fallback
-        local_res = predict_crop_disease_local(image_bytes, crop_hint)
-        class_key = local_res["class_key"]
-        confidence = local_res["confidence"]
-        latency_ms = local_res["inference_latency_ms"]
-        top3_raw = local_res["top3"]
-
-        # Generate Grad-CAM Heatmap overlay
-        heatmap_bytes = generate_gradcam_heatmap_overlay(image_bytes, class_key)
-        image_url, heatmap_url, thumb_url = save_leaf_and_heatmap(image_bytes, heatmap_bytes)
+    # Generate Grad-CAM Heatmap overlay
+    heatmap_bytes = generate_gradcam_heatmap_overlay(image_bytes, class_key)
+    image_url, heatmap_url, thumb_url = save_leaf_and_heatmap(image_bytes, heatmap_bytes)
 
     # 4. Query Database for Disease & Pakistani Agrochemical Cures
     disease = db.query(Disease).filter(Disease.class_key == class_key).first()

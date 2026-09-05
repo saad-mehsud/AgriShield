@@ -7,7 +7,7 @@ from app.main import app
 from app.database import Base, engine, SessionLocal
 from app.seeds.seed_data import seed_database
 from app.services.gradcam_service import generate_gradcam_heatmap_overlay
-from app.services.ml_service import predict_crop_disease_local
+from app.services.ml_service import predict_crop_disease_local, get_local_model_path, CLASSES_LIST
 from app.services.guardrail_service import validate_leaf_image
 
 @pytest.fixture(scope="session", autouse=True)
@@ -73,6 +73,17 @@ def test_guardrail_service_direct():
     assert is_valid is False
     assert code == "NON_PLANT_IMAGE"
     assert "ur" in msg
+
+def test_local_model_path_is_resolved():
+    model_path = get_local_model_path()
+    assert model_path is not None
+    assert os.path.exists(model_path)
+    assert model_path.lower().endswith((".pt", ".pth"))
+
+    res = predict_crop_disease_local(create_sample_leaf_image())
+    assert res["class_key"] in CLASSES_LIST
+    assert len(res["top3"]) == 3
+    assert 0.0 < res["confidence"] <= 1.0
 
 def test_diagnose_endpoint_with_valid_leaf():
     img_bytes = create_sample_leaf_image()

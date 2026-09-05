@@ -14,6 +14,7 @@ class Settings(BaseModel):
     THUMBNAILS_DIR: str = os.path.join(UPLOADS_DIR, "thumbnails")
 
 settings = Settings()
+UPLOAD_DIR = settings.UPLOADS_DIR
 
 # Ensure directories exist
 os.makedirs(settings.SCANS_DIR, exist_ok=True)
